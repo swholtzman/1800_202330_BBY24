@@ -5,8 +5,7 @@ Create a software with the goal of making a more efficient and equitable power s
 
 ## 2. Names of Contributors
 
-I am Sam Holtzman. I am the team's lead designer. I bring a unique blend of creativity and technical understanding that will help give the project personality.
-* ...
+* I am Sam Holtzman. I am the team's designer. I bring a unique blend of creativity and technical understanding that will help give the project personality.
 * Hi, I'm Tyson and I look forward to working with everyone
 * Hi, my name is Beck. I don't really know what im doing but I'm ready to learn.
 	
