@@ -1,12 +1,11 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Create a software with the goal of making a more efficient and equitable power sharing service for Public EV Charging Stations.
 
 ## 2. Names of Contributors
-List team members and/or short bio's here... 
-* ...
+
+I am Sam Holtzman. I am the team's lead designer. I bring a unique blend of creativity and technical understanding that will help give the project personality.
 * ...
 * ...
 	
@@ -15,7 +14,7 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* Adobe AfterEffects
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
