@@ -6,7 +6,7 @@ Enabling electric vehicle charging stations to distribute power more efficiently
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * ...
-* Rodrigo Rocha - Coder
+* Hey, I'm Rodrigo and I like coding.
 * Hi, I'm Tyson and I look forward to working with everyone
 * Hi, my name is Beck. I don't really know what im doing but I'm ready to learn.
 	
