@@ -35,7 +35,7 @@
 }
 
 body {
-    display: flex;
+    display: flex-block;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -267,25 +267,10 @@ body {
 
 nav {
     position: absolute;
-    width: 100vw;
-}
-
-footer {
-    color: var(--clr-fnt);
-    width: 100vw;
-    background-color: #2C41C9;
-    position: fixed;
-    z-index: 9999;
-}
-
-
-.material-symbols-outlined {
-    padding-left: 1rem;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
 }
 
 .navbar-toggler {
