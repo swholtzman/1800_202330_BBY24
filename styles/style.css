@@ -43,7 +43,47 @@ body {
     color: var(--clr-fnt);
 }
 
+.bg-info {
+    background-color: #090c9b !important; /* Medium shade for navbar */
+}
 
+.navbar-light .navbar-brand, .navbar-light .navbar-nav .nav-link {
+    color: #F5DFBB; /* Light shade for brand name & nav links for contrast */
+}
+
+.btn-info {
+    color: #F5DFBB; /* Light shade for text on info button */
+    background-color: #6567f6; /* Accent color for button background */
+    border-color: fbfff1; /* Dark shade for button border */
+}
+
+.btn-primary {
+    color: #F5DFBB; /* Light shade for text */
+    font-size: 150%;
+    background-color: #6567f6; /* Dark shade for primary button background */
+    border-color: #fbfff1; /* Darkest shade for border */
+    border-width: 1px;
+}
+
+.btn-outline-success:hover {
+    color: white;
+}
+
+.card-body {
+    align-items: center;
+    align-content: center;
+    display: flex-block;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+/* Glass Cards */
 .glass-container {
     display: flex;
     justify-content: center;
@@ -100,12 +140,12 @@ body {
 
 .glass-container .glass-box:nth-child(1)::before,
 .glass-container .glass-box:nth-child(1)::after {
-    background: linear-gradient(315deg, var(--clr-prime), var(--clr-acnt));
+    background: linear-gradient(315deg, var(--clr-prime), var(--clr-persian));
 }
 
 .glass-container .glass-box:nth-child(2)::before,
 .glass-container .glass-box:nth-child(2)::after {
-    background: linear-gradient(315deg, var(--clr-acnt), var(--clr-neonblu));
+    background: linear-gradient(315deg, var(--clr-violet), var(--clr-neonblu));
 }
 
 .glass-container .glass-box:nth-child(3)::before,
@@ -223,4 +263,31 @@ body {
     text-decoration: none;
     font-weight: 700;
     margin-top: 5px;
+}
+
+nav {
+    position: absolute;
+    width: 100vw;
+}
+
+footer {
+    color: var(--clr-fnt);
+    width: 100vw;
+    background-color: #2C41C9;
+    position: fixed;
+    z-index: 9999;
+}
+
+
+.material-symbols-outlined {
+    padding-left: 1rem;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.navbar-toggler {
+    background-color: hsla(0, 0%, 100%, 0.1);
 }
