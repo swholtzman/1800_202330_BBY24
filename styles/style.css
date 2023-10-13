@@ -1,1 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300&family=Share+Tech+Mono&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --clr-bg: hsl(240 5% 1%);
+    --clr-fnt: hsl(335 25% 90%);
+    --clr-white: hsl(0, 100%, 100%);
+    --clr-dark: hsl(0, 0%, 7.8%);
+
+
+    --clr-prime: hsl(240 80% 20%);
+    --clr-scnd: #6c66c6;
+    --clr-acnt: hsl(320 100% 50%);
+
+    
+    --clr-vbrntlav: hsl(260 70% 60%);
+    --clr-rylprp: hsl(270 50% 30%);
+
+    --clr-neonblu: hsl(190 100% 50%);
+    --clr-neonpeach: hsl(40 100% 50%);
+
+    --clr-glass: hsla(0, 0%, 100%, 0.1);
+    --clr-brtglass: hsla(0, 0%, 5%, 0.05);
+    --clr-drkglass: hsla(0, 0%, 5%, 0.01);
+
+    --clr-persian: hsl(235, 100%, 55%);    ;
+    --clr-drkblu: #090c9b;
+    --clr-violet: hsl(240, 100%, 65%);    ;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--clr-bg);
+    color: var(--clr-fnt);
+}
+
+
+.glass-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.glass-container .glass-box {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 30px;
+    transition: 0.5s;
+}
+
+.glass-container .glass-box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: var(--clr-fnt);
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+} 
+
+.glass-container .glass-box::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: var(--clr-fnt);
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+    filter: blur(30px);
+    transition: 0.5s;
+} 
+
+.glass-container .glass-box:hover::before,
+.glass-container .glass-box:hover::after {
+    transform: skewX(0deg);
+    left: 20px;
+    width: calc(100% - 90px);
+}
+
+.glass-container .glass-box:nth-child(1)::before,
+.glass-container .glass-box:nth-child(1)::after {
+    background: linear-gradient(315deg, var(--clr-prime), var(--clr-acnt));
+}
+
+.glass-container .glass-box:nth-child(2)::before,
+.glass-container .glass-box:nth-child(2)::after {
+    background: linear-gradient(315deg, var(--clr-acnt), var(--clr-neonblu));
+}
+
+.glass-container .glass-box:nth-child(3)::before,
+.glass-container .glass-box:nth-child(3)::after {
+    background: linear-gradient(315deg, var(--clr-neonblu), var(--clr-prime));
+}
+
+.glass-container .glass-box span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+
+/* Top and Bottom Animated Hover Boxes */
+.glass-container .glass-box span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: var(--clr-glass);
+    backdrop-filter: blur(10px);
+    opacity: 0; 
+    transition: 0.6s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px hsla(0, 0%, 5%, 0.05);
+    animation-delay: -1s;
+}
+
+.glass-container .glass-box:hover span::before {
+    top: -50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+
+.glass-container .glass-box span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: var(--clr-glass);
+    backdrop-filter: blur(10px);
+    opacity: 0; 
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px var(--clr-brtglass);
+}
+
+.glass-container .glass-box:hover span::after {
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.glass-container .glass-box .content {
+    position: relative;
+    left: 0;
+    padding: 20px 40px;
+    background: var(--clr-glass); 
+    box-shadow: 0 5px 15px var(--clr-drkglass);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    transition: 0.5s;
+    color: var(--clr-fnt);
+}
+
+.glass-container .glass-box:hover .content {
+    left: -25px;
+    padding: 60px 40px;
+}
+
+.glass-container .glass-box .content h2{
+    font-size: 2em;
+    color: var(--clr-fnt);
+    margin-bottom: 10px;
+}
+
+.glass-container .glass-box .content p{
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.glass-container .glass-box .content a{
+    display: inline-block;
+    font-size: 1.1em;
+    color: var(--clr-dark);
+    background: var(--clr-white);
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 5px;
+}
