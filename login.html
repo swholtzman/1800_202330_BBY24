@@ -46,46 +46,57 @@
   <!-- Your HTML Layout go here -->
   <!------------------------------>
   <!-- Stuff for body goes here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="color: white;">FLOW</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./main.html" style="color: white;">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="color: white;">Get the app</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="color: white;">What is FLOW?</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html" style="color: white;">Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
   <div class="container">
     <h1>Let's Login!</h1>
   </div>
   <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
 
+  <div class="background">
+    <div style="text-align:center">
+        
+        <!-- TOP Left Neon Ball (Blue)-->
+        <span id="top-dot"></span>
+        <!-- BOTTOM Left Neon Ball (Blue)-->
+        <span id="middle-dot"></span>
+        <!-- MIDDLE Right Neon Ball (Purple)-->
+        <span id="bottom-dot"></span>
 
-
-
-  <footer class="navbar bg-info fixed-bottom">
-    <div class="container py-2 justify-content-evenly">
-      <i class="material-symbols-outlined">home</i>
-      <i class="material-symbols-outlined">settings</i>
     </div>
-  </footer>
+
+    
+    
+</div>
+
+
+
+
+<div class="bottom-nav">
+
+    <div class="center-button"><i></i></div>
+    <div class="menu">
+        <ul>
+            <li><a href="#"><ion-icon name="home-outline"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-electron"></ion-icon></a></li>
+            <li></li>
+            <li></li>
+            <li><a href="#"><ion-icon name="map-outline"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Icon Imports from @ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+
+
+  
 
 
   <!---------------------------------------------->
@@ -96,7 +107,6 @@
   <script src="./scripts/script.js"></script>
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_TEAM99.js"></script> 
-  <script src="./scripts/skeleton.js"></script> 
   <script src="./scripts/authentication.js"></script>
 
 </body>
