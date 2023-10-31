@@ -46,12 +46,19 @@
 }
 
 body {
-    display: flex-block;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: var(--clr-bg);
-    color: var(--clr-fnt);
+    background-color: var(--clr-bg);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    background-image: url("ImageSources/MobileGradient.png");
+    background-size: 110vw 110vh;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .bg-info {
@@ -78,28 +85,6 @@ body {
 
 .btn-outline-success:hover {
     color: white;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    align-items: center;
-    background-color: var(--clr-bg);
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    background-image: url("ImageSources/MobileGradient.png");
-    background-size: 110vw 110vh;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
 }
 
 #top-dot {
