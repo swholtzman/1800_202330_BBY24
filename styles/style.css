@@ -205,7 +205,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     background: linear-gradient(to top, var(--clr-bg-transparent), var(--clr-clear));
     display: flex;
     justify-content: center;
