@@ -8,30 +8,41 @@
 }
 
 :root {
-    --clr-bg: hsl(240 5% 1%);
-    --clr-fnt: hsl(335 25% 90%);
-    --clr-white: hsl(0, 100%, 100%);
-    --clr-dark: hsl(0, 0%, 7.8%);
-
+    --clr-bg: hsla(0, 0%, 7%);
+    --clr-bg-transparent: hsla(0, 0%, 7%, 0.4);
+    --clr-white: hsl(0, 0%, 95%);
+    --clr-borders:hsl(0, 0%, 24%);
+    --clr-opache-bg: hsla(0, 0%, 100%, 0.10);
+    --clr-clear: hsla(0, 0%, 0%, 0);
 
     --clr-prime: hsl(240 80% 20%);
-    --clr-scnd: #6c66c6;
-    --clr-acnt: hsl(320 100% 50%);
+    --clr-secondary: #6c66c6;
+    --clr-accent: hsl(320 100% 50%);
 
     
-    --clr-vbrntlav: hsl(260 70% 60%);
-    --clr-rylprp: hsl(270 50% 30%);
+    --clr-vibrantlav: hsl(260 70% 60%);
+    --clr-vibrantpurp: hsl(260, 66%, 52%);
+    --clr-royalpurp: hsl(270 50% 30%);
 
     --clr-neonblu: hsl(190 100% 50%);
     --clr-neonpeach: hsl(40 100% 50%);
 
     --clr-glass: hsla(0, 0%, 100%, 0.1);
-    --clr-brtglass: hsla(0, 0%, 5%, 0.05);
-    --clr-drkglass: hsla(0, 0%, 5%, 0.01);
+    --clr-brightglass: hsla(0, 0%, 5%, 0.05);
+    --clr-darkglass: hsla(0, 0%, 5%, 0.01);
 
-    --clr-persian: hsl(235, 100%, 55%);    ;
-    --clr-drkblu: #090c9b;
-    --clr-violet: hsl(240, 100%, 65%);    ;
+    --clr-persianblu: hsl(235, 100%, 55%);    
+    --clr-darkblu: #090c9b;
+    --clr-violet: hsl(240, 100%, 65%); 
+
+    /* For background mist orbs */
+    --clr-neon-blue: hsl(200, 100%, 50%);
+    --clr-neon-pink: hsl(280, 100%, 50%);
+
+
+    /* Card Colours*/
+    --clr-cards: hsla(0, 0%, 90%, 0.2);
+    --clr-card-content:hsl(0, 0%, 11%);
 }
 
 body {
@@ -69,200 +80,226 @@ body {
     color: white;
 }
 
-.card-body {
-    align-items: center;
-    align-content: center;
-    display: flex-block;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-  }
-
-/* Glass Cards */
-.glass-container {
+body {
+    align-items: center;
+    background-color: var(--clr-bg);
     display: flex;
+    height: 100vh;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 40px 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    background-image: url("ImageSources/MobileGradient.png");
+    background-size: 110vw 110vh;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-.glass-container .glass-box {
-    position: relative;
-    width: 320px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 30px;
-    transition: 0.5s;
-}
-
-.glass-container .glass-box::before{
-    content: '';
+#top-dot {
     position: absolute;
-    top: 0;
-    left: 50px;
-    width: 50%;
-    height: 100%;
-    background: var(--clr-fnt);
-    border-radius: 8px;
-    transform: skewX(15deg);
-    transition: 0.5s;
-} 
-
-.glass-container .glass-box::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50px;
-    width: 50%;
-    height: 100%;
-    background: var(--clr-fnt);
-    border-radius: 8px;
-    transform: skewX(15deg);
-    transition: 0.5s;
-    filter: blur(30px);
-    transition: 0.5s;
-} 
-
-.glass-container .glass-box:hover::before,
-.glass-container .glass-box:hover::after {
-    transform: skewX(0deg);
-    left: 20px;
-    width: calc(100% - 90px);
-}
-
-.glass-container .glass-box:nth-child(1)::before,
-.glass-container .glass-box:nth-child(1)::after {
-    background: linear-gradient(315deg, var(--clr-prime), var(--clr-persian));
-}
-
-.glass-container .glass-box:nth-child(2)::before,
-.glass-container .glass-box:nth-child(2)::after {
-    background: linear-gradient(315deg, var(--clr-violet), var(--clr-neonblu));
-}
-
-.glass-container .glass-box:nth-child(3)::before,
-.glass-container .glass-box:nth-child(3)::after {
-    background: linear-gradient(315deg, var(--clr-neonblu), var(--clr-prime));
-}
-
-.glass-container .glass-box span {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 50;
-    pointer-events: none;
-}
-
-/* Top and Bottom Animated Hover Boxes */
-.glass-container .glass-box span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background: var(--clr-glass);
-    backdrop-filter: blur(10px);
-    opacity: 0; 
-    transition: 0.6s;
-    animation: animate 2s ease-in-out infinite;
-    box-shadow: 0 5px 15px hsla(0, 0%, 5%, 0.05);
-    animation-delay: -1s;
-}
-
-.glass-container .glass-box:hover span::before {
-    top: -50px;
-    left: 50px;
-    width: 100px;
-    height: 100px;
-    opacity: 1;
-}
-
-.glass-container .glass-box span::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background: var(--clr-glass);
-    backdrop-filter: blur(10px);
-    opacity: 0; 
-    transition: 0.5s;
-    animation: animate 2s ease-in-out infinite;
-    box-shadow: 0 5px 15px var(--clr-brtglass);
-}
-
-.glass-container .glass-box:hover span::after {
-    bottom: -50px;
-    right: 50px;
-    width: 100px;
-    height: 100px;
-    opacity: 1;
-}
-
-@keyframes animate {
-    0%, 100% {
-        transform: translateY(5px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-.glass-container .glass-box .content {
-    position: relative;
-    left: 0;
-    padding: 20px 40px;
-    background: var(--clr-glass); 
-    box-shadow: 0 5px 15px var(--clr-drkglass);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
     z-index: 1;
-    transition: 0.5s;
-    color: var(--clr-fnt);
+    top: -10%;
+    left: -7.5vw;
+    width: 209px;
+    height: 199px;
+    background-color: rgba(0, 6, 61, 0.40);
+    filter: blur(100px);
 }
 
-.glass-container .glass-box:hover .content {
-    left: -25px;
-    padding: 60px 40px;
+#middle-dot {
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    right: -10vw;
+    width: 209px;
+    height: 199px;
+    background-color: rgba(80, 0, 82, 0.40);
+    filter: blur(100px);
+    border-radius: 50%;
 }
 
-.glass-container .glass-box .content h2{
-    font-size: 2em;
-    color: var(--clr-fnt);
-    margin-bottom: 10px;
+#bottom-dot {
+    position: absolute;
+    z-index: 1;
+    bottom: -15%;
+    left: 5%;
+    width: 209px;
+    height: 199px;
+    background-color: rgba(0, 12, 119, 0.5);
+    filter: blur(100px);
 }
 
-.glass-container .glass-box .content p{
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    line-height: 1.4em;
+#cards {
+    display: flex;
+    flex-direction: column; /* Set the flex direction to column */
+    align-items: center; /* Center horizontally within the container */
+    gap: 29px; /* Adjust the gap as needed */
+    margin-top: -5rem;
 }
 
-.glass-container .glass-box .content a{
-    display: inline-block;
-    font-size: 1.1em;
-    color: var(--clr-dark);
-    background: var(--clr-white);
-    padding: 10px;
-    border-radius: 4px;
+#cards:hover > .card >  .card-border {
+    opacity: 1;
+}
+
+.card {
+    background-color: var(--clr-cards);
+    border-radius: 2rem;
+    cursor: pointer;
+    height: 35vh;
+    position: relative;
+    width: 60vw;
+    
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card.active::before {
+    opacity: 1;
+}
+
+.card::before,
+.card > .card-border {
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 0) var(--mouse-y, 0), /* provide fallback values */
+        rgba(255, 255, 255, 0.4),
+        transparent 40%
+    );
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+    z-index: 2;
+}
+
+.card::before {
+    background: radial-gradient(
+        700px circle at var(--mouse-x) var(--mouse-y), /* provide fallback values */
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    );
+    z-index: 3;
+}
+
+
+.card > .card-border {
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y), /* provide fallback values */
+        rgba(255, 255, 255, 0.03),
+        transparent 40%
+    );
+    z-index: 1;
+}
+
+.card > .card-content {
+    background-color: var(--clr-card-content);
+    border-radius: inherit;
+    height: calc(100% - 2px);
+    margin: 1px;
+    position: relative;
+    width: calc(100% - 2px);
+    z-index: 2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, var(--clr-bg-transparent), var(--clr-clear));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem; /* Adjust the height as needed */
+    z-index: 100; /* Make sure it's above other content */
+}
+
+/* Add styling for your navigation links within .bottom-nav if needed */
+.bottom-nav a {
+    color: var(--clr-white);
     text-decoration: none;
-    font-weight: 700;
-    margin-top: 5px;
+}
+
+.center-button {
+    position: relative;
+    width: 7.5rem;
+    height: 7.5rem;
+    background: linear-gradient(to top right, var(--clr-persianblu), var(--clr-neonblu), var(--clr-accent));
+    border: 6px solid var(--clr-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transform: translateY(-2rem)
+}
+
+.center-button::before {
+    content: url("icons/PowerButton-01.png");
+    position: absolute;
+    transform: translate(-50%, -50%);  /* Center the image precisely */
+    transform: scale(20%);
+    transition: 500ms;
+}
+
+
+.center-button:hover:before {
+    transform: scale(22%);
+    transition: 500ms;
+}
+
+.menu {
+    position: absolute;
+    width: 100vw;
+    height: 7.75rem;
+    background: var(--clr-glass);
+    border: 2px solid var(--clr-borders);
+}
+
+.menu ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+    line-height: 8rem;
+}
+
+.menu ul li {
+    list-style: none;
+    cursor: pointer;
+
+}
+
+.menu ul li a {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--clr-white);
+    text-decoration: none;
+    transition: 500ms;
+}
+
+.menu ul li a:hover {
+    transform: scale(1.25);
+    color: var(--clr-neonblu);
+    transition: 500ms;
 }
 
 nav {
