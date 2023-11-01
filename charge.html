@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="./styles/style_charge.css">
+
+</head>
+
+<body>
+
+    
+    <div class="background">
+        <div style="text-align:center">
+            
+            <!-- TOP Left Neon Ball (Blue)-->
+            <span id="top-dot"></span>
+            <!-- BOTTOM Left Neon Ball (Blue)-->
+            <span id="middle-dot"></span>
+            <!-- MIDDLE Right Neon Ball (Purple)-->
+            <span id="bottom-dot"></span>
+
+        </div>
+
+        
+        
+    </div>
+
+    <div id="cards">
+
+        <div class="card" id ="map">
+            <div class="card-border"></div>
+            <div id="map-holder"></div>
+            <div class="card-content"></div>
+        </div>
+            
+        <div class="card" id ="charge">
+            <div class="card-border"></div>
+            <div id="charge-holder"></div>
+            <div class="card-content"></div>
+        </div>
+            
+    </div>
+    
+    
+
+    <div class="bottom-nav">
+
+        <div class="center-button"><i></i></div>
+        <div class="menu">
+            <ul>
+                <li><a href="main.html"><ion-icon name="home-outline"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-electron"></ion-icon></a></li>
+                <li></li>
+                <li></li>
+                <li><a href="#"><ion-icon name="map-outline"></ion-icon></a></li>
+                <li><a href="#" onclick="leave()"><ion-icon name="person-outline"></ion-icon></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Icon Imports from @ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+
+    <script src="./scripts/charge.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+@import "style.css";
+
+
+
+#map{
+    animation-name: disappear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#charge{
+    animation-name: stretch;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#map.leave{
+    animation-name: disappear_leave;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#charge.leave{
+    animation-name: stretch_leave;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+@keyframes stretch {
+    from {height: 35vh;}
+    to {height: 70vh; }
+  }
+
+@keyframes disappear {
+    from {height: 35vh;}
+    to {height: 0vh; visibility: hidden;}
+  }
+
+  @keyframes stretch_leave {
+    from {height: 70vh;}
+    to {height: 35vh; }
+  }
+
+@keyframes disappear_leave {
+    from {height: 0vh;}
+    to {height: 35vh; visibility: visible;}
+  }
