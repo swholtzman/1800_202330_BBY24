@@ -24,10 +24,6 @@
     animation-fill-mode: forwards;
 }
 
-
-
-
-
 @keyframes stretch {
     from {height: 35vh;}
     to {height: 70vh; }
@@ -47,3 +43,55 @@
     from {height: 0vh;}
     to {height: 35vh; visibility: visible;}
   }
+
+  .card-content p{
+    color:white;
+    text-align: center;
+}
+  
+  #bat_container{
+    position:relative;
+    bottom: 0;
+    height:300px;
+    width:60vw;
+    display:flex;
+}
+#battery{
+  width:100%;
+  height:30%;
+  align-self: start;
+  margin: 5vh;
+}
+#bat_icon{
+    left: 20vw;
+    width: 20vw;
+    height: 10vh;
+    background-color: white;
+    position: absolute;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+#bat_icon:after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 3.75vh;
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: white;
+    border-radius:0px 5px 5px 0px
+}
+#bat_icon:before{
+    content:"XX%";
+    position: absolute;
+    text-align: center;
+    margin-left:2vw;
+    margin-top:1vh;
+    width: 6vw;
+    height: 3vh;
+    padding: 2.5vh 5vw 2.5vh 5vw;
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+}
