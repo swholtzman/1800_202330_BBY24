@@ -14,6 +14,6 @@ document.getElementById("cards").onmousemove = e => {
     }
 }
 
-function myFunction() {
-    location.href = "charge.html";
-  }
+// function toChargePage() {
+//     location.href = "charge.html";
+//   }
