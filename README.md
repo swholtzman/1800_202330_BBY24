@@ -1,12 +1,12 @@
 # Project Title
 
 ## 1. Project Description
-Create a software with the goal of making a more efficient and equitable power sharing service for Public EV Charging Stations.
+1. Enabling electric vehicle charging stations to distribute power more efficiently and empowering users to receive faster and fairer charging for their cars.
+2. Create a software with the goal of making a more efficient and equitable power sharing service for Public EV Charging Stations.
 
 ## 2. Names of Contributors
-
-I am Sam Holtzman. I am the team's lead designer. I bring a unique blend of creativity and technical understanding that will help give the project personality.
-* ...
+* Hey, I'm Rodrigo and I like coding.
+* I am Sam Holtzman. I am the team's designer. I bring a unique blend of creativity and technical understanding that will help give the project personality.
 * Hi, I'm Tyson and I look forward to working with everyone
 * Hi, my name is Beck. I don't really know what im doing but I'm ready to learn.
 	
