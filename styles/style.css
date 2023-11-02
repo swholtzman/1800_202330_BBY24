@@ -54,7 +54,7 @@ body {
     margin: 0;
     overflow: hidden;
     padding: 0;
-    background-image: url("../images/MobileGradient.png");
+    background-image: url("../images/BG Group.png");
     background-size: 110vw 110vh;
     background-position: center;
     background-attachment: fixed;
@@ -210,8 +210,8 @@ body {
 
 .center-button {
     position: relative;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 7rem;
+    height: 7rem;
     background: linear-gradient(to top right, var(--clr-persianblu), var(--clr-neonblu), var(--clr-accent));
     border: 6px solid var(--clr-bg);
     border-radius: 50%;
@@ -227,8 +227,8 @@ body {
 .center-button::before {
     content: url("../images/PowerButton-01.png");
     position: absolute;
-    transform: translate(-50%, -50%);  /* Center the image precisely */
-    transform: scale(20%);
+    transform: translate(-60%, -50%);  /* Center the image precisely */
+    transform: scale(19%);
     transition: 500ms;
 }
 
@@ -241,7 +241,7 @@ body {
 .menu {
     position: absolute;
     width: 100vw;
-    height: 7.75rem;
+    height: 7.5rem;
     background: var(--clr-glass);
     border: 2px solid var(--clr-borders);
 }
