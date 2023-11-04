@@ -30,10 +30,18 @@
     --clr-neon-blue: hsl(200, 100%, 50%);
     --clr-neon-pink: hsl(280, 100%, 50%);
 
+    /* Glow Colours */
+    --clr-blue-glow: hsl(180, 100%, 50%);
+    --clr-pink-glow: hsl(317, 100%, 50%);
 
     /* Card Colours*/
     --clr-cards: hsla(0, 0%, 90%, 0.2);
-    --clr-card-content:hsl(0, 0%, 11%);
+    --clr-card-content: hsla(0, 0%, 2% / 0.1);
+
+    /* Nav Colours */
+    --clr-black-transparent: hsla(0, 0%, 0%, 0.7);
+    --clr-off-white: hsla(0, 10%, 90%, 0.90);
+    --clr-nav-bg: #000211;
 }
 
 
@@ -210,40 +218,43 @@ body {
 
 .center-button {
     position: relative;
-    width: 7rem;
-    height: 7rem;
-    background: linear-gradient(to top right, var(--clr-persianblu), var(--clr-neonblu), var(--clr-accent));
-    border: 6px solid var(--clr-bg);
-    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 30%;
     cursor: pointer;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    transform: translateY(-2rem)
+    transform: translateY(-1.75rem);
+    box-shadow: inset 0 0 0 5rem var(--clr-black-transparent), 0 0 50px var(--clr-pink-glow), 0 0 35px var(--clr-blue-glow);
 }
 
 .center-button::before {
-    content: url("../images/PowerButton-01.png");
+    content: "+";
+    font-family: "condor", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--clr-off-white);
+    font-size: 8em;
     position: absolute;
-    transform: translate(-60%, -50%);  /* Center the image precisely */
-    transform: scale(19%);
+    transform: translate(-1%, 4.5%);  /* Center the image precisely */
     transition: 500ms;
 }
 
 
 .center-button:hover:before {
-    transform: scale(22%);
     transition: 500ms;
 }
 
 .menu {
     position: absolute;
-    width: 100vw;
-    height: 7.5rem;
+    width: 5rem;
+    height: 5rem;
     background: var(--clr-glass);
     border: 2px solid var(--clr-borders);
+    border-radius: 50%;
 }
 
 .menu ul {
