@@ -4,10 +4,61 @@
   <head>
     <meta charset="utf-8"/>
     <title>Flow | Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="./styles/style_settings.css"/>
   </head>
 
-  <body>
+  <body id="settings-body">
+    <header class="simple-header section">
+      <p><span>&#10094; &nbsp;</span id="headerTitle">Settings</p>
+    </header>
+
+    <div class="settings-group section">
+      <p>Notifications</p>
+      <p><span>Enable Notifications</span>
+        <button class="toggle-btn-container">
+          <div class="toggle-btn-rectangle" onClick="toggle(this)">
+            <div class="toggle-btn-circle"></div>
+          </div>
+        </button>
+      </p>
+      <p>Configure Notifications</p>
+    </div>
+
+    <div class="settings-group section">
+      <p>General</p>
+      <p>Account</p>
+      <p>Language</p>
+    </div>
+
+    <div class="settings-group section">
+      <p>Customization</p>
+      <p>Default Charging Settings</p>
+      <p>Theme</p>
+    </div>
+
+    <div class="settings-group section">
+      <p>More options</p>
+      <p>Give Feedback</p>
+      <p>Sign Out</p>
+    </div>
+
+    <footer class="bottom-nav">
+      <div class="center-button"><i></i></div>
+      
+      <div class="menu">
+        <ul>
+          <li><a href="#"><ion-icon name="home-outline"></ion-icon></a></li>
+          
+          <li><a href="#"><ion-icon name="logo-electron"></ion-icon></a></li>
+          
+          <li><a href="#"><ion-icon name="map-outline"></ion-icon></a></li>
+          
+          <li><a href="charge.html"><ion-icon name="person-outline"></ion-icon></a></li>
+        </ul>
+      </div>
+    </footer>
+
     <!-- Icon Imports from @ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
