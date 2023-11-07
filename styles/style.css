@@ -69,20 +69,6 @@ body {
     background-repeat: no-repeat;
 }
 
-#settings-body {
-  align-items: start;
-  justify-content: start;
-  display: grid;
-  min-width: 100vw;
-  min-height: 100vh;
-  max-height: fit-content;
-  grid-template-columns: 100vw;
-  grid-template-rows: [first] 0 [header] 4.5rem [notifications] 11rem [general] 11rem [customization] 11rem [more-options] 11rem [footer] 8rem [last];
-  row-gap: 1rem;
-  font-family: 'Lucida Sans', sans-serif;
-  overflow-y: scroll;
-}
-
 #top-dot {
     position: absolute;
     z-index: 1;
@@ -311,55 +297,4 @@ body {
     transform: translateY(-1.5rem) scale(1.25);
     color: var(--clr-neonblu);
     transition: 500ms;
-}
-
-.simple-header {
-  grid-row: header / notifications;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  background-color: var(--clr-opache-bg);
-  font-size: 1.9rem;
-  color: white;
-}
-
-.simple-header p {
-  position: relative;
-  left: 1.5rem;
-}
-
-#settings-group-1 {
-  grid-row: notifications / general;
-}
-
-#settings-group-2 {
-  grid-row: general / customization;
-}
-
-#settings-group-3 {
-  grid-row: customization / more-options;
-}
-
-#settings-group-4 {
-  grid-row: more-options / footer;
-}
-
-.settings-group {
-  width: 100%;
-  background-color: var(--clr-opache-bg);
-  font-size: 1.5rem;
-  color: #EEEEEE;
-}
-
-.settings-group > * {
-  margin: 1.3rem;
-}
-
-.settings-group i {
-  margin-left: 3rem; 
-}
-
-.settings-group p:first-child {
-  color: #808080;
 }
