@@ -2,12 +2,12 @@ function toggle(switchElement) {
   switchElement.classList.toggle("active");
 }
 
-function setHeader(title) {
+function setHeader(title, loadPageFunction) {
   const headerNode = document.getElementById("header");
   while (headerNode.firstChild) {
     headerNode.removeChild(headerNode.lastChild);
   } 
-  let headerTemplate = `<p><span onClick="loadSettingsPage()">&#10094; &nbsp; ${title}</span></p>`;
+  let headerTemplate = `<p><span onClick="${loadPageFunction}">&nbsp; &#10094; &nbsp; </span>${title}</p>`;
   headerNode.insertAdjacentHTML("afterbegin", headerTemplate);
 }
 
@@ -51,10 +51,14 @@ function clearPage() {
   } 
 }
 
+function loadMainPage() {
+  window.location.href = "./main.html"
+}
+
 function loadSettingsPage() {
   clearPage();
 
-  setHeader("Settings");
+  setHeader("Settings", "loadMainPage()");
 
   addSection("Notifications");
   addSwitch("Enable Notifications", "Notifications", true);

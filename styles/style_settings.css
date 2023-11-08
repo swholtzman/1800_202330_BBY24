@@ -87,6 +87,10 @@
   font-size: 1.25rem;
 }
 
+.simple-header p {
+  margin-left: 0.5rem;
+}
+
 .simple-header span {
   cursor: pointer;
 }
