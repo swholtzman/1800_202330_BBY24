@@ -1,0 +1,92 @@
+@import "style.css";
+
+#charge {
+    animation-name: disappear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#map {
+    animation-name: stretch;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#charge.leave {
+    animation-name: disappear_leave;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#map.leave {
+    animation-name: stretch_leave;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes stretch {
+    from {
+        height: 35vh;
+    }
+
+    to {
+        height: 70vh;
+    }
+}
+
+@keyframes disappear {
+    from {
+        height: 35vh;
+    }
+
+    to {
+        height: 0vh;
+        visibility: hidden;
+    }
+}
+
+@keyframes stretch_leave {
+    from {
+        height: 70vh;
+    }
+
+    to {
+        height: 35vh;
+    }
+}
+
+@keyframes disappear_leave {
+    from {
+        height: 0vh;
+    }
+
+    to {
+        height: 35vh;
+        visibility: visible;
+    }
+}
+
+#googleMap{
+    
+    height: 100%; 
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    top: -5%;
+   
+
+  
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, var(--clr-bg), var(--clr-bg));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem; /* Adjust the height as needed */
+    z-index: 100; /* Make sure it's above other content */
+}

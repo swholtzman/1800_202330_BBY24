@@ -1,6 +1,8 @@
 @import "style.css";
 
-
+#test{
+  background-color: antiquewhite;  
+}
 
 #map {
   animation-name: disappear;
