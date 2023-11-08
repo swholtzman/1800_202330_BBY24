@@ -35,20 +35,12 @@
     --clr-pink-glow: hsl(317, 100%, 50%);
 
     /* Card Colours*/
-<<<<<<< HEAD
     --clr-cards: hsla(0, 0%, 90%, 0.15);
     --clr-card-content: hsla(0, 0%, 2%, 0.1);
 
     /* Nav Colours */
     --clr-black-transparent: hsla(0, 0%, 0%, 0.7);
     --clr-black: hsl(0, 0%, 0%);
-=======
-    --clr-cards: hsla(0, 0%, 90%, 0.2);
-    --clr-card-content: hsla(0, 0%, 2% / 0.1);
-
-    /* Nav Colours */
-    --clr-black-transparent: hsla(0, 0%, 0%, 0.7);
->>>>>>> 62e433a6ab538f711322c9fcd1ae47e4bec171d0
     --clr-off-white: hsla(0, 10%, 90%, 0.90);
     --clr-nav-bg: #000211;
 }
@@ -247,6 +239,9 @@ button {
         0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
+
+/* Bottom Nav Bar */
+
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -260,7 +255,6 @@ button {
     z-index: 100; /* Make sure it's above other content */
 }
 
-/* Bottom Nav Bar */
 .bottom-nav a {
     color: var(--clr-white);
     text-decoration: none;
@@ -318,13 +312,8 @@ button {
     border-radius: 30%;
     transform: translateY(-2rem);
     transition: 300ms;
-<<<<<<< HEAD
     /* transition: transform 300ms, width 300ms, height 300ms; */
     transition-delay: 100ms, 300ms, 300ms;
-=======
-    /* transition: transform 300ms, width 300ms, height 300ms;
-    transition-delay: 1s, 300ms, 300ms; */
->>>>>>> 62e433a6ab538f711322c9fcd1ae47e4bec171d0
 }
 
 .centerButton.active ~ .menu {
@@ -374,16 +363,12 @@ button {
     color: var(--clr-white);
     text-decoration: none;
     transition: 500ms;
-    transform: translateY(-1rem);
+    transform: translateY(-1.25rem);
 }
 
 
 .menu ul li a:hover {
-<<<<<<< HEAD
-    transform: translateY(-1.5rem) scale(1.2);
-=======
-    transform: translateY(-1.5rem) scale(1.25);
->>>>>>> 62e433a6ab538f711322c9fcd1ae47e4bec171d0
+    transform: translateY(-1.5rem) scale(1.15);
     color: var(--clr-neonblu);
-    transition: 500ms;
+    transition: 500ms; 
 }
