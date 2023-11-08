@@ -149,21 +149,21 @@ button {
     transition: 1s;
 }
 
-
-
 .hamburgerButton .line {
     transition: 1s;
     stroke-dasharray: 60 31 60 400;
     transition: 1s;
 }
 
+
+
 /* Cards */
 
 #cards {
     display: flex;
-    flex-direction: column; /* Set the flex direction to column */
-    align-items: center; /* Center horizontally within the container */
-    gap: 29px; /* Adjust the gap as needed */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 29px; 
     margin-top: -5rem;
 }
 
@@ -210,7 +210,7 @@ button {
 
 .card::before {
     background: radial-gradient(
-        700px circle at var(--mouse-x) var(--mouse-y), /* provide fallback values */
+        700px circle at var(--mouse-x) var(--mouse-y), 
         rgba(255, 255, 255, 0.08),
         transparent 40%
     );
@@ -220,7 +220,7 @@ button {
 
 .card > .card-border {
     background: radial-gradient(
-        400px circle at var(--mouse-x) var(--mouse-y), /* provide fallback values */
+        400px circle at var(--mouse-x) var(--mouse-y), 
         rgba(255, 255, 255, 0.03),
         transparent 40%
     );
@@ -251,8 +251,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6rem; /* Adjust the height as needed */
-    z-index: 100; /* Make sure it's above other content */
+    height: 6rem; 
+    z-index: 100; 
 }
 
 .bottom-nav a {
