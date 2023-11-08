@@ -69,16 +69,27 @@
 #googleMap{
     
     height: 100%; 
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     align-items: center;
     top: -5%;
-   
-
-  
 }
 
-.bottom-nav {
+iframe {
+    border:0; 
+    height: 90vh; 
+    width: 100vw;
+}
+
+.searchContainer {
+    top: 1%;
+}
+
+.searchBar {
+    width: 45vw;
+}
+
+/* .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -87,6 +98,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6rem; /* Adjust the height as needed */
-    z-index: 100; /* Make sure it's above other content */
-}
+    height: 6rem;
+    z-index: 100;
+} */
