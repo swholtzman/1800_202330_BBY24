@@ -132,6 +132,11 @@
   border-radius: 10px;
 }
 
+#charge_percent_here{
+  background-color: green;
+  text-align: center;
+}
+
 #est_time_container{
   height: 25vh;
   width: 100%;
