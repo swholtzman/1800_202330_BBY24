@@ -87,12 +87,20 @@
   font-size: 1.25rem;
 }
 
+.simple-header span {
+  cursor: pointer;
+}
+
 .settings-group > *:first-child {
   color: #808080;
 }
 
 .settings-group > * {
   margin-bottom: 1em;
+}
+
+.link {
+  cursor: pointer;
 }
 
 /* ************** */

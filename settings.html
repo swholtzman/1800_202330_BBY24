@@ -8,41 +8,13 @@
     <link rel="stylesheet" href="./styles/style_settings.css"/>
   </head>
 
-  <body id="settings-body">
+  <body id="settings-body" onLoad="loadSettingsPage()">
     <header id="header" class="simple-header section">
-      <p onClick="loadSettingsPage()">&#10094; &nbsp; Settings</p>
+      <!-- HEADER GOES HERE -->
     </header>
 
     <main id="main-container">
-      <div class="settings-group section">
-        <p>Notifications</p>
-        <p><span>Enable Notifications</span>
-          <button class="toggle-btn-container">
-            <div class="toggle-btn-rectangle" onClick="toggle(this)">
-              <div class="toggle-btn-circle"></div>
-            </div>
-          </button>
-        </p>
-        <p onClick="loadPageNotifications()">Notification Preferences</p>
-      </div>
-
-      <div class="settings-group section">
-        <p>General</p>
-        <p>Account</p>
-        <p>Language</p>
-      </div>
-
-      <div class="settings-group section">
-        <p>Customization</p>
-        <p>Default Charging Settings</p>
-        <p>Themes</p>
-      </div>
-
-      <div class="settings-group section">
-        <p>More options</p>
-        <p>Give Feedback</p>
-        <p>Sign Out</p>
-      </div>
+      
     </main>
 
     <footer class="bottom-nav">

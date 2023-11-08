@@ -7,7 +7,7 @@ function setHeader(title) {
   while (headerNode.firstChild) {
     headerNode.removeChild(headerNode.lastChild);
   } 
-  let headerTemplate = `<p onClick="loadSettingsPage()">&#10094; &nbsp; ${title}</p>`;
+  let headerTemplate = `<p><span onClick="loadSettingsPage()">&#10094; &nbsp; ${title}</span></p>`;
   headerNode.insertAdjacentHTML("afterbegin", headerTemplate);
 }
 
@@ -39,7 +39,7 @@ function addSwitch(name, parentTitle, isActive) {
 }
 
 function addLink(name, parentTitle, loadPageFunction) {
-  let linkTemplate = `<p onClick="${loadPageFunction}">${name}</p>`;
+  let linkTemplate = `<p><span class="link" onClick="${loadPageFunction}">${name}</span></p>`;
   document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", linkTemplate);
   
 } 
@@ -78,8 +78,10 @@ function loadNotificationsPage() {
 
   setHeader("Notifications");
 
-  addSection("")
+  addSection("Common");
+  addSwitch("News & Events", "Common", false);
 }
+
 
 
 
