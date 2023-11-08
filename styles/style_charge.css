@@ -1,5 +1,12 @@
 @import "style.css";
 
+.centerButton.active:before {
+  transform: rotate(225deg);
+  left: 15%;
+  top: -30%;
+  transition: 500ms;
+}
+
 #test{
   background-color: antiquewhite;  
 }
@@ -14,6 +21,7 @@
   animation-name: stretch;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  overflow: hidden;
 }
 
 #map.leave {
@@ -71,7 +79,7 @@
 }
 
 .card-content p {
-  color: white;
+  color: white;  
   text-align: center;
 }
 
@@ -83,7 +91,7 @@
 
 #battery {
   width: 100%;
-  height: 30%;
+  height: 10%;
   align-self: start;
   margin: 5vh;
 }
@@ -122,6 +130,19 @@
   color: white;
   background-color: black;
   border-radius: 10px;
+}
+
+#est_time_container{
+  height: 25vh;
+  width: 100%;
+  display: flex;
+}
+
+#est_time{
+  width: 100%;
+  height: 10%;
+  align-self: start;
+  margin: 5vh;
 }
 
 #est_time_block {
