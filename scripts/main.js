@@ -17,3 +17,14 @@ document.getElementById("cards").onmousemove = e => {
 // function toChargePage() {
 //     location.href = "charge.html";
 //   }
+
+let centerButton = document.querySelector('.centerButton');
+centerButton.onclick = function(){
+    centerButton.classList.toggle('active');
+}
+
+let hamburgerButton = document.querySelector('.hamburgerButton');
+hamburgerButton.onclick = function(){
+    hamburgerButton.classList.toggle('active');
+}
+
