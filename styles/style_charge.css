@@ -173,3 +173,16 @@
   border-radius: 10px;
   font-size: 2em;
 }
+
+.centerButton::before {
+  content: "+";
+  font-family: "condor", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--clr-off-white);
+  font-size: 7.5em;
+  position: absolute;
+  transform: translate(0%, 4.5%);  /* Center the image precisely */
+  transition: 500ms;
+
+}
