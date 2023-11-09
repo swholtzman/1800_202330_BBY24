@@ -7,7 +7,7 @@ function setHeader(title, loadPageFunction) {
   while (headerNode.firstChild) {
     headerNode.removeChild(headerNode.lastChild);
   } 
-  let headerTemplate = `<p><span onClick="${loadPageFunction}">&nbsp; &#10094; &nbsp; </span>${title}</p>`;
+  let headerTemplate = `<p><span onClick="${loadPageFunction}">&nbsp; &#10094; &nbsp; ${title}</span></p>`;
   headerNode.insertAdjacentHTML("afterbegin", headerTemplate);
 }
 
@@ -29,7 +29,7 @@ function addSwitch(name, parentTitle, isActive) {
   let switchTemplate = `
     <p><span>${name}</span>
       <button class="toggle-btn-container">
-        <div class="toggle-btn-rectangle${active}" onClick="toggle(this)">
+        <div id="${name}" class="toggle-btn-rectangle${active}" onClick="toggle(this)">
           <div class="toggle-btn-circle"></div>
         </div>
       </button>
@@ -80,7 +80,7 @@ function loadSettingsPage() {
 function loadNotificationsPage() {
   clearPage();
 
-  setHeader("Notifications");
+  setHeader("Notifications", "loadSettingsPage()");
 
   addSection("Common");
   addSwitch("News & Events", "Common", false);
