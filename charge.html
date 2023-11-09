@@ -13,6 +13,13 @@
 
     <link rel="stylesheet" href="./styles/style_charge.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
 </head>
 
 <body>
@@ -50,14 +57,14 @@
                 <div id="bat_container">
                     <div id="battery">
                         <p>Current Charge %</p>
-                        <div id="bat_icon"><span id="charge_percent_here"></span></div>
+                        <div id="bat_icon"><div id="charge_percent_here"></div></div>
                     </div>
                 </div>
 
                 <div id="est_time_container">
                     <div id="est_time">
                         <p>Estimated Time to X%</p>
-                        <div id="est_time_block"></div>
+                        <div id="est_time_block"><div id="est_time_here"></div></div>
                     </div>
                 </div>
 
@@ -90,8 +97,10 @@
 
 
 
-
+    
     <script src="./scripts/charge.js"></script>
+    <script src="./scripts/main.js"></script>
+    
 
 </body>
 

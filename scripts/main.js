@@ -20,6 +20,7 @@ document.getElementById("cards").onmousemove = e => {
 
 let centerButton = document.querySelector('.centerButton');
 centerButton.onclick = function(){
+    console.log("a");
     centerButton.classList.toggle('active');
 }
 
