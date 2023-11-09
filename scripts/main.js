@@ -14,12 +14,11 @@ document.getElementById("cards").onmousemove = e => {
     }
 }
 
-// function toChargePage() {
-//     location.href = "charge.html";
-//   }
+
 
 let centerButton = document.querySelector('.centerButton');
 centerButton.onclick = function(){
+    console.log("a");
     centerButton.classList.toggle('active');
 }
 
@@ -27,4 +26,12 @@ let hamburgerButton = document.querySelector('.hamburgerButton');
 hamburgerButton.onclick = function(){
     hamburgerButton.classList.toggle('active');
 }
+
+document.querySelector("#toCharge").addEventListener("click", function(event) {
+    location.href = "charge.html";
+});
+
+document.querySelector("#toMap").addEventListener("click", function(event) {
+    location.href = "map.html";
+});
 
