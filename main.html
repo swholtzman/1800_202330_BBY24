@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
@@ -57,13 +65,13 @@
 
     <div id="cards">
 
-        <div class="card">
+        <div class="card" id="toMap">
             <div class="card-border"></div>
             <div id="map-holder"></div>
             <div class="card-content"></div>
         </div>
             
-        <div class="card">
+        <div class="card" id="toCharge">
             <div class="card-border"></div>
             <div id="charge-holder"></div>
             <div class="card-content"></div>
