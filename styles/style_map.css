@@ -64,7 +64,7 @@
     animation-fill-mode: forwards;
 }
 
-#map {
+#emap {
     animation-name: stretch;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -257,3 +257,11 @@ iframe {
     stroke-dasharray: 60 31 60 400;
     transition: 1s;
 } 
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 1;
+    width: 100%;
+    height: 90%
+}
