@@ -27,10 +27,11 @@ hamburgerButton.onclick = function(){
     hamburgerButton.classList.toggle('active');
 }
 
-document.querySelector("#charge").addEventListener("click", function(event) {
+document.querySelector("#toCharge").addEventListener("click", function(event) {
     location.href = "charge.html";
 });
 
-document.querySelector("#map").addEventListener("click", function(event) {
+document.querySelector("#toMap").addEventListener("click", function(event) {
     location.href = "map.html";
 });
+
