@@ -8,6 +8,8 @@ const map = new mapboxgl.Map({
     zoom: 11.15
 });
 
+//Following Lines of code are taken from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/ and modifed to fit what our goals were (changing page on click)
+// This code creates a source called places, that have features that include coordinates on the map.
 map.on('load', () => {
     map.addSource('places', {
         // This GeoJSON contains features that include an "icon"
@@ -53,7 +55,7 @@ map.on('load', () => {
             ]
         }
     });
-    // Add a layer showing the places.
+    // Add a layer showing the places that we have created based on its coordinates.
     map.addLayer({
         'id': 'places',
         'type': 'symbol',
@@ -64,12 +66,12 @@ map.on('load', () => {
         }
     });
 
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
+    //When a place is clicked, it transfers to a different page.
     map.on('click', 'places', (e) => {
         // Copy coordinates array.
 
         window.location.href = "./main.html"
+        
 
 
 
