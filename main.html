@@ -10,24 +10,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+    <!-- Stylesheet and Adobe Fonts -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
 
+    <!-- Firebase imports and jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    
+
 
 </head>
 
 <body>
 
-
+    <!-- Background Style Details -->
     <div class="background">
         <div style="text-align:center">
 
@@ -41,7 +42,7 @@
 
     </div>
 
-
+    <!-- Search Bar -->
     <div class="searchContainer">
         <form action="map.html" class="searchBar">
             <button id="search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
@@ -50,6 +51,7 @@
     </div>
 
 
+    <!-- Hamburger Menu and Nav Bar -->
     <header class="primary-header">
 
         <!-- Logo -->
@@ -67,6 +69,7 @@
             </button>
         </div>
 
+        <!-- Nav Bar -->
         <nav>
             <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
                 <li class="active">
@@ -101,25 +104,30 @@
         </nav>
     </header>
 
-
+    <!-- Central Cards -->
     <div id="cards">
 
         <div class="card" id="toMap">
             <div class="card-border"></div>
             <div id="map-holder"></div>
-            <div class="card-content"></div>
+            <div class="card-content1">
+                <div class="content-fill-map">
+                </div>
+            </div>
         </div>
 
         <div class="card" id="toCharge">
             <div class="card-border"></div>
             <div id="charge-holder"></div>
-            <div class="card-content"></div>
+            <div class="card-content2">
+                <div class="content-fill-charge"></div>
+            </div>
         </div>
 
     </div>
 
 
-
+    <!-- Bottom Nav and Button -->
     <div class="bottom-nav">
 
         <div class="centerButton"><i></i></div>

@@ -271,12 +271,12 @@ body {
 
 .primary-navigation {
     list-style: none;
-    padding: 0;
+    padding: 0.2em;
     margin: 0;
 
 
     background: var(--clr-less-opache-bg);
-   
+
 }
 
 @supports (backdrop-filter: blur(1rem)) {
@@ -311,6 +311,7 @@ body {
 
         transform: translateX(100%);
         transition: 500ms;
+
     }
 
     .primary-navigation[data-visible="true"] {
@@ -328,15 +329,13 @@ body {
 
     @supports (backdrop-filter: blur(1rem)) {
         .primary-navigation {
-    
+
             background: var(--clr-opache-bg);
             backdrop-filter: blur(1rem);
         }
     }
 
-    .hamburgerButton {
-
-    }
+    .hamburgerButton {}
 }
 
 /* CARDS */
@@ -361,11 +360,17 @@ body {
     background-color: var(--clr-cards);
     border-radius: 2rem;
     cursor: pointer;
+
     height: 35vh;
     position: relative;
     width: 60vw;
+    overflow: hidden;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .card:hover::before {
     opacity: 1;
@@ -409,7 +414,7 @@ body {
     z-index: 1;
 }
 
-.card>.card-content {
+.card>.card-content1 {
     background-color: var(--clr-card-content);
     border-radius: inherit;
     height: calc(100% - 2px);
@@ -419,6 +424,34 @@ body {
     z-index: 2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
         0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.card>.card-content2 {
+    background-color: var(--clr-card-content);
+    border-radius: inherit;
+    height: calc(100% - 2px);
+    margin: 1px;
+    position: relative;
+    width: calc(100% - 2px);
+    z-index: 2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.card-content1 {
+    background-image: url(../images/MapCover.png);
+    background-size: cover;
+    filter: brightness(70%) blur(1px);
+}
+
+.card-content2 {
+    background-image: url(../images/ChargingCover.png);
+    background-size: cover;
+    filter: brightness(50%) blur(1px);
+}
+
+.card-content2:hover {
+    filter: brightness(90%) blur(0px);
 }
 
 
@@ -486,7 +519,7 @@ body {
     transform: rotate(225deg);
     left: 20%;
     top: -34%;
-    transition: 500ms;
+    transition: 500ms ease-out;
 }
 
 .menu {
@@ -509,7 +542,7 @@ body {
     border: 2px solid var(--clr-borders);
     border-radius: 0%;
     transform: translateY(2rem);
-    transition: 300ms;
+    transition: 300ms ease-out;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
         0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     backdrop-filter: blur(25px) saturate(1);
