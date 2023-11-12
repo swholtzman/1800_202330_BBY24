@@ -83,15 +83,56 @@
 
 
 
-    <!-- Hamburger Menu -->
-    <div class="main-menu">
-        <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
-            <svg stroke="var(--clr-search-bg)" class="hamburger" viewBox="-5 -5 110 110" width="40">
-                <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"
-                    d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
-            </svg>
-        </button>
-    </div>
+    <header class="primary-header">
+
+        <!-- Logo -->
+        <!-- <div>
+            <img src="#">
+        </div> -->
+
+        <!-- Hamburger Menu -->
+        <div class="main-menu">
+            <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
+                <svg stroke="var(--clr-opache-bg-fullscreen)" class="hamburger" viewBox="-5 -5 110 110" width="40">
+                    <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                        d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
+                </svg>
+            </button>
+        </div>
+
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                <li class="active">
+                    <a class="" href="profile.html">
+                        Profile
+                    </a>
+                </li>
+                <hr>
+                <li></li>
+                <li></li>
+                <li class="active">
+                    <a class="" href="settings.html">
+                        Settings
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Help
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Tutorial
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        About FLOW
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <!--<div id=googleMap>
         <iframe
@@ -114,7 +155,7 @@
                 <li></li>
                 <li></li>
                 <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
-                <li><a href="settings.html"><ion-icon name="person-outline"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
             </ul>
         </div>
 
