@@ -1,5 +1,13 @@
 @import "style.css";
 
+body {
+    font-family: "montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--clr-off-white);
+}
+
 .centerButton::before {
     top: -50%;
 }
@@ -7,4 +15,9 @@
 
 .centerButton.active:before {
     top: -54%;
+}
+
+.form-group {
+    margin-left: 5%;
+    margin-right: 5%;
 }
