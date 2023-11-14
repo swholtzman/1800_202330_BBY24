@@ -525,7 +525,7 @@ body {
     transform: rotate(225deg);
     left: 20%;
     top: -34%;
-    transition: 500ms ease-out;
+    transition: 500ms;
 }
 
 .menu {
@@ -548,7 +548,7 @@ body {
     border: 2px solid var(--clr-borders);
     border-radius: 0%;
     transform: translateY(2rem);
-    transition: 300ms ease-out;
+    transition: 300ms;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15) inset,
         0px 4px 4px 0px rgba(0, 0, 0, 0.15) inset;
     backdrop-filter: blur(15px) saturate(1);
