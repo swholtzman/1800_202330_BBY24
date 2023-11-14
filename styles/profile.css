@@ -1,0 +1,10 @@
+@import "style.css";
+
+.centerButton::before {
+    top: -50%;
+}
+
+
+.centerButton.active:before {
+    top: -54%;
+}

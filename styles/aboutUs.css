@@ -48,6 +48,19 @@
     }
 }
 
+h1 {
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    color: var(--clr-off-white);
+}
+
+h1 a {
+    color: var(--clr-off-white);
+    cursor: default;
+}
+
 .searchBar {
     background-color: var(--clr-search-bg);
     border: var(--clr-search-border);
