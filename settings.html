@@ -6,6 +6,12 @@
     <title>Flow | Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="./styles/style_settings.css"/>
+
+    <!-- DO WE EVEN NEED THIS? I'M NOT SURE -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
   </head>
 
   <body id="settings-body" onLoad="loadSettingsPage()">
@@ -22,13 +28,13 @@
       
       <div class="menu">
         <ul>
-          <li><a href="#"><ion-icon name="home-outline"></ion-icon></a></li>
+          <li><a href="main.html"><ion-icon name="home-outline"></ion-icon></a></li>
           
-          <li><a href="#"><ion-icon name="logo-electron"></ion-icon></a></li>
+          <li><a href="charge.html"><ion-icon name="logo-electron"></ion-icon></a></li>
           
-          <li><a href="#"><ion-icon name="map-outline"></ion-icon></a></li>
+          <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
           
-          <li><a href="charge.html"><ion-icon name="person-outline"></ion-icon></a></li>
+          <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
         </ul>
       </div>
     </footer>

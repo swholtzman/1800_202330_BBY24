@@ -3,20 +3,36 @@
 
 <head>
 
-    <title>Flow | Map</title>
+    <title>Flow | Profile</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Firebase Links-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
+
+
+    <link rel="stylesheet" type="text/css" href="styles/profile.css">
     <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/style_map.css">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
 
 
 
@@ -24,8 +40,34 @@
 
 <body>
 
+    <div class="container">
+        <h1 style = "color: white">User Profile </h1>
+        <form>
+            <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <div class="form-group">
+                    <label  style = "color: white">Name</label>
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label  style = "color: white">Car Type</label>
+                    <input type="text" id="carInput" class="form-control" placeholder="Enter your car type">
+                </div>
+                <div class="form-group">
+                    <label style = "color: white">City</label>
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                </div>
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary;" onclick="editUserInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+            </div>
+        </form>
+        
+    </div>
 
-    <div id="map"></div>
+
+
 
     <div class="background">
         <div style="text-align:center">
@@ -40,12 +82,7 @@
     </div>
 
 
-    <div class="searchContainer">
-        <form action="" class="searchBar">
-            <button id="search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
-            <input type="text" placeholder="find a charger" name="q">
-        </form>
-    </div>
+
 
     <header class="primary-header">
 
@@ -57,7 +94,7 @@
         <!-- Hamburger Menu -->
         <div class="main-menu">
             <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
-                <svg stroke="var(--clr-opache-bg-fullscreen)" class="hamburger" viewBox="-5 -5 110 110" width="40">
+                <svg stroke="var(--clr-off-white)" class="hamburger" viewBox="-5 -5 110 110" width="40">
                     <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"
                         d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
                 </svg>
@@ -98,13 +135,6 @@
         </nav>
     </header>
 
-    <!--<div id=googleMap>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10998.471708786356!2d-123.00535697794419!3d49.24751615720656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1698943262010!5m2!1sen!2sca"
-            style="border:0; height: 100vh; width: 100vw;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>-->
-
 
 
 
@@ -119,7 +149,7 @@
                 <li></li>
                 <li></li>
                 <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
-                <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
             </ul>
         </div>
 
@@ -132,9 +162,10 @@
 
 
     <!-- Responsive JavaScript-->
-
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/map.js"></script>
-    <script src="./scripts/mapTest.js"></script>
+    <script src="./scripts/profile.js"></script>
+    
 
 
 

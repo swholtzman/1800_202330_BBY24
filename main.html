@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   
+
     <title>Flow | Main</title>
     <meta name="comp1800 template" content="My 1800 App">
 
@@ -10,11 +10,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+    <!-- Stylesheet and Adobe Fonts -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
 
+    <!-- Firebase imports and jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -22,14 +23,15 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
+
 </head>
 
 <body>
 
-    
+    <!-- Background Style Details -->
     <div class="background">
         <div style="text-align:center">
-            
+
             <!-- TOP Left Neon Ball (Blue)-->
             <span id="top-dot"></span>
             <!-- BOTTOM Left Neon Ball (Blue)-->
@@ -40,47 +42,92 @@
 
     </div>
 
-
-    <div class = "searchContainer">
+    <!-- Search Bar -->
+    <div class="searchContainer">
         <form action="map.html" class="searchBar">
             <button id="search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
             <input type="text" placeholder="find a charger" name="q">
         </form>
     </div>
 
-    <!-- Hamburger Menu -->
-    <div class="main-menu">
-        <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
-            <svg stroke="var(--clr-off-white)" class="hamburger" viewBox="-5 -5 110 110" width="40">
-                <path class="line" stroke-width="7.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    fill="none"
-                d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
-            </svg>
-        </button>
-    </div>
 
+    <!-- Hamburger Menu and Nav Bar -->
+    <header class="primary-header">
 
+        <!-- Logo -->
+        <!-- <div>
+            <img src="#">
+        </div> -->
 
+        <!-- Hamburger Menu -->
+        <div class="main-menu">
+            <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
+                <svg stroke="var(--clr-off-white)" class="hamburger" viewBox="-5 -5 110 110" width="40">
+                    <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                        d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Nav Bar -->
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                <li class="active">
+                    <a class="" href="profile.html">
+                        Profile
+                    </a>
+                </li>
+                <hr>
+                <li></li>
+                <li></li>
+                <li class="active">
+                    <a class="" href="settings.html">
+                        Settings
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Help
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Tutorial
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="aboutUs.html">
+                        About FLOW
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Central Cards -->
     <div id="cards">
 
         <div class="card" id="toMap">
             <div class="card-border"></div>
             <div id="map-holder"></div>
-            <div class="card-content"></div>
+            <div class="card-content1">
+                <div class="content-fill-map">
+                </div>
+            </div>
         </div>
-            
+
         <div class="card" id="toCharge">
             <div class="card-border"></div>
             <div id="charge-holder"></div>
-            <div class="card-content"></div>
+            <div class="card-content2">
+                <div class="content-fill-charge"></div>
+            </div>
         </div>
-            
+
     </div>
 
-    
 
+    <!-- Bottom Nav and Button -->
     <div class="bottom-nav">
 
         <div class="centerButton"><i></i></div>
@@ -88,10 +135,10 @@
             <ul>
                 <li><a href="main.html"><ion-icon name="home-outline"></ion-icon></a></li>
                 <li><a href="charge.html"><ion-icon name="logo-electron"></ion-icon></a></li>
-                <li ></li>
-                <li ></li>
+                <li></li>
+                <li></li>
                 <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
-                <li><a href="settings.html"><ion-icon name="person-outline"></ion-icon></a></li>
+                <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
             </ul>
         </div>
 

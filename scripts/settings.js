@@ -1,5 +1,18 @@
+let uid = localStorage.getItem("currentUid");
+
 function toggle(switchElement) {
-  switchElement.classList.toggle("active");
+  const data = {
+    active: !(switchElement.classList.contains("active"))
+  };
+
+  db.collection("users").doc(uid).collection("settings").doc(switchElement.id).set(data)
+  .then(() => {
+    console.log("Document written with ID: ", switchElement.id);
+    switchElement.classList.toggle("active");
+  })
+  .catch((error) => {
+    console.error("Error adding document: ", error);
+  });
 }
 
 function setHeader(title, loadPageFunction) {
@@ -7,7 +20,7 @@ function setHeader(title, loadPageFunction) {
   while (headerNode.firstChild) {
     headerNode.removeChild(headerNode.lastChild);
   } 
-  let headerTemplate = `<p><span onClick="${loadPageFunction}">&nbsp; &#10094; &nbsp; </span>${title}</p>`;
+  let headerTemplate = `<p><span onClick="${loadPageFunction}">&nbsp; &#10094; &nbsp; ${title}</span></p>`;
   headerNode.insertAdjacentHTML("afterbegin", headerTemplate);
 }
 
@@ -20,22 +33,23 @@ function addSection(title) {
   document.getElementById("main-container").insertAdjacentHTML("beforeend", sectionTemplate);
 }
 
-function addSwitch(name, parentTitle, isActive) {
-  let active = "";
-  if (isActive) {
-    active = " active";
-  }
+function addSwitch(name, parentTitle) {
+  db.collection("users").doc(uid).collection("settings").doc(name).get()
+  .then((doc) => {
+    let isActive = doc.data().active;
+    let active = isActive ? " active" : "";
 
-  let switchTemplate = `
-    <p><span>${name}</span>
-      <button class="toggle-btn-container">
-        <div class="toggle-btn-rectangle${active}" onClick="toggle(this)">
-          <div class="toggle-btn-circle"></div>
-        </div>
-      </button>
-    </p>
-  `;
-  document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", switchTemplate);
+    let switchTemplate = `
+      <p><span>${name}</span>
+        <button class="toggle-btn-container">
+          <div id="${name}" class="toggle-btn-rectangle${active}" onClick="toggle(this)">
+            <div class="toggle-btn-circle"></div>
+          </div>
+        </button>
+      </p>
+    `;
+    document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", switchTemplate);
+  });
 }
 
 function addLink(name, parentTitle, loadPageFunction) {
@@ -61,7 +75,7 @@ function loadSettingsPage() {
   setHeader("Settings", "loadMainPage()");
 
   addSection("Notifications");
-  addSwitch("Enable Notifications", "Notifications", true);
+  addSwitch("Enable Notifications", "Notifications");
   addLink("Notification Preferences", "Notifications", "loadNotificationsPage()");
 
   addSection("General");
@@ -80,10 +94,10 @@ function loadSettingsPage() {
 function loadNotificationsPage() {
   clearPage();
 
-  setHeader("Notifications");
+  setHeader("Notifications", "loadSettingsPage()");
 
   addSection("Common");
-  addSwitch("News & Events", "Common", false);
+  addSwitch("News & Events", "Common");
 }
 
 
