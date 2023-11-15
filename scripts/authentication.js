@@ -17,7 +17,7 @@ var uiConfig = {
         //------------------------------------------------------------------------------------------
         var user = authResult.user;                          // get the user object from the Firebase authentication database
         localStorage.setItem("currentUid", user.uid);
-        if (authResult.additionalUserInfo.isNewUser) {         //if new user
+        if (authResult.additionalUserInfo.isNewUser) {        //if new user
             db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
                    name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
@@ -26,6 +26,8 @@ var uiConfig = {
                    is_charging: "false",
                    car: " ",
                    city: "Burnaby"                     //with authenticated user's ID (user.uid)
+            }).then(function setDefaultSettings() {
+              db.collection("users").doc(user.uid).collection("settings").doc("Enable Notifications").set({active: true});
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("main.html");       //re-direct to main.html after signup

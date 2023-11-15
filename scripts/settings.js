@@ -7,11 +7,7 @@ function toggle(switchElement) {
 
   db.collection("users").doc(uid).collection("settings").doc(switchElement.id).set(data)
   .then(() => {
-    console.log("Document written with ID: ", switchElement.id);
     switchElement.classList.toggle("active");
-  })
-  .catch((error) => {
-    console.error("Error adding document: ", error);
   });
 }
 
