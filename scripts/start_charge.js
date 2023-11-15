@@ -41,7 +41,3 @@ window.addEventListener("click", function (event) {
     }
 });
 
-window.addEventListener("mouseover", function(event) {
-    console.log(event.target)
-});
-
