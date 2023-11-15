@@ -23,6 +23,7 @@ var uiConfig = {
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    charge: "0%",
                    est_time: "00:00",
+                   is_charging: "false",
                    car: " ",
                    city: "Burnaby"                     //with authenticated user's ID (user.uid)
             }).then(function () {

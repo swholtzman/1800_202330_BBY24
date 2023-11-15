@@ -1,10 +1,10 @@
 document.getElementById("cards").onmousemove = e => {
-    for(const card of document.getElementsByClassName("card")) {
+    for (const card of document.getElementsByClassName("card")) {
         const rect = card.getBoundingClientRect(),
             x = e.clientX - rect.left,
             y = e.clientY - rect.top;
 
-            
+
         card.style.setProperty("--mouse-x", `${x}px`);
         card.style.setProperty("--mouse-y", `${y}px`);
 
@@ -17,13 +17,13 @@ document.getElementById("cards").onmousemove = e => {
 
 
 let centerButton = document.querySelector('.centerButton');
-centerButton.onclick = function(){
+centerButton.onclick = function () {
     console.log("a");
     centerButton.classList.toggle('active');
 }
 
 let hamburgerButton = document.querySelector('.hamburgerButton');
-hamburgerButton.onclick = function(){
+hamburgerButton.onclick = function () {
     hamburgerButton.classList.toggle('active');
 }
 
@@ -41,10 +41,32 @@ hamburgerButton.addEventListener('click', (event) => {
     }
 });
 
-document.querySelector("#toCharge").addEventListener("click", function(event) {
-    location.href = "charge.html";
-});
+document.querySelector("#toCharge").addEventListener("click", checkIsCharging);
 
-document.querySelector("#toMap").addEventListener("click", function(event) {
+document.querySelector("#toMap").addEventListener("click", function (event) {
     location.href = "map.html";
 });
+
+function checkIsCharging() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid)
+            currentUser.get()
+                .then(userDoc => {
+                    
+                    var charging = userDoc.data().is_charging;
+                    var link;
+
+                    if (charging == "true") {
+                        link = "charge.html"
+                    } else if (charging == "false"){
+                        link = "start_charge.html"
+                    }
+                    
+                    location.href=link;
+                })
+        } else {
+            console.log("No user is signed in");
+        }
+    });
+}
