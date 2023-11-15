@@ -30,21 +30,28 @@ function addSection(title) {
 }
 
 function addSwitch(name, parentTitle) {
-  db.collection("users").doc(uid).collection("settings").doc(name).get()
+  let docRef = db.collection("users").doc(uid).collection("settings").doc(name);
+  docRef.get()
   .then((doc) => {
-    let isActive = doc.data().active;
-    let active = isActive ? " active" : "";
+    if (doc.exists) {
+      let isActive = doc.data().active;
+      let activeClass = isActive ? " active" : "";
 
-    let switchTemplate = `
-      <p><span>${name}</span>
-        <button class="toggle-btn-container">
-          <div id="${name}" class="toggle-btn-rectangle${active}" onClick="toggle(this)">
-            <div class="toggle-btn-circle"></div>
-          </div>
-        </button>
-      </p>
-    `;
-    document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", switchTemplate);
+      let switchTemplate = `
+        <p><span>${name}</span>
+          <button class="toggle-btn-container">
+            <div id="${name}" class="toggle-btn-rectangle${activeClass}" onClick="toggle(this)">
+              <div class="toggle-btn-circle"></div>
+            </div>
+          </button>
+        </p>
+      `;
+      document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", switchTemplate);
+    } else {
+      console.log("Setting does not exist in user database yet! Adding it now...");
+      docRef.set({active: false});
+      addSwitch(name, parentTitle);
+    }
   });
 }
 
@@ -92,8 +99,12 @@ function loadNotificationsPage() {
 
   setHeader("Notifications", "loadSettingsPage()");
 
-  addSection("Common");
-  addSwitch("News & Events", "Common");
+  addSection("Notification Preferences");
+  addSwitch("News And Events", "Notification Preferences");
+  addSwitch("Car Unplugged", "Notification Preferences");
+  addSwitch("Car Done Charging", "Notification Preferences");
+  addSwitch("Car Reached 80% Battery", "Notification Preferences");
+  addSwitch("Car Reached 50% Battery", "Notification Preferences");
 }
 
 
