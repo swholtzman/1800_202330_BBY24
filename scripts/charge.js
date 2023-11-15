@@ -18,9 +18,9 @@ function displayBatteryPercentage(userID) {
         // Check if user is signed in:
         if (user) {
             db.collection("users").doc(user.uid)
-                .onSnapshot(percent => {                                                               //arrow notation
-                    console.log("current document data: " + percent.data());                          //.data() returns data object
-                    document.querySelector("#charge_percent_here").innerHTML = percent.data().charge;      //using javascript to display the data on the right place
+                .onSnapshot(percent => {                                                               
+                    console.log("current document data: " + percent.data());                          
+                    document.querySelector("#charge_percent_here").innerHTML = percent.data().charge;
 
                 })
         }
@@ -33,12 +33,11 @@ function displayEstimatedTime() {
         // Check if user is signed in:
         if (user) {
             db.collection("users").doc(user.uid)
-                .onSnapshot(estTime => {                                                               //arrow notation
-                    console.log("current document data: " + estTime.data());                          //.data() returns data object
-                    document.querySelector("#est_time_here").innerHTML = estTime.data().est_time;      //using javascript to display the data on the right place
+                .onSnapshot(estTime => {                                                             
+                    console.log("current document data: " + estTime.data());                        
+                    document.querySelector("#est_time_here").innerHTML = estTime.data().est_time;   
                 })
         }
     })
 }
 displayEstimatedTime("pxyOYQRUt1XAkIME9rH8oDUUvbI3")
-
