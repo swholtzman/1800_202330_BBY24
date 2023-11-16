@@ -19,7 +19,7 @@ function displayBatteryPercentage() {
         if (user) {
             db.collection("users").doc(user.uid)
                 .onSnapshot(percent => {                                                               
-                    console.log("current document data: " + percent.data());                          
+                    console.log("current document data: " + percent.data().charge);                          
                     document.querySelector("#charge_percent_here").innerHTML = percent.data().charge;
 
                 })
@@ -34,7 +34,7 @@ function displayEstimatedTime() {
         if (user) {
             db.collection("users").doc(user.uid)
                 .onSnapshot(estTime => {                                                             
-                    console.log("current document data: " + estTime.data());                        
+                    console.log("current document data: " + estTime.data().est_time);                        
                     document.querySelector("#est_time_here").innerHTML = estTime.data().est_time;   
                 })
         }
