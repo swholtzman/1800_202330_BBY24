@@ -83,6 +83,9 @@ body {
     gap: var(--gap, 1rem);
 }
 
+
+
+
 /* BACKGROUND NEON */
 #top-dot {
     position: absolute;
@@ -117,6 +120,9 @@ body {
     background-color: rgba(0, 12, 119, 0.5);
     filter: blur(100px);
 }
+
+
+
 
 
 /* SEARCH BAR */
@@ -193,12 +199,14 @@ body {
 
 /* HAMBURGER ICON */
 
+/* At Full Screen Size */
 @media (min-width: 55em) {
     .main-menu {
         display: none;
     }
 }
 
+/* At Mobile Screen Size */
 @media (max-width: 55em) {
     .main-menu button {
         position: fixed;
@@ -255,13 +263,18 @@ body {
 
 }
 
+
+
+
 /* PRIMARY HEADER */
 
+/* Logo (Currently Empty) */
 .logo {
     margin: 2rem;
     float: left;
 }
 
+/* Nav Area */
 .primary-header {
     align-content: center;
     justify-content: space-between;
@@ -275,6 +288,7 @@ body {
 
 /* Primary Navigation and Drop Menu */
 
+/* Nav Bar */
 .primary-navigation {
     list-style: none;
     padding: 0.2em;
@@ -285,6 +299,7 @@ body {
 
 }
 
+/* If browser supports effects . . . */
 @supports (backdrop-filter: blur(1rem)) {
     .primary-navigation {
 
@@ -293,12 +308,14 @@ body {
     }
 }
 
+/* Nav Links */
 .primary-navigation a {
     text-decoration: none;
     color: var(--clr-off-white);
 
 }
 
+/* Styles for Mobile Screen Size */
 @media (max-width: 55em) {
     .primary-header {
         font-size: x-large;
@@ -342,6 +359,9 @@ body {
     }
 }
 
+
+
+
 /* CARDS */
 
 #cards {
@@ -374,7 +394,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .card:hover::before {
     opacity: 1;
