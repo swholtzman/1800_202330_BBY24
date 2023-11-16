@@ -26,7 +26,8 @@ map.on('load', () => {
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.21189]
+                        'coordinates': [-123.007372, 49.21189],
+                        'url': "./main.html"
                     }
                 },
                 {
@@ -36,7 +37,8 @@ map.on('load', () => {
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.027372, 49.241189]
+                        'coordinates': [-123.027372, 49.241189],
+                        'url': "./profile.html"
                     }
                 },
                 {
@@ -47,7 +49,8 @@ map.on('load', () => {
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.241189]
+                        'coordinates': [-123.007372, 49.241189],
+                        'url': "./login.html"
                     }
                 },
 
@@ -72,6 +75,7 @@ map.on('load', () => {
 
         window.location.href = "./main.html"
         
+        
 
 
 
@@ -88,3 +92,41 @@ map.on('load', () => {
         map.getCanvas().style.cursor = '';
     });
 });
+
+function writePlaces() {
+    //define a variable for the collection you want to create in Firestore to populate data
+    var placeRef = db.collection("places");
+
+    placeRef.add({
+        name: "Charge Station 1", //replace with your own city?
+        location: "3700 Willingdon Avenue",
+        city: "Burnaby",
+        province: "BC",
+        
+        lat: 49.21189,
+        lng: -123.007372,
+        
+    });
+    placeRef.add({
+        name: "Charge Station 2", //replace with your own city?
+        location: "4330 Sanderson Way",
+        city: "Burnaby",
+        province: "BC",
+        
+        lat: 49.241189,
+        lng: -123.007372,
+        
+    });
+    placeRef.add({
+        name: "Charge Station 3", //replace with your own city?
+        location: "4812 Willingdon Ave",
+        city: "Burnaby",
+        province: "BC",
+        
+        lat: 49.241189,
+        lng: -123.007372,
+        
+    });
+
+
+}
