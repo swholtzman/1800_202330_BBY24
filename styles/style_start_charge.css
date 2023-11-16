@@ -1,7 +1,18 @@
 @import "style_charge.css";
 
-.card
-{
+#placehold.leave {
+  animation-name: disappear_leave;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+#start.leave {
+  animation-name: stretch_leave;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.card {
   pointer-events: none;
 }
 
@@ -12,9 +23,11 @@
   justify-content: center;
   align-items: center;
 
-  flex-direction: column; /* Set the flex direction to column */
-  align-items: center; /* Center horizontally within the container */
-  gap: 1rem; 
+  flex-direction: column;
+  /* Set the flex direction to column */
+  align-items: center;
+  /* Center horizontally within the container */
+  gap: 1rem;
   margin-top: -1rem;
 }
 
@@ -27,79 +40,102 @@
   width: 60vw;
 }
 
-#start{
+#start {
   animation-name: stretch;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
-#placehold{
+#placehold {
   animation-name: disappear;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
-#charge{
-  overflow:hidden;
+#charge {
+  overflow: hidden;
 }
 
-.form_group{
-  height:100%;
-  width:100%;
-  display:flex;
+.form_group {
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
-form *{
-  color:white;
+form * {
+  color: white;
 }
 
-#location{
+#location,
+#time,
+#est_bat,
+#submit{
   position: absolute;
   height: 20%;
-  width:100%;
+  width: 100%;
   z-index: 0;
-  top:10%;
 }
 
-#location_content,
-#submit_content
-{
+#location {
+  top: 10%;
+}
+
+#time {
+  top: 30%;
+}
+
+#est_bat {
+  top: 50%;
+}
+
+.content {
   text-align: center;
-}
-
-#submit{
-  position:absolute;
-  height:10%;
   width:100%;
-  z-index: 0;
-  top:90%;
+  height:100%;
+}
+
+#submit {
+  top: 80%;
+  /* background-color: blue; */
+}
+
+#submit_content button{
+  height: 50%;
+  width: 50%;
+  /* background-color: blueviolet; */
 }
 
 
-select{
+select,
+input {
   background-color: black;
 }
 
 .button{
-  background-color: black;
+  background:darkslategrey;
 }
 
+
 @keyframes stretch {
-    from {
-      height: 35vh; width: 60vw;
-    }
-  
-    to {
-      height: 70vh; width: 80vw;
-    }
+  from {
+    height: 35vh;
+    width: 60vw;
   }
 
-  @keyframes stretch_leave {
-    from {
-      height: 70vh;  width: 80vw;
-    }
-  
-    to {
-      height: 35vh; width: 60vw;
-    }
+  to {
+    height: 70vh;
+    width: 80vw;
   }
+}
+
+@keyframes stretch_leave {
+  from {
+    height: 70vh;
+    width: 80vw;
+  }
+
+  to {
+    height: 35vh;
+    width: 60vw;
+  }
+}

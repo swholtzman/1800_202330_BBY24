@@ -1,12 +1,5 @@
 @import "style.css";
 
-.centerButton.active:before {
-  transform: rotate(225deg);
-  left: 15%;
-  top: -30%;
-  transition: 500ms;
-}
-
 #test {
   background-color: antiquewhite;  
 }
@@ -36,17 +29,7 @@
   animation-fill-mode: forwards;
 }
 
-#placehold.leave {
-  animation-name: disappear_leave;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
 
-#start.leave {
-  animation-name: stretch_leave;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
 
 @keyframes stretch {
   from {
@@ -184,143 +167,4 @@
   background-color: black;
   border-radius: 10px;
   font-size: 2em;
-}
-
-/* BOTTOM NAV BAR */
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  background: linear-gradient(to top, var(--clr-bg-transparent), var(--clr-clear));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 6rem;
-  z-index: 9999;
-}
-
-.bottom-nav a {
-  color: var(--clr-white);
-  text-decoration: none;
-}
-
-.centerButton {
-  position: relative;
-  width: 5.75rem;
-  height: 5.75rem;
-  border-radius: 30%;
-  top: 20%;
-  transition: 500ms;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  transform: translateY(-1.75rem);
-  box-shadow: inset 0 0 0 5rem var(--clr-black-transparent),
-      0 0 50px var(--clr-pink-glow),
-      0 0 35px var(--clr-blue-glow);
-  backdrop-filter: blur(25px) saturate(20);
-}
-
-.centerButton::before {
-  content: "+";
-  font-family: "condor", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--clr-off-white);
-  font-size: 7.5em;
-  position: absolute;
-  transform: translate(0%, 4.5%);
-  /* Center the image precisely */
-  transition: 500ms;
-  left: 15%;
-  top: -30%;
-}
-
-.centerButton.active {
-  top: 0%;
-  transition: 500ms;
-}
-
-.centerButton.active:before {
-  transform: rotate(225deg);
-  left: 20%;
-  top: -34%;
-  transition: 500ms;
-}
-
-.menu {
-  position: absolute;
-  width: 5rem;
-  height: 5rem;
-  background: var(--clr-clear);
-  border: 2px solid var(--clr-clear);
-  border-radius: 30%;
-  transform: translateY(-2rem);
-  transition: 300ms;
-  /* transition: transform 300ms, width 300ms, height 300ms; */
-  transition-delay: 100ms, 300ms, 300ms;
-}
-
-.centerButton.active~.menu {
-  width: 100vw;
-  height: 17.5vh;
-  background: var(--clr-glass);
-  border: 2px solid var(--clr-borders);
-  border-radius: 0%;
-  transform: translateY(2rem);
-  transition: 300ms;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
-      0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  backdrop-filter: blur(25px) saturate(1);
-}
-
-.menu ul {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0rem;
-  line-height: 8rem;
-  transition: 500ms;
-}
-
-.centerButton.active~.menu ul {
-  gap: 3.5rem;
-  transition: 500ms;
-}
-
-.menu ul li {
-  list-style: none;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  padding: 0;
-  transition: 300ms;
-}
-
-.centerButton.active~.menu ul li {
-  opacity: 1;
-  visibility: visible;
-  transition: 500ms;
-}
-
-.menu ul li a {
-  display: block;
-  font-size: 2.5rem;
-  color: var(--clr-white);
-  text-decoration: none;
-  transition: 500ms;
-  transform: translateY(-1.25rem);
-}
-
-
-.menu ul li a:hover {
-  transform: translateY(-1.5rem) scale(1.15);
-  color: var(--clr-neonblu);
-  transition: 500ms;
 }

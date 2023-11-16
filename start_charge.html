@@ -46,16 +46,50 @@
         </form>
     </div>
 
-    <!-- Hamburger Menu -->
-    <div class="main-menu">
-        <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
-            <svg stroke="var(--clr-off-white)" class="hamburger" viewBox="-5 -5 110 110" width="40">
-                <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                    d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
-            </svg>
-        </button>
-    </div>
+    <header class="primary-header">
+        <!-- Hamburger Menu -->
+        <div class="main-menu">
+            <button class="hamburgerButton" aria-controls="primary-navigation" aria-expanded="false">
+                <svg stroke="var(--clr-off-white)" class="hamburger" viewBox="-5 -5 110 110" width="40">
+                    <path class="line" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                        d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"></path>
+                </svg>
+            </button>
+        </div>
 
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                <li class="active">
+                    <a class="" href="profile.html">
+                        Profile
+                    </a>
+                </li>
+                <hr>
+                <li></li>
+                <li></li>
+                <li class="active">
+                    <a class="" href="settings.html">
+                        Settings
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Help
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        Tutorial
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="" href="#">
+                        About FLOW
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <div id="cards">
 
@@ -79,19 +113,64 @@
         <form id="start">
             <div class="form_group">
                 <div id="location">
-                    <div id="location_content">
-                        <label>What was the level of the hike?</label>
+                    <div id="location_content" class="content">
+                        <label>Select Location of Charger:</label>
                         <br>
                         <select>
-                            <option>Hard</option>
-                            <option>Moderate</option>
-                            <option>Easy</option>
+                            <option>Location 1</option>
                         </select>
                     </div>
                 </div>
 
+                <div id="time">
+                    <div id="time_content" class="content">
+                        <label>Enter Time of Stay:</label>
+                        <br>
+                        <select>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                        <label>Hours </label>
+                        <select>
+                            <option>0</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>30</option>
+                            <option>35</option>
+                            <option>40</option>
+                            <option>45</option>
+                            <option>50</option>
+                            <option>55</option>
+                        </select>
+                        <label>Minutes </label>
+                    </div>
+                </div>
+
+                <div id="est_bat">
+                    <div id="battery_content" class="content">
+                        <label>Enter Target Battery %:</label>
+                        <br>
+                        <input placeholder="" type="number" min="0" max="100"
+                        step = 5></input>
+                    </div>
+                </div>
+
                 <div id="submit">
-                    <div id="submit_content">
+                    <div id="submit_content" class="content">
                         <button type="button" class="button">Submit</button>
                     </div>
                 </div>
@@ -110,7 +189,7 @@
                 <li></li>
                 <li></li>
                 <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
-                <li><a href="settings.html"><ion-icon name="person-outline"></ion-icon></a></li>
+                <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
             </ul>
         </div>
 
@@ -124,7 +203,7 @@
 
 
     <script src="./scripts/start_charge.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
+    <script src="./scripts/main.js"></script>
 
 
 </body>
