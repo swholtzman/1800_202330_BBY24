@@ -168,3 +168,8 @@
   border-radius: 10px;
   font-size: 2em;
 }
+
+/* SEARCH BAR */
+.searchContainer {
+  top: 2%;
+}

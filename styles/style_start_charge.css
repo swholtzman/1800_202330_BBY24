@@ -69,7 +69,7 @@ form * {
 #location,
 #time,
 #est_bat,
-#submit{
+#submit {
   position: absolute;
   height: 20%;
   width: 100%;
@@ -90,8 +90,8 @@ form * {
 
 .content {
   text-align: center;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 #submit {
@@ -99,10 +99,20 @@ form * {
   /* background-color: blue; */
 }
 
-#submit_content button{
+#submit_content button {
   height: 50%;
   width: 50%;
-  /* background-color: blueviolet; */
+
+  border: none;
+
+  cursor: pointer;
+
+  background-color: var(--clr-less-opache-bg);
+  box-shadow: inset 0 0 0 4rem var(--clr-black-transparent),
+    0 0 40px var(--clr-pink-glow),
+    0 0 25px var(--clr-blue-glow);
+  backdrop-filter: blur(2px) saturate(5);
+
 }
 
 
@@ -111,8 +121,8 @@ input {
   background-color: black;
 }
 
-.button{
-  background:darkslategrey;
+.button {
+  background: darkslategrey;
 }
 
 
@@ -138,4 +148,14 @@ input {
     height: 35vh;
     width: 60vw;
   }
+}
+
+/* SEARCH BAR */
+.searchContainer {
+  top: 2%;
+}
+
+.centerButton::before {
+  content: "+";
+  font-family: "condor", sans-serif;
 }
