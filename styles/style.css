@@ -44,6 +44,7 @@
     --clr-black-transparent: hsla(0, 0%, 0%, 0.7);
     --clr-black: hsl(0, 0%, 0%);
     --clr-off-white: hsla(0, 10%, 90%, 0.90);
+    --clr-off-white-font: hsla(0, 10%, 90%, 0.60);
     --clr-nav-bg: #000211;
 
     /* Button Colours*/
@@ -56,6 +57,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    z-index: 0;
 }
 
 body {
@@ -83,6 +85,19 @@ body {
     gap: var(--gap, 1rem);
 }
 
+.searchBar:hover,
+.card:hover::before,
+.card.active::before,
+.card:hover>.card>.card-border,
+.centerButton.active~.menu {
+    will-change: transform,
+        opacity,
+        filter,
+        background,
+        blur,
+        saturate,
+        transition;
+}
 
 
 
@@ -122,20 +137,23 @@ body {
 }
 
 
+*::placeholder {
+    color: var(--clr-off-white-font);
+}
 
 
 
 /* SEARCH BAR */
 .searchContainer {
     position: fixed;
-    top: 2.5%;
+    top: 37%;
     left: 0;
     width: 100%;
     /* Make it full width */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9000;
+    z-index: 100;
     /* padding: 1rem; */
 }
 
@@ -145,19 +163,29 @@ body {
     max-width: 40vw;
     height: 30px;
     color: var(--clr-white);
-    background: var(--clr-cards);
+    background: var(--clr-opache-bg-fullscreen);
     display: flex;
     align-items: center;
     border-radius: 60px;
     padding: .5rem;
     margin-top: 2rem;
+    z-index: 9000;
 
 
     border: var(--clr-search-border);
 
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
         0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     backdrop-filter: blur(10px) saturate(2);
+    transition: 1s ease-in-out;
+}
+
+.searchBar:hover {
+    background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+            /* provide fallback values */
+            rgba(255, 255, 255, 0.4),
+            transparent 40%);
+    transition: 1s;
 }
 
 .searchBar input {
@@ -168,6 +196,8 @@ body {
     padding: 2px;
     font-size: 8;
     color: var(--clr-off-white);
+
+    z-index: 9000
 }
 
 .searchBar button {
@@ -182,19 +212,95 @@ body {
     cursor: pointer;
     border-radius: 50%;
     transition: 500ms;
+
+    z-index: 9000
 }
 
 .searchBar button:hover {
     color: var(--clr-neonblu);
-    /* box-shadow: inset 
-        0 0 0 5rem var(--clr-black-transparent), 
-        0 0 50px var(--clr-pink-glow), 
-        0 0 35px var(--clr-blue-glow); */
     transform: scale(1.2);
     transition: 500ms;
 }
 
+/* Start Charge Button */
+.chargeContainer {
+    position: fixed;
+    top: 74%;
+    left: 0;
+    width: 100%;
+    /* Make it full width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    /* padding: 1rem; */
+    cursor: pointer;
+}
 
+.chargeBar:hover {
+    background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+            /* provide fallback values */
+            rgba(255, 255, 255, 0.4),
+            transparent 40%);
+    transition: 1s;
+}
+
+.chargeBar {
+    left: 50%;
+    width: 100%;
+    max-width: 40vw;
+    height: 30px;
+    color: var(--clr-white);
+    background: var(--clr-opache-bg-fullscreen);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: .5rem;
+    margin-top: 2rem;
+
+
+    border: var(--clr-search-border);
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    backdrop-filter: blur(10px) saturate(2);
+
+    transition: 1s ease-in-out;
+}
+
+.chargeBar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 2px;
+    font-size: 8;
+    color: var(--clr-off-white);
+
+    cursor: pointer;
+}
+
+.chargeBar button {
+    display: flex;
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--clr-off-white);
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 500ms;
+}
+
+.chargeBar button:hover {
+    color: var(--clr-neonblu);
+    transform: scale(1.2);
+    transition: 500ms;
+
+
+}
 
 
 /* HAMBURGER ICON */
@@ -283,7 +389,7 @@ body {
     right: 2rem;
     font-size: medium;
     color: var(--clr-off-white);
-    z-index: 9000;
+    z-index: 9001;
 }
 
 /* Primary Navigation and Drop Menu */
@@ -424,7 +530,7 @@ body {
 .card::before {
     background: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y),
             /* provide fallback values */
-            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.15),
             transparent 40%);
     z-index: 3;
 }
@@ -495,8 +601,6 @@ body {
     align-items: center;
     height: 6rem;
     z-index: 9999;
-
-    
 }
 
 .bottom-nav a {
@@ -522,6 +626,7 @@ body {
         0 0 50px var(--clr-pink-glow),
         0 0 35px var(--clr-blue-glow);
     backdrop-filter: blur(2px) saturate(5);
+
 }
 
 .centerButton::before {
@@ -537,11 +642,13 @@ body {
     transition: 500ms;
     left: 15%;
     top: -30%;
+
 }
 
 .centerButton.active {
     top: 0%;
     transition: 500ms;
+
 }
 
 .centerButton.active:before {

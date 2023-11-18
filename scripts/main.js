@@ -1,3 +1,5 @@
+
+// MAIN CARD HOVER EFFECTS
 document.getElementById("cards").onmousemove = e => {
     for (const card of document.getElementsByClassName("card")) {
         const rect = card.getBoundingClientRect(),
@@ -15,13 +17,15 @@ document.getElementById("cards").onmousemove = e => {
 }
 
 
-
+// BOTTOM NAV BAR BUTTON
 let centerButton = document.querySelector('.centerButton');
 centerButton.onclick = function () {
     // console.log("a");
     centerButton.classList.toggle('active');
 }
 
+
+// HAMBURGER MENU
 let hamburgerButton = document.querySelector('.hamburgerButton');
 hamburgerButton.onclick = function () {
     hamburgerButton.classList.toggle('active');
