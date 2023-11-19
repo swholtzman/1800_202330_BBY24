@@ -12,6 +12,7 @@
 
 
     <link rel="stylesheet" href="./styles/style_start_charge.css">
+    <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -116,7 +117,7 @@
                     <div id="location_content" class="content">
                         <label>Select Location of Charger:</label>
                         <br>
-                        <select>
+                        <select id="location_select">
                             <option>Location 1</option>
                         </select>
                     </div>
@@ -126,7 +127,7 @@
                     <div id="time_content" class="content">
                         <label>Enter Time of Stay:</label>
                         <br>
-                        <select>
+                        <select id="hour_select">
                             <option>0</option>
                             <option>1</option>
                             <option>2</option>
@@ -139,10 +140,9 @@
                             <option>9</option>
                             <option>10</option>
                             <option>11</option>
-                            <option>12</option>
                         </select>
                         <label>Hours </label>
-                        <select>
+                        <select id="minute_select">
                             <option>0</option>
                             <option>5</option>
                             <option>10</option>
@@ -165,13 +165,13 @@
                         <label>Enter Target Battery %:</label>
                         <br>
                         <input placeholder="" type="number" min="0" max="100"
-                        step = 5></input>
+                        step = 5 id="bat_select"></input>
                     </div>
                 </div>
 
                 <div id="submit">
                     <div id="submit_content" class="content">
-                        <button type="button" class="button">Submit</button>
+                        <button type="button" class="button" id="submit_button">Submit</button>
                     </div>
                 </div>
             </div>

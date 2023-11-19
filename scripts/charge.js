@@ -33,9 +33,9 @@ function displayEstimatedTime() {
         // Check if user is signed in:
         if (user) {
             db.collection("users").doc(user.uid)
-                .onSnapshot(estTime => {                                                             
-                    console.log("current document data: " + estTime.data().est_time);                        
-                    document.querySelector("#est_time_here").innerHTML = estTime.data().est_time;   
+                .onSnapshot(est_time => {                                                             
+                    console.log("current document data: " + est_time.data().estTime);                        
+                    document.querySelector("#est_time_here").innerHTML = est_time.data().estTime;   
                 })
         }
     })

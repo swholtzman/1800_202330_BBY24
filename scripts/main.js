@@ -47,26 +47,29 @@ document.querySelector("#toMap").addEventListener("click", function (event) {
     location.href = "map.html";
 });
 
+//check if car is charging -> take to different pages
 function checkIsCharging() {
     firebase.auth().onAuthStateChanged(user => {
+        // var link;
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
             currentUser.get()
                 .then(userDoc => {
                     
-                    var charging = userDoc.data().is_charging;
-                    var link;
+                    var charging = userDoc.data().isCharging;
+                    
 
                     if (charging == "true") {
-                        link = "charge.html"
+                        location.href = "charge.html"
                     } else if (charging == "false"){
-                        link = "start_charge.html"
+                        location.href = "start_charge.html"
                     }
                     
-                    location.href=link;
+                    
                 })
         } else {
             console.log("No user is signed in");
+            location.href="login.html";
         }
     });
 }
