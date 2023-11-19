@@ -10,8 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Stylesheet and Adobe Fonts -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
 
@@ -104,54 +105,67 @@
         </nav>
     </header>
 
+    <!-- Start Charge Bar -->
+    <div class="chargeContainer" onclick="window.location.href='start_charge.html';">
+        <form id="chargeForm" class="chargeBar">
+            <button type="button" onclick="window.location.href='start_charge.html';"><ion-icon
+                    name="logo-electron"></ion-icon></button>
+            <input type="text" placeholder="start charging" name="q">
+        </form>
+    </div>
+
+
     <!-- Central Cards -->
     <div id="cards">
 
+        <!-- Map Card -->
         <div class="card" id="toMap">
             <div class="card-border"></div>
             <div id="map-holder"></div>
             <div class="card-content1">
-                <div class="content-fill-map">
-                </div>
+
             </div>
         </div>
 
+        <!-- Charge Card -->
         <div class="card" id="toCharge">
             <div class="card-border"></div>
             <div id="charge-holder"></div>
             <div class="card-content2">
-                <div class="content-fill-charge"></div>
+
             </div>
+
         </div>
 
-    </div>
 
+        <!-- Bottom Nav and Button -->
+        <div class="bottom-nav">
 
-    <!-- Bottom Nav and Button -->
-    <div class="bottom-nav">
+            <!-- Button -->
+            <div class="centerButton"><i></i></div>
+            <div class="menu">
 
-        <div class="centerButton"><i></i></div>
-        <div class="menu">
-            <ul>
-                <li><a href="main.html"><ion-icon name="home-outline"></ion-icon></a></li>
-                <li><a href="charge.html"><ion-icon name="logo-electron"></ion-icon></a></li>
-                <li></li>
-                <li></li>
-                <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
-                <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
-            </ul>
+                <!-- Nav Icons with Links -->
+                <ul>
+                    <li><a href="main.html"><ion-icon name="home-outline"></ion-icon></a></li>
+                    <li><a href="charge.html"><ion-icon name="logo-electron"></ion-icon></a></li>
+                    <li></li>
+                    <li></li>
+                    <li><a href="map.html"><ion-icon name="map-outline"></ion-icon></a></li>
+                    <li><a href="profile.html"><ion-icon name="person-outline"></ion-icon></a></li>
+                </ul>
+            </div>
+
         </div>
 
-    </div>
-
-    <!-- Icon Imports from @ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <!-- Icon Imports from @ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
 
-    <!-- Responsive JavaScript-->
-    <script src="./scripts/main.js"></script>
+        <!-- Responsive JavaScript-->
+        <script src="./scripts/main.js"></script>
 
 </body>
 
