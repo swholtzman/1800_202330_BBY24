@@ -14,6 +14,10 @@ body {
     color: var(--clr-off-white);
 }
 
+.hamburgerButton{
+    margin-right: 3rem;
+}
+
 .form-box {
     top: 5%;
 
@@ -82,4 +86,5 @@ body {
     outline: none;
     background: transparent;
 }
+
 
