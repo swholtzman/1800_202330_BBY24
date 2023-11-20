@@ -26,7 +26,7 @@ document.querySelector("#submit_button").addEventListener("click", function(e){
                     })
 
                     var timeInMin = parseInt(document.querySelector("#hour_select").value)
-                    * 60 + parseInt(document.querySelector("#minute_select").value);
+                    + parseInt(document.querySelector("#minute_select").value) / 60;
                     console.log(timeInMin);
 
                     currentUser.collection("charge_info").doc("target_time")

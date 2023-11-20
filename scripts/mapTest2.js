@@ -81,10 +81,10 @@ function addPostPins(map) {
                 //Extract information about the places, and use what you need
                 //const coordinates = e.features[0].geometry.coordinates.slice();
                 //const description = e.features[0].properties.description;
-                const id = e.features[0].properties.url;  //get the "id" field
+                const id = e.features[0].properties.id;  //get the "id" field
                 //alert(id);
                 // re-direct to another page that gives more details about this post (by id)
-                window.location.href = "" + id
+                window.location.href = "start_charge.html";// + id;
             });
 
 
