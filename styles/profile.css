@@ -1,4 +1,5 @@
 @import "style.css";
+@import "registration.css";
 
 * {
     margin: 0;
@@ -13,6 +14,66 @@ body {
     color: var(--clr-off-white);
 }
 
+.hamburgerButton{
+    margin-right: 3rem;
+}
+
+@media (min-width: 1030px) {
+    .main-menu {
+        display: hidden;
+    }
+    .hamburgerButton {
+        display: none;
+    }
+}
+
+
+.form-box {
+    top: 5%;
+
+    width: 50vw;
+    height: 60vh;
+    min-width: 350px;
+    min-height: 700px;
+
+    position: relative;
+
+    margin: 6% auto;
+
+    background: var(--clr-registration-glass);
+    backdrop-filter: blur(20px);
+
+    padding: 2em; /* Decreased padding for better spacing */
+
+    border-radius: 25px;
+    border: 2px solid var(--clr-registration-border);
+    box-shadow: 0 0 30px #0000002a;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    margin-top: 1.5em; /* Increase top margin between form groups */
+    margin-bottom: 1.5em; /* Increase bottom margin between form groups */
+}
+
+.button {
+    /* margin-top: 1em;  */
+    background: var(--clr-registration-glass);
+    color: var(--clr-off-white);
+}
+
+.form-control {
+    margin-top: 0.5em; /* Increase top margin for input fields */
+    margin-bottom: 0.5em; /* Increase bottom margin for input fields */
+}
+
+
+
 .centerButton::before {
     top: -50%;
 }
@@ -22,7 +83,18 @@ body {
     top: -54%;
 }
 
-.form-group {
-    margin-left: 5%;
-    margin-right: 5%;
+.form-control {
+    color: var(--clr-off-white);
+
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+
+    border-radius: 0;
+
+    outline: none;
+    background: transparent;
 }
+
+
