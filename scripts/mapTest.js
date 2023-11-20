@@ -11,6 +11,7 @@ const map = new mapboxgl.Map({
 //Following Lines of code are taken from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/ and modifed to fit what our goals were (changing page on click)
 // This code creates a source called places, that have features that include coordinates on the map.
 map.on('load', () => {
+    const features = ["./main.html"]
     map.addSource('places', {
         // This GeoJSON contains features that include an "icon"
         // property. The value of the "icon" property corresponds
@@ -22,35 +23,38 @@ map.on('load', () => {
                 {
                     'type': 'Feature',
                     'properties': {
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./profile.html",
+                        "id": "GdLFDVSF18wVznJy1Ruz"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.21189],
-                        'url': "./main.html"
+                        'coordinates': [-123.007372, 49.21189]
                     }
                 },
                 {
                     'type': 'Feature',
                     'properties': {
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./profile.html",
+                        "id": "Ouc8v3T8GQGq8Rloq6QZ"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.027372, 49.241189],
-                        'url': "./profile.html"
+                        'coordinates': [-123.027372, 49.241189]                        
                     }
                 },
                 {
                     'type': 'Feature',
                     'properties': {
 
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./login.html",
+                        "id": "vwNBdvMlq0e9ZiIqbESa"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.241189],
-                        'url': "./login.html"
+                        'coordinates': [-123.007372, 49.241189]                        
                     }
                 },
 
@@ -73,9 +77,13 @@ map.on('load', () => {
     map.on('click', 'places', (e) => {
         // Copy coordinates array.
 
-        window.location.href = "./main.html"
-        
-        
+
+        const switchPage = e.features[0]
+        console.log(features)
+        console.log(switchPage)
+        //window.location.href = switchPage
+
+
 
 
 
@@ -102,30 +110,36 @@ function writePlaces() {
         location: "3700 Willingdon Avenue",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.21189,
         lng: -123.007372,
-        
+
+        url: "./main.html"
+
     });
     placeRef.add({
         name: "Charge Station 2", //replace with your own city?
         location: "4330 Sanderson Way",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.241189,
         lng: -123.007372,
-        
+
+        url: "./profile.html"
+
     });
     placeRef.add({
         name: "Charge Station 3", //replace with your own city?
         location: "4812 Willingdon Ave",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.241189,
         lng: -123.007372,
-        
+
+        url: "./profile.html"
+
     });
 
 
