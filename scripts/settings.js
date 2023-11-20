@@ -1,12 +1,9 @@
-let uid = localStorage.getItem("currentUid");
-
 function toggle(switchElement) {
   const data = {
     active: !(switchElement.classList.contains("active"))
   };
 
-  db.collection("users").doc(uid).collection("settings").doc(switchElement.id).set(data)
-  .then(() => {
+  db.collection("users").doc(uid).collection("settings").doc(switchElement.id).set(data).then(() => {
     switchElement.classList.toggle("active");
   });
 }
@@ -31,8 +28,7 @@ function addSection(title) {
 
 function addSwitch(name, parentTitle) {
   let docRef = db.collection("users").doc(uid).collection("settings").doc(name);
-  docRef.get()
-  .then((doc) => {
+  docRef.get().then((doc) => {
     if (doc.exists) {
       let isActive = doc.data().active;
       let activeClass = isActive ? " active" : "";
@@ -49,8 +45,9 @@ function addSwitch(name, parentTitle) {
       document.getElementById("settings-group-" + parentTitle).insertAdjacentHTML("beforeend", switchTemplate);
     } else {
       console.log("Setting does not exist in user database yet! Adding it now...");
-      docRef.set({active: false});
-      addSwitch(name, parentTitle);
+      docRef.set({active: false}).then(() => {
+        addSwitch(name, parentTitle);
+      });
     }
   });
 }
