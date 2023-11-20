@@ -8,6 +8,15 @@ var map = new mapboxgl.Map({
     zoom: 11.15
 });
 
+const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+});
+
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+
 function addPostPins(map) {
 
     // READING information from collection in Firestore
