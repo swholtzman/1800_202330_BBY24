@@ -35,7 +35,7 @@ function populateUserInfo() {
 //call the function to run it 
 populateUserInfo();
 
-
+document.getElementById()
 
 function editUserInfo() {
     //Enable the form fields
