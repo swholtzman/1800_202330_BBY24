@@ -11,6 +11,7 @@ const map = new mapboxgl.Map({
 //Following Lines of code are taken from https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/ and modifed to fit what our goals were (changing page on click)
 // This code creates a source called places, that have features that include coordinates on the map.
 map.on('load', () => {
+    const features = ["./main.html"]
     map.addSource('places', {
         // This GeoJSON contains features that include an "icon"
         // property. The value of the "icon" property corresponds
@@ -75,10 +76,14 @@ map.on('load', () => {
     //When a place is clicked, it transfers to a different page.
     map.on('click', 'places', (e) => {
         // Copy coordinates array.
-        console.log(e.features[0].properties.id);
-        window.location.href = "./start_charge.html/?ID=" + e.features[0].properties.id;
-        
-        
+
+
+        const switchPage = e.features[0]
+        console.log(features)
+        console.log(switchPage)
+        //window.location.href = switchPage
+
+
 
 
 
@@ -105,30 +110,36 @@ function writePlaces() {
         location: "3700 Willingdon Avenue",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.21189,
         lng: -123.007372,
-        
+
+        url: "./main.html"
+
     });
     placeRef.add({
         name: "Charge Station 2", //replace with your own city?
         location: "4330 Sanderson Way",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.241189,
         lng: -123.007372,
-        
+
+        url: "./profile.html"
+
     });
     placeRef.add({
         name: "Charge Station 3", //replace with your own city?
         location: "4812 Willingdon Ave",
         city: "Burnaby",
         province: "BC",
-        
+
         lat: 49.241189,
         lng: -123.007372,
-        
+
+        url: "./profile.html"
+
     });
 
 
