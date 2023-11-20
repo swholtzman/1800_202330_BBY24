@@ -7,7 +7,7 @@ function populateUserInfo() {
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
             //get the document for current user.
-            currentUser.collection("charge_info").get()
+            currentUser.get()
                 .then(userDoc => {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
@@ -24,6 +24,15 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
+
+                    // Get car model, which is in a subcollection instead of directly in the user collection
+                    currentUser.collection("charge_info").doc("car").get().then((chargeDoc) => {
+                      var userCar = chargeDoc.data().car;
+
+                      if (userCar != null) {
+                        document.getElementById("carInput").value = userCar;
+                      }
+                    });
                 })
         } else {
             // No user is signed in.
