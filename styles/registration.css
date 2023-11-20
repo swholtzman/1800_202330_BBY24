@@ -1,0 +1,333 @@
+@import "../styles/style.css";
+
+:root {
+    --clr-bg: hsla(0, 0%, 7%);
+    --clr-bg-transparent: hsla(0, 0%, 7%, 0.4);
+    --clr-white: hsl(0, 0%, 95%);
+    --clr-borders: hsl(0, 0%, 24%);
+    --clr-opache-bg: hsla(0, 0%, 26%, 0.1);
+    --clr-opache-bg-fullscreen: hsla(0, 0%, 12%, 0.7);
+    --clr-less-opache-bg: hsla(0, 0%, 13%, 0.909);
+    --clr-clear: hsla(0, 0%, 0%, 0);
+
+    --clr-prime: hsl(240 80% 20%);
+    --clr-secondary: #6c66c6;
+    --clr-accent: hsl(320 100% 50%);
+
+
+    --clr-vibrantlav: hsl(260 70% 60%);
+    --clr-vibrantpurp: hsl(260, 66%, 52%);
+    --clr-royalpurp: hsl(270 50% 30%);
+
+    --clr-neonblu: hsl(190 100% 50%);
+    --clr-neonpeach: hsl(40 100% 50%);
+
+    --clr-glass: hsla(0, 0%, 100%, 0.1);
+    --clr-brightglass: hsla(0, 0%, 5%, 0.05);
+    --clr-darkglass: hsla(0, 0%, 5%, 0.01);
+
+    --clr-persianblu: hsl(235, 100%, 55%);
+    --clr-darkblu: #090c9b;
+    --clr-violet: hsl(240, 100%, 65%);
+
+    /* For background mist orbs */
+    --clr-neon-blue: hsl(200, 100%, 50%);
+    --clr-neon-pink: hsl(280, 100%, 50%);
+
+    /* Glow Colours */
+    --clr-blue-glow: hsl(180, 100%, 50%);
+    --clr-pink-glow: hsl(317, 100%, 50%);
+
+    /* Card Colours*/
+    --clr-cards: hsla(0, 0%, 90%, 0.15);
+    --clr-card-content: hsla(0, 0%, 2%, 0.1);
+
+    /* Nav Colours */
+    --clr-black-transparent: hsla(0, 0%, 0%, 0.7);
+    --clr-black: hsl(0, 0%, 0%);
+    --clr-off-white: hsla(0, 10%, 90%, 0.90);
+    --clr-off-white-font: hsla(0, 10%, 90%, 0.60);
+    --clr-nav-bg: #000211;
+
+    /* Button Colours*/
+    --clr-button: hsla(0, 0%, 95%, 0.3);
+
+    --clr-registration-glass: #ffffff1a;
+    --clr-registration-border: #ffffff30;
+
+}
+
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: var(--clr-off-white);
+    font-family: "montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    transition: 500ms;
+}
+
+body {
+
+    /* min-height: 100vh;
+    max-height: 100vh;*/
+    /* background: #000211;  */
+    color: var(--clr-off-white);
+
+    /* background-image: url("../images/BG Group.png");
+    background-size: 110vw 110vh;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat; */
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    position: absolute;
+}
+
+
+
+
+.form-box {
+    top: 5%;
+    width: 50vw;
+    height: 60vh;
+
+    min-width: 350px;
+    min-height: 700px;
+
+    position: relative;
+    margin: 6% auto;
+
+    background: var(--clr-registration-glass);
+    backdrop-filter: blur(20px);
+
+    padding: 6em;
+    
+    border-radius: 25px;
+
+    border: 2px solid var(--clr-registration-border);
+    box-shadow: 0 0 30px #0000002a;
+
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.button-box {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    width: 60%;
+    /* margin: 35px auto; */
+    position: relative;
+
+    min-width: 200px;
+
+    box-shadow: 0 0 20px 9px #24baff1f;
+    border-radius: 30px;
+
+    padding: 5px;
+}
+
+.toggle-button1 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    right: 15%;
+
+    cursor: pointer;
+
+    background: transparent;
+
+    border: 0;
+    outline: none;
+
+    position: relative;
+
+    align-self: center;
+
+}
+
+.toggle-button2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    left: 15%;
+
+    cursor: pointer;
+
+    background: transparent;
+
+    border: 0;
+    outline: none;
+
+    position: relative;
+
+    align-self: center;
+
+}
+
+#btn {
+
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(to right, var(--clr-neon-pink), var(--clr-vibrantlav));
+    border-radius: 30px;
+
+    transition: 500ms;
+}
+
+/* .social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 50px;
+    margin: 0;
+    box-shadow: 0 0 20px 0 var(--clr-violet);
+    cursor: pointer;
+    border-radius: 50%;
+} */
+
+.input_group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    top: 140px;
+    position: absolute;
+
+    margin-top: 1rem;
+    width: 280px;
+    transition: 500ms;
+}
+
+.input-field,
+.input-field2 {
+
+    
+    width: 80%;
+    min-width: 250px;
+
+    padding: 0.5rem;
+    margin: 1rem; /* Adjust this value to set the desired spacing between elements */
+
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+
+    outline: none;
+    background: transparent;
+}
+
+.input-field2 {
+    border: none; /* Remove borders for input-field2 */
+    padding-top: 2rem;
+    margin-top: 1rem; /* Add margin to move it down independently */
+}
+
+#carModel {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+select {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: var(--clr-registration-border);
+
+    padding: 3px 3px 3px 3px;
+}
+
+option {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: #999;
+}
+
+
+
+.submit-btn {
+    width: 80%;
+    padding: 10px 30px;
+
+    margin-left: 50%;
+
+    cursor: pointer;
+
+    display: block;
+    margin: auto;
+
+    background: linear-gradient(to right, var(--clr-neon-pink), var(--clr-vibrantlav));
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box {
+    margin: 30px 10px 30px 0;
+}
+
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    padding-top: 30px;
+}
+
+span {
+    color: var(--clr-off-white);
+    font-size: 12px;
+    bottom: 68px;
+}
+
+#login {
+    right: 50px;
+    margin-top: 40px;
+
+    opacity: 100%;
+
+    transition: opacity 100ms, margin-right 500s;
+
+    z-index: 1;
+
+}
+
+#register {
+    
+    margin-top: -300px;
+    margin-left: 1000px;
+    
+    opacity: 0%;
+
+    transition: opacity 100ms, margin-right 500s;
+    z-index: 2;
+}

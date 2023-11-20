@@ -306,14 +306,14 @@ body {
 /* HAMBURGER ICON */
 
 /* At Full Screen Size */
-@media (min-width: 55em) {
+@media (min-width: 1030px) {
     .main-menu {
-        display: none;
+        display: hidden;
     }
 }
 
 /* At Mobile Screen Size */
-@media (max-width: 55em) {
+@media (max-width: 1029px) {
     .main-menu button {
         position: fixed;
         top: 2%;
@@ -422,7 +422,7 @@ body {
 }
 
 /* Styles for Mobile Screen Size */
-@media (max-width: 55em) {
+@media (max-width: 1029px) {
     .primary-header {
         font-size: x-large;
     }
@@ -728,4 +728,20 @@ body {
     transform: translateY(-1.5rem) scale(1.15);
     color: var(--clr-neonblu);
     transition: 500ms;
+}
+
+@media (max-width: 435px) {
+    .bottom-nav {
+        height: 15rem;;
+    }
+
+    .centerButton {
+        top: 2%;
+    }
+
+    .centerButton.active {
+        top: -10%
+    }
+
+    
 }

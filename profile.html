@@ -19,11 +19,6 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 
-
-
-    <link rel="stylesheet" type="text/css" href="styles/profile.css">
-    <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
-
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -32,6 +27,8 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" href="styles/profile.css">
+    <link rel="stylesheet" href="https://use.typekit.net/nov2grk.css">
 
 
 
@@ -40,30 +37,31 @@
 
 <body>
 
-    <div class="container">
-        <h1 style = "color: white">User Profile </h1>
-        <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label  style = "color: white">Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+    <div class="form-box">
+        <div class="container">
+            <h1>User Profile </h1>
+            <form>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Car Type</label>
+                        <input type="text" id="carInput" class="form-control" placeholder="Enter your car type">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-end mt-5">
+                    <button type="button" class="btn btn-secondary; button" onclick="editUserInfo()">Edit</button>
+                    <span style="width: 10px"></span>
+                    <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
                 </div>
-                <div class="form-group">
-                    <label  style = "color: white">Car Type</label>
-                    <input type="text" id="carInput" class="form-control" placeholder="Enter your car type">
-                </div>
-                <div class="form-group">
-                    <label style = "color: white">City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
-                </div>
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary;" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
-            </div>
-        </form>
-        
+            </form>
+        </div>
     </div>
 
 
@@ -165,7 +163,7 @@
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/map.js"></script>
     <script src="./scripts/profile.js"></script>
-    
+
 
 
 
