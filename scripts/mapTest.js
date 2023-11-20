@@ -22,35 +22,38 @@ map.on('load', () => {
                 {
                     'type': 'Feature',
                     'properties': {
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./profile.html",
+                        "id": "GdLFDVSF18wVznJy1Ruz"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.21189],
-                        'url': "./main.html"
+                        'coordinates': [-123.007372, 49.21189]
                     }
                 },
                 {
                     'type': 'Feature',
                     'properties': {
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./profile.html",
+                        "id": "Ouc8v3T8GQGq8Rloq6QZ"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.027372, 49.241189],
-                        'url': "./profile.html"
+                        'coordinates': [-123.027372, 49.241189]                        
                     }
                 },
                 {
                     'type': 'Feature',
                     'properties': {
 
-                        'icon': 'rocket'
+                        'icon': 'rocket',
+                        'url': "./login.html",
+                        "id": "vwNBdvMlq0e9ZiIqbESa"
                     },
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-123.007372, 49.241189],
-                        'url': "./login.html"
+                        'coordinates': [-123.007372, 49.241189]                        
                     }
                 },
 
@@ -72,8 +75,8 @@ map.on('load', () => {
     //When a place is clicked, it transfers to a different page.
     map.on('click', 'places', (e) => {
         // Copy coordinates array.
-
-        window.location.href = "./main.html"
+        console.log(e.features[0].properties.id);
+        window.location.href = "./start_charge.html/?ID=" + e.features[0].properties.id;
         
         
 
