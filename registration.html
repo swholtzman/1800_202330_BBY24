@@ -78,11 +78,11 @@
                 <input type="text" id="cityInput" class="input-field" placeholder="Enter City" required>
                 <div id="carModel">
                     <label for="inputType" class="input-field2">Select Car Model:</label>
-                    <select id="inputType carInput" onchange="updateInputType()">
+                    <select id="inputType carInput">
                         <option value="" disabled selected>Select Car Type</option>
-                        <option id="tesla" value="modelY">Tesla Model Y</option>
-                        <option id="mustang" value="machE">Mustang Mach-E</option>
-                        <option id="kia" value="KiaEV">Kia EV6</option>
+                        <option value="modelY" onclick="updateCarModel('Tesla Model Y')">Tesla Model Y</option>
+                        <option value="machE" onclick="updateCarModel('Mustang Mach-E')">Mustang Mach-E</option>
+                        <option value="KiaEV" onclick="updateCarModel('Kia EV6')">Kia EV6</option>
                     </select>
                 </div>
                 <div class="check">

@@ -7,7 +7,7 @@ function populateUserInfo() {
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
             //get the document for current user.
-            currentUser.get()
+            currentUser.collection("charge_info").get()
                 .then(userDoc => {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
@@ -63,4 +63,8 @@ function saveUserInfo() {
 
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
+}
+
+function updateCarModel(model) {
+  db.collection("users").doc(user.uid).collection("charge_info").doc("car").update({car: model});
 }
