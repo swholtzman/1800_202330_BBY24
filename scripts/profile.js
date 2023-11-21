@@ -91,6 +91,18 @@ function saveUserInfo() {
 
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
+
+    
+
+    // Restore the initial background color and text color of input fields
+    document.getElementById("nameInput").style.backgroundColor = initialStyles.nameInput.backgroundColor;
+    document.getElementById("nameInput").style.color = initialStyles.nameInput.color;
+
+    document.getElementById("carInput").style.backgroundColor = initialStyles.carInput.backgroundColor;
+    document.getElementById("carInput").style.color = initialStyles.carInput.color;
+
+    document.getElementById("cityInput").style.backgroundColor = initialStyles.cityInput.backgroundColor;
+    document.getElementById("cityInput").style.color = initialStyles.cityInput.color;
 }
 
 function updateCarModel(model) {
@@ -116,19 +128,6 @@ function editUserInfo() {
     document.getElementById("cityInput").style.color = "var(--clr-neon-blue)";
 }
 
-function saveUserInfo() {
-    // Disable the form fields after saving
-    document.getElementById("personalInfoFields").disabled = true;
 
-    // Restore the initial background color and text color of input fields
-    document.getElementById("nameInput").style.backgroundColor = initialStyles.nameInput.backgroundColor;
-    document.getElementById("nameInput").style.color = initialStyles.nameInput.color;
-
-    document.getElementById("carInput").style.backgroundColor = initialStyles.carInput.backgroundColor;
-    document.getElementById("carInput").style.color = initialStyles.carInput.color;
-
-    document.getElementById("cityInput").style.backgroundColor = initialStyles.cityInput.backgroundColor;
-    document.getElementById("cityInput").style.color = initialStyles.cityInput.color;
-}
 
 
