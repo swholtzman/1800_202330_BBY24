@@ -47,8 +47,11 @@
     --clr-off-white-font: hsla(0, 10%, 90%, 0.60);
     --clr-nav-bg: #000211;
 
-    /* Button Colours*/
-    --clr-button: hsla(0, 0%, 95%, 0.3);
+        /* Button Colours*/
+        --clr-button: hsla(0, 0%, 95%, 0.3);
+
+        --clr-registration-glass: #ffffff1a;
+        --clr-registration-border: #ffffff30;
 }
 
 
@@ -421,6 +424,10 @@ body {
 
 }
 
+.main-menu {
+    display: none;
+}
+
 /* Styles for Mobile Screen Size */
 @media (max-width: 1029px) {
     .primary-header {
@@ -463,6 +470,10 @@ body {
             backdrop-filter: blur(1rem);
         }
     }
+
+    .main-menu {
+        display: block;
+    }
 }
 
 
@@ -489,7 +500,7 @@ body {
 .card {
     left: 0;
 
-    background-color: var(--clr-cards);
+    background-color: var(--clr-registration-glass);
     border-radius: 2rem;
     cursor: pointer;
 
@@ -579,7 +590,7 @@ body {
 .card-content1 {
     background-image: url(../images/MapCover.png);
     background-size: cover;
-    filter: brightness(70%) blur(1px);
+    filter: brightness(90%) blur(1px);
 }
 
 .card-content1:hover {
@@ -589,7 +600,7 @@ body {
 .card-content2 {
     background-image: url(../images/ChargingCover.png);
     background-size: cover;
-    filter: brightness(50%) blur(1px);
+    filter: brightness(90%) blur(1px);
 }
 
 .card-content2:hover {
@@ -738,18 +749,3 @@ body {
     transition: 500ms;
 }
 
-/* @media (max-width: 435px) {
-    .bottom-nav {
-        height: 15rem;;
-    }
-
-    .centerButton {
-        top: 2%;
-    }
-
-    .centerButton.active {
-        top: -10%
-    }
-
-    
-} */
