@@ -10,11 +10,53 @@ var map = new mapboxgl.Map({
 
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl
+    mapboxgl: mapboxgl,
+    types: 'country,region,place,postcode,locality,neighborhood,address',
+    localGeocoder: customGeocoder
+    
 });
-
-
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+// Load custom data to supplement the search results.
+// Custom locations will show up first, if there is a match
+const customData = {
+    'features': [{
+            'type': 'Feature',
+            'properties': {
+                'title': 'Charge Station 2'
+            },
+            'geometry': {
+                'coordinates': [-123.007372, 49.241189],
+                'type': 'Point'
+            }
+        },
+        {
+            'type': 'Feature',
+            'properties': {
+                'title': 'Charge Station 1'
+            },
+            'geometry': {
+                'coordinates': [-123.007372, 49.21189],
+                'type': 'Point'
+            }
+        },
+
+        {
+            'type': 'Feature',
+            'properties': {
+                'title': 'Charge Station 3'
+            },
+            'geometry': {
+                'coordinates': [-123.017372, 49.21189],
+                'type': 'Point'
+            }
+        },
+    ],
+    'type': 'FeatureCollection'
+};
+
+
+
 
 
 function addPostPins(map) {
@@ -135,4 +177,26 @@ function writePlaces() {
     });
 
 
+}
+
+function customGeocoder(query) {
+    const matchingFeatures = [];
+    for (const feature of customData.features) {
+        // Handle queries with different capitalization
+        // than the source data by calling toLowerCase().
+        if (
+            feature.properties.title
+            .toLowerCase()
+            .includes(query.toLowerCase())
+        ) {
+            // Add an emoji as a prefix for custom (fun!)
+            // data results using carmen geojson format:
+            // https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+            feature['place_name'] = `🚗 ${feature.properties.title}`;
+            feature['center'] = feature.geometry.coordinates;
+            feature['place_type'] = ['park'];
+            matchingFeatures.push(feature);
+        }
+    }
+    return matchingFeatures;
 }
