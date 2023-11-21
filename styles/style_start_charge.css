@@ -1,9 +1,17 @@
 @import "style_charge.css";
 
+:root {
+  /* Button Colours*/
+  --clr-button: hsla(0, 0%, 95%, 0.3);
+
+  --clr-registration-glass: #ffffff1a;
+  --clr-registration-border: #ffffff30;
+}
+
 * {
   border: none;
   outline: none;
-  
+
   font-family: "montserrat", sans-serif;
   font-weight: 400;
 }
@@ -114,10 +122,11 @@ form * {
   width: 50%;
 
   border: none;
+  border-radius: 30px;
 
   cursor: pointer;
 
-  background-color: var(--clr-less-opache-bg);
+  background-color: var(--clr-button);
   box-shadow: inset 0 0 0 3rem var(--clr-black-transparent),
     0 0 70px var(--clr-pink-glow),
     0 0 85px var(--clr-blue-glow);
@@ -127,10 +136,10 @@ form * {
 
 #submit_content button:hover {
   background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-            /* provide fallback values */
-            rgba(255, 255, 255, 0.4),
-            transparent 40%);
-    transition: 1s;
+      /* provide fallback values */
+      rgba(255, 255, 255, 0.4),
+      transparent 40%);
+  transition: 1s;
 }
 
 

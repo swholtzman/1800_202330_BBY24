@@ -5,6 +5,16 @@
     /* */
     --clr-search-bg: hsla(0, 0%, 7%, 0.9); /* Dark-grey, 80% opacity */
     --clr-search-border: hsla(0, 0%, 95%, 0.8);
+
+        /* Button Colours*/
+        --clr-button: hsla(0, 0%, 95%, 0.3);
+
+        --clr-registration-glass: #ffffff1a;
+        --clr-registration-border: #ffffff30;
+}
+
+body {
+    overflow-y: auto;
 }
 
 .ourStory {
@@ -15,14 +25,15 @@
     padding: 3rem;
     margin: 2rem;
 
-    background: var(--clr-opache-bg-fullscreen);
+    background: var(--clr-registration-glass);
+    border: 1px solid var(--clr-registration-border);
 }
 
 @supports (backdrop-filter: blur(1rem)) {
     .ourStory {
 
-        background: var(--clr-opache-bg);
-        backdrop-filter: blur(1rem);
+        background: var(--clr-registration-glass);
+        backdrop-filter: blur(2rem);
 
     }
 }
@@ -59,14 +70,4 @@ h1 {
 h1 a {
     color: var(--clr-off-white);
     cursor: default;
-}
-
-.searchBar {
-    margin-top: -40%;
-    background-color: var(--clr-search-bg);
-    border: var(--clr-search-border);
-
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    backdrop-filter: blur(15px) saturate(20);
 }
