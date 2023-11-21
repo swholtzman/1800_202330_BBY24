@@ -1,15 +1,18 @@
+
+
+//                  STYLES                  //
 // Store initial values
 const initialStyles = {
     nameInput: {
-        backgroundColor: getComputedStyle(document.getElementById("nameInput")).getPropertyValue('background-color'),
+        backgroundColor: 'transparent',
         color: getComputedStyle(document.getElementById("nameInput")).getPropertyValue('color')
     },
     carInput: {
-        backgroundColor: getComputedStyle(document.getElementById("carInput")).getPropertyValue('background-color'),
+        backgroundColor: 'transparent',
         color: getComputedStyle(document.getElementById("carInput")).getPropertyValue('color')
     },
     cityInput: {
-        backgroundColor: getComputedStyle(document.getElementById("cityInput")).getPropertyValue('background-color'),
+        backgroundColor: 'transparent',
         color: getComputedStyle(document.getElementById("cityInput")).getPropertyValue('color')
     }
 };
@@ -44,12 +47,13 @@ function populateUserInfo() {
 
                     // Get car model, which is in a subcollection instead of directly in the user collection
                     currentUser.collection("charge_info").doc("car").get().then((chargeDoc) => {
-                      var userCar = chargeDoc.data().car;
-
-                      if (userCar != null) {
-                        document.getElementById("carInput").value = userCar;
-                      }
+                        // Check if 'chargeDoc' exists and has a property named 'car'
+                        if (chargeDoc.exists && chargeDoc.data().car != null) {
+                            var userCar = chargeDoc.data().car;
+                            document.getElementById("carInput").value = userCar;
+                        }
                     });
+                    
                 })
         } else {
             // No user is signed in.
@@ -60,8 +64,6 @@ function populateUserInfo() {
 
 //call the function to run it 
 populateUserInfo();
-
-document.getElementById()
 
 function editUserInfo() {
     //Enable the form fields
@@ -95,19 +97,23 @@ function updateCarModel(model) {
   db.collection("users").doc(user.uid).collection("charge_info").doc("car").update({car: model});
 }
 
+
+
+//                  STYLES                  //
+// Style Updates when Editing Profile Information
 function editUserInfo() {
     // Enable the form fields for editing
     document.getElementById("personalInfoFields").disabled = false;
 
     // Change the background color and text color of input fields
-    document.getElementById("nameInput").style.backgroundColor = "var(--clr-off-white)";
-    document.getElementById("nameInput").style.color = "blue";
+    document.getElementById("nameInput").style.backgroundColor = "var(--clr-registration-glass)";
+    document.getElementById("nameInput").style.color = "var(--clr-neon-blue)";
 
-    document.getElementById("carInput").style.backgroundColor = "var(--clr-off-white)";
-    document.getElementById("carInput").style.color = "blue";
+    document.getElementById("carInput").style.backgroundColor = "var(--clr-registration-glass)";
+    document.getElementById("carInput").style.color = "var(--clr-neon-blue)";
 
-    document.getElementById("cityInput").style.backgroundColor = "var(--clr-off-white)";
-    document.getElementById("cityInput").style.color = "blue";
+    document.getElementById("cityInput").style.backgroundColor = "var(--clr-registration-glass)";
+    document.getElementById("cityInput").style.color = "var(--clr-neon-blue)";
 }
 
 function saveUserInfo() {
@@ -124,6 +130,5 @@ function saveUserInfo() {
     document.getElementById("cityInput").style.backgroundColor = initialStyles.cityInput.backgroundColor;
     document.getElementById("cityInput").style.color = initialStyles.cityInput.color;
 }
-
 
 

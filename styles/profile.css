@@ -31,16 +31,17 @@ body {
 
 
 .form-box {
-    top: 5%;
 
     width: 50vw;
     height: 60vh;
     min-width: 350px;
-    min-height: 700px;
+    min-height: 300px;
 
     position: relative;
 
     margin: 6% auto;
+
+    margin-top: -100px;
 
     background: var(--clr-registration-glass);
     backdrop-filter: blur(20px);
