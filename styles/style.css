@@ -142,6 +142,7 @@ body {
 
 *::placeholder {
     color: var(--clr-off-white-font);
+    font-size: 14px;
 }
 
 
