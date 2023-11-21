@@ -37,6 +37,7 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="/styles/registration.css">
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <link rel="stylesheet" href="styles/registration.css">
 
 
 
@@ -65,7 +66,7 @@
                 <img src="#">
             </div> -->
             <form id="login personalInfoFields" class="input-group" >
-                <input type="text" id="nameInput" class="input-field" placeholder="Username" required>
+                <input type="text" class="input-field" placeholder="Username" required>
                 <!-- <input type="email" class="input-field" placeholder="Email" required> -->
                 <input type="password" class="input-field" placeholder="Enter Password" required>
                 <div class="check">
@@ -74,16 +75,16 @@
                 <button type="submit" class="submit-btn">Login</button>
             </form>
             <form id="register" class="input-group">
-                <input type="text" id="nameInput" class="input-field" placeholder="Username" required>
+                <input type="text" class="input-field" placeholder="Username" required>
                 <input type="text" class="input-field" placeholder="Create Password" required>
                 <input type="text" id="cityInput" class="input-field" placeholder="Enter City" required>
                 <div id="carModel">
                     <label for="inputType" class="input-field2">Select Car Model:</label>
-                    <select id="inputType carInput" onchange="updateInputType()">
+                    <select id="inputType carInput">
                         <option value="" disabled selected>Select Car Type</option>
-                        <option value="modelY">Tesla Model Y</option>
-                        <option value="machE">Mustang Mach-E</option>
-                        <option value="KiaEV">Kia EV6</option>
+                        <option value="modelY" onclick="updateCarModel('Tesla Model Y')">Tesla Model Y</option>
+                        <option value="machE" onclick="updateCarModel('Mustang Mach-E')">Mustang Mach-E</option>
+                        <option value="KiaEV" onclick="updateCarModel('Kia EV6')">Kia EV6</option>
                     </select>
                 </div>
                 <div class="check">
@@ -95,6 +96,7 @@
 
         </div>
 
+<<<<<<< HEAD
         
         <script src="/scripts/registration.js"></script>
         <script src="/scripts/profile.js"></script>
@@ -102,6 +104,14 @@
         <!---------------------------------------------->
         
         <script src="./scripts/authentication.js"></script>
+=======
+        <script src="scripts/registration.js"></script>
+        <!-- <script src="scripts/profile.js"></script> -->
+
+        <!---------------------------------------------->
+        <!-- <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+        <script src="./scripts/authentication.js"></script> -->
+>>>>>>> 3c4a70597d9c2003f7898868785fb4cc0d2a22a6
 </body>
 
 </html>

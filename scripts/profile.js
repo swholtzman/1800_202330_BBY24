@@ -24,6 +24,15 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
+
+                    // Get car model, which is in a subcollection instead of directly in the user collection
+                    currentUser.collection("charge_info").doc("car").get().then((chargeDoc) => {
+                      var userCar = chargeDoc.data().car;
+
+                      if (userCar != null) {
+                        document.getElementById("carInput").value = userCar;
+                      }
+                    });
                 })
         } else {
             // No user is signed in.
@@ -35,7 +44,7 @@ function populateUserInfo() {
 //call the function to run it 
 populateUserInfo();
 
-
+document.getElementById()
 
 function editUserInfo() {
     //Enable the form fields
@@ -63,4 +72,8 @@ function saveUserInfo() {
 
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
+}
+
+function updateCarModel(model) {
+  db.collection("users").doc(user.uid).collection("charge_info").doc("car").update({car: model});
 }
