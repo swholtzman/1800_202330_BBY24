@@ -1,6 +1,6 @@
 /** Calculates the user's priority score. */
 function calcPriorityScore() {
-  return db.collection("users").doc(uid).collection("charge_info").get().then((doc) => {
+  return db.collection("users").doc(uid).collection("charge_info").doc("charge").get().then((doc) => {
     let batteryInPercent = doc.data().charge;
     let carModel = doc.data().car;
     let hoursAvailable = 5;

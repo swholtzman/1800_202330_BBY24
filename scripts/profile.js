@@ -89,6 +89,10 @@ function saveUserInfo() {
             console.log("Document successfully updated!");
         })
 
+    currentUser.collection("charge_info").doc("car").set({car: userCar}).then(() => {
+      console.log("Document successfully updated!");
+    });
+
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
 
