@@ -145,7 +145,7 @@ body {
 
 /* SEARCH BAR */
 .searchContainer {
-    position: fixed;
+    position: absolute;
     top: 37%;
     left: 0;
     width: 100%;
@@ -224,7 +224,7 @@ body {
 
 /* Start Charge Button */
 .chargeContainer {
-    position: fixed;
+    position: absolute;
     top: 74%;
     left: 0;
     width: 100%;
@@ -316,8 +316,8 @@ body {
 @media (max-width: 1029px) {
     .main-menu button {
         position: fixed;
-        top: 2%;
-        right: 10%;
+        top: 5%;
+        right: 15%;
         transform: translateX(50%);
         display: flex;
         justify-content: center;
@@ -487,6 +487,8 @@ body {
 }
 
 .card {
+    left: 0;
+
     background-color: var(--clr-cards);
     border-radius: 2rem;
     cursor: pointer;
@@ -494,11 +496,18 @@ body {
     height: 35vh;
     position: relative;
     width: 60vw;
+    min-width: 350px;
     overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 431px) {
+    .card {
+        left: 6.5%;
+    }
 }
 
 .card:hover::before {
@@ -594,7 +603,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background: linear-gradient(to top, var(--clr-bg-transparent), var(--clr-clear));
     display: flex;
     justify-content: center;
@@ -646,9 +655,8 @@ body {
 }
 
 .centerButton.active {
-    top: 0%;
+    top: 5%;
     transition: 500ms;
-
 }
 
 .centerButton.active:before {
@@ -672,7 +680,7 @@ body {
 }
 
 .centerButton.active~.menu {
-    width: 100vw;
+    width: 120vw;
     height: 17.5vh;
     background: var(--clr-glass);
     border: 2px solid var(--clr-borders);
@@ -695,7 +703,7 @@ body {
 }
 
 .centerButton.active~.menu ul {
-    gap: 3.5rem;
+    gap: 3rem;
     transition: 500ms;
 }
 

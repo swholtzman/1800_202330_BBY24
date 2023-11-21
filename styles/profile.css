@@ -32,6 +32,8 @@ body {
 
 .form-box {
 
+    right: -5%;
+
     width: 50vw;
     height: 60vh;
     min-width: 350px;
