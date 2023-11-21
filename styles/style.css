@@ -730,7 +730,7 @@ body {
     transition: 500ms;
 }
 
-@media (max-width: 435px) {
+/* @media (max-width: 435px) {
     .bottom-nav {
         height: 15rem;;
     }
@@ -744,4 +744,4 @@ body {
     }
 
     
-}
+} */

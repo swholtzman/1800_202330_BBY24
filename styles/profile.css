@@ -15,9 +15,9 @@ body {
     color: var(--clr-off-white);
 }
 
-.hamburgerButton {
+/* .hamburgerButton {
     margin-right: 3rem;
-}
+} */
 
 @media (min-width: 1030px) {
     .main-menu {
