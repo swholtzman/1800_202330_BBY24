@@ -14,34 +14,41 @@ window.addEventListener("click", function (event) {
 
 
 function displayBatteryPercentage() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-            db.collection("users").doc(user.uid).collection(charging_info).doc(Charging_Status)
-                .onSnapshot(e => {                                                               
-                    console.log("current document data: " + e.data().charge);                          
-                    document.querySelector("#charge_percent_here").innerHTML = e.data().charge;
+  let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge")
+  chargeRef.get().then((doc) => {
+    if (doc.exists) {
+      let charge = doc.data().charge;
+      let chargePercent = "" + charge + "%";
+      document.querySelector("#charge_percent_here").innerHTML = chargePercent;
+    } else {
+      let charge = prompt("Please enter your car's current battery percentage.");
+      setBatteryPercentage(charge).then(() => {
+        displayBatteryPercentage();
+      });
+    }
 
-                })
-        }
-    })
+    
+  });
 }
 displayBatteryPercentage();
 
 function displayEstimatedTime() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-            db.collection("users").doc(user.uid)
-                .onSnapshot(e => {                                                             
-                    console.log("current document data: " + e.data().est_time); 
-                    if (e.data().est_time == null){
-                        document.querySelector("#est_time_here").innerHTML = "Currently not charging";
-                    } else{       
-                    document.querySelector("#est_time_here").innerHTML = e.data().est_time;   
-                    }
-                })
-        }
-    })
+  let estTimeRef = db.collection("users").doc(uid).collection("charge_info").doc("est_time");
+  estTimeRef.get().then((doc) => {
+    if (!doc.exists || doc.data().est_time == null) {
+      document.querySelector("#est_time_here").innerHTML = "Not Charging";
+    } else {
+      document.querySelector("#est_time_here").innerHTML = estTime;
+    }
+  });
 }
 displayEstimatedTime()
+
+/** BOTTOM NAV BAR BUTTON */
+function animateBottomNavbar() {
+  let centerButton = document.querySelector('.centerButton');
+  centerButton.onclick = function () {
+    centerButton.classList.toggle('active');
+  }
+}
+animateBottomNavbar();
