@@ -25,10 +25,9 @@ var uiConfig = {
             }).then(function setDefaultSettings() {
               db.collection("users").doc(user.uid).collection("settings").doc("Enable Notifications").set({active: true});
               db.collection("users").doc(user.uid).collection("settings").doc("News And Events").set({active: true});
-            }).then(function setChargeInfo() {
-              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({is_charging: "false"});
-              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({charge: "50%"});
-              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({est_time: null});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("is_charging").set({is_charging: false});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("charge").set({charge: "50%"});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("target_time").set({targetDuration: null});
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("main.html");       //re-direct to main.html after signup
