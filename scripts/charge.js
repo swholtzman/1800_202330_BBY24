@@ -45,3 +45,12 @@ function displayEstimatedTime() {
     })
 }
 displayEstimatedTime()
+
+/** BOTTOM NAV BAR BUTTON */
+function animateBottomNavbar() {
+  let centerButton = document.querySelector('.centerButton');
+  centerButton.onclick = function () {
+    centerButton.classList.toggle('active');
+  }
+}
+animateBottomNavbar();
