@@ -20,6 +20,18 @@ function displayBatteryPercentage() {
       let charge = doc.data().charge;
       let chargePercent = "" + charge + "%";
       document.querySelector("#charge_percent_here").innerHTML = chargePercent;
+
+      const style = window.document.styleSheets[0];
+      // const styleSheet = style.sheet;
+      console.log(style);
+      if (charge >= 60){
+        style.insertRule("#charge_percent_here { background-color: green}", 0);
+      } else if (charge >= 30){
+        style.insertRule("#charge_percent_here { background-color: yellow}", 0);
+      } else{
+        style.insertRule("#charge_percent_here { background-color: red}", 0);
+      }
+
     } else {
       let charge = prompt("Please enter your car's current battery percentage.");
       setBatteryPercentage(charge).then(() => {
