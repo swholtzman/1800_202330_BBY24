@@ -21,12 +21,14 @@ var uiConfig = {
             db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
                    name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
-                   est_time: "00:00",
-                   is_charging: "false",
                    city: "Burnaby"                     //with authenticated user's ID (user.uid)
             }).then(function setDefaultSettings() {
               db.collection("users").doc(user.uid).collection("settings").doc("Enable Notifications").set({active: true});
               db.collection("users").doc(user.uid).collection("settings").doc("News And Events").set({active: true});
+            }).then(function setChargeInfo() {
+              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({is_charging: "false"});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({charge: "50%"});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("Charging_Status").set({est_time: null});
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("main.html");       //re-direct to main.html after signup
@@ -46,7 +48,7 @@ var uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: 'main.html',
+    // signInSuccessUrl: 'main.html',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
     //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,

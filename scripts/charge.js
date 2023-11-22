@@ -17,10 +17,10 @@ function displayBatteryPercentage() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-            db.collection("users").doc(user.uid)
-                .onSnapshot(percent => {                                                               
-                    console.log("current document data: " + percent.data().charge);                          
-                    document.querySelector("#charge_percent_here").innerHTML = percent.data().charge;
+            db.collection("users").doc(user.uid).collection(charging_info).doc(Charging_Status)
+                .onSnapshot(e => {                                                               
+                    console.log("current document data: " + e.data().charge);                          
+                    document.querySelector("#charge_percent_here").innerHTML = e.data().charge;
 
                 })
         }
@@ -33,9 +33,13 @@ function displayEstimatedTime() {
         // Check if user is signed in:
         if (user) {
             db.collection("users").doc(user.uid)
-                .onSnapshot(est_time => {                                                             
-                    console.log("current document data: " + est_time.data().estTime);                        
-                    document.querySelector("#est_time_here").innerHTML = est_time.data().estTime;   
+                .onSnapshot(e => {                                                             
+                    console.log("current document data: " + e.data().est_time); 
+                    if (e.data().est_time == null){
+                        document.querySelector("#est_time_here").innerHTML = "Currently not charging";
+                    } else{       
+                    document.querySelector("#est_time_here").innerHTML = e.data().est_time;   
+                    }
                 })
         }
     })
