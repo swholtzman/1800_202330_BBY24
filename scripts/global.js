@@ -1,4 +1,6 @@
 /* Feel free to link this JS file in the HEAD of any html file except the login page */
+/* This file should not call any functions except getCurrentUid() */
+/* getCurrentUid() is called only to ensure that the user i*/
 
 // Global current user ID variable
 var uid = getCurrentUid();
@@ -44,11 +46,16 @@ function startCharging(stationId) {
     userRef.set({
       id: uid
     }).then(() => {
-      let isChargingRef = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
-      isChargingRef.set({
+      let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
+      chargeInfoRef.doc("is_charging").set({
         is_charging: true
       }).then(() => {
-        resolve(true);
+        // PLACEHOLDER UNTIL WE CAN CALCULATE EST_TIME
+        chargeInfoRef.doc("est_time").set({
+          est_time: "4h 30min"
+        }).then(() => {
+          resolve(true);
+        });
       });
     });
   });
