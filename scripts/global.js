@@ -22,27 +22,10 @@ function signOut() {
   });
 }
 
-/** Write any valid battery percentage to the database */
-function setBatteryPercentage(percentage) {
-  return new Promise((resolve, reject) => {
-    if (percentage < 0 || percentage > 100) {
-      alert("Invalid battery percentage.");
-      reject();
-    } else {
-      let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
-      chargeRef.set({charge: percentage}).then(() => {
-        console.log("Battery is now at " + percentage + "%");
-        resolve(percentage);
-      });
-    }
-  });
-  
-}
-
 /** Add user to a station's users_charging collection */
 function startCharging(stationId) {
   let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
-  userRef.set({id: uid}).then(() => {
+  return userRef.set({id: uid}).then(() => {
     let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
     return new Promise((resolve, reject) => {
       chargeInfoRef.doc("is_charging").set({is_charging: true}).then(() => {
@@ -76,5 +59,20 @@ function stopCharging(stationId) {
       })
     });
   });
-  
+}
+
+/** Write any valid battery percentage to the database */
+function setBatteryPercentage(percentage) {
+  return new Promise((resolve, reject) => {
+    if (percentage < 0 || percentage > 100) {
+      alert("Invalid battery percentage.");
+      reject();
+    } else {
+      let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
+      chargeRef.set({charge: percentage}).then(() => {
+        console.log("Battery is now at " + percentage + "%");
+        resolve(percentage);
+      });
+    }
+  }); 
 }
