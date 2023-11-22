@@ -14,17 +14,22 @@ window.addEventListener("click", function (event) {
 
 
 function displayBatteryPercentage() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-            db.collection("users").doc(user.uid).collection(charging_info).doc(Charging_Status)
-                .onSnapshot(e => {                                                               
-                    console.log("current document data: " + e.data().charge);                          
-                    document.querySelector("#charge_percent_here").innerHTML = e.data().charge;
+  let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge")
+  chargeRef.get().then((doc) => {
+    if (doc.exists) {
+      let charge = doc.data().charge;
+      let chargePercent = "" + charge + "%";
+      console.log("current document data: " + doc.data().charge);
+      document.querySelector("#charge_percent_here").innerHTML = chargePercent;
+    } else {
+      let charge = prompt("Please enter your car's current battery percentage.");
+      setBatteryPercentage(charge).then(() => {
+        displayBatteryPercentage();
+      });
+    }
 
-                })
-        }
-    })
+    
+  });
 }
 displayBatteryPercentage();
 
