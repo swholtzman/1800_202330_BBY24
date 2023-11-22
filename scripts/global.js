@@ -1,4 +1,6 @@
 /* Feel free to link this JS file in the HEAD of any html file except the login page */
+/* This file should not call any functions except getCurrentUid() */
+/* getCurrentUid() is called only to ensure that the user i*/
 
 // Global current user ID variable
 var uid = getCurrentUid();

@@ -22,7 +22,7 @@ document.querySelector("#back").addEventListener("click", function(){
 //gets name of charger from URL params, and display it.
 function showChargingStation(){
     var name;
-    var chargerID = new URL(window.location.href).searchParams.get("ID");
+    var chargerID = getStationId();
     db.collection("places").doc(chargerID)
     .get()
     .then(e =>{
@@ -32,6 +32,10 @@ function showChargingStation(){
     })
 }
 showChargingStation();
+
+function getStationId() {
+  return new URL(window.location.href).searchParams.get("ID");
+}
 
 //runs when submit button is clicked
 document.querySelector("#submit_button").addEventListener("click", function(e){
@@ -59,8 +63,11 @@ document.querySelector("#submit_button").addEventListener("click", function(e){
                     .set({                                                               
                         targetLocation: document.querySelector("#charger_name_here").innerHTML,
                     }).then(function() {
-                        alert("Successfully saved.");
-                        window.location.href = "main.html"
+                        startCharging(getStationId()).then(() => {
+                          alert("Successfully saved.");
+                          window.location.href = "main.html"
+                        })
+                        
                     }
 
                     )                
@@ -78,5 +85,12 @@ document.querySelector("#submit_button").addEventListener("click", function(e){
     
 });
 
-
+/** BOTTOM NAV BAR BUTTON */
+function animateBottomNavbar() {
+  let centerButton = document.querySelector('.centerButton');
+  centerButton.onclick = function () {
+    centerButton.classList.toggle('active');
+  }
+}
+animateBottomNavbar();
 
