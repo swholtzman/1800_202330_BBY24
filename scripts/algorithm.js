@@ -47,14 +47,21 @@ function prioritize(stationId) {
 
 /** Calculates the user's priority score. */
 function calcPriorityScore() {
-    db.collection("users").doc(uid).collection("charge_info").doc("charge").get().then((doc) => {
-    let batteryInPercent = doc.data().charge;
-    let carModel = doc.data().car;
-    let hoursAvailable = 5;
-    let bracketFactor = calcBracketFactor(batteryInPercent, carModel);
-    let priorityScore = bracketFactor * (1 / hoursAvailable);
-    db.collection("users").doc(uid).collection("charge_info").doc("priorityScore").set({score: priorityScore});
-  });
+  return new Promise((resolve, reject) => {
+    let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
+    chargeRef.get().then((doc) => {
+      let batteryInPercent = doc.data().charge;
+      let carModel = doc.data().car;
+      let hoursAvailable = 5;
+      let bracketFactor = calcBracketFactor(batteryInPercent, carModel);
+      let priorityScore = bracketFactor * (1 / hoursAvailable);
+
+      let scoreRef = db.collection("users").doc(uid).collection("charge_info").doc("priorityScore");
+      scoreRef.set({score: priorityScore}).then(() => {
+        resolve(priorityScore);
+      });
+    });
+  })
 }
 
 /** Assigns the car to a priority bracket according to its model and remaining battery */

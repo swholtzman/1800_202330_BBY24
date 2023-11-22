@@ -41,24 +41,26 @@ function setBatteryPercentage(percentage) {
 
 /** Add user to a station's users_charging collection */
 function startCharging(stationId) {
-  return new Promise((resolve, reject) => {
-    let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
-    userRef.set({
-      id: uid
-    }).then(() => {
-      let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
-      chargeInfoRef.doc("is_charging").set({
-        is_charging: true
-      }).then(() => {
-        // PLACEHOLDER UNTIL WE CAN CALCULATE EST_TIME
-        chargeInfoRef.doc("est_time").set({
-          est_time: "4h 30min"
-        }).then(() => {
-          resolve(true);
-        });
+  let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
+  userRef.set({id: uid}).then(() => {
+    let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
+    return new Promise((resolve, reject) => {
+      chargeInfoRef.doc("is_charging").set({is_charging: true}).then(() => {
+        resolve();
       });
     });
-  });
+  }).then(() => {
+    let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
+    return new Promise((resolve, reject) => {
+      chargeInfoRef.doc("est_time").set({est_time: "4h 30min"}).then(() => {
+        resolve();
+      });
+    });
+  }).then(() => {
+    calcPriorityScore().then((score) => {
+      console.log(score);
+    });
+  })
 }
 
 /** Remove a user from a station's user_charging collection */
