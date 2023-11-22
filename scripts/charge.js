@@ -38,7 +38,7 @@ function displayEstimatedTime() {
     if (!doc.exists || doc.data().est_time == null) {
       document.querySelector("#est_time_here").innerHTML = "Not Charging";
     } else {
-      document.querySelector("#est_time_here").innerHTML = estTime;
+      document.querySelector("#est_time_here").innerHTML = doc.data().est_time;
     }
   });
 }

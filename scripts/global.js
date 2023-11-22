@@ -46,11 +46,16 @@ function startCharging(stationId) {
     userRef.set({
       id: uid
     }).then(() => {
-      let isChargingRef = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
-      isChargingRef.set({
+      let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
+      chargeInfoRef.doc("is_charging").set({
         is_charging: true
       }).then(() => {
-        resolve(true);
+        // PLACEHOLDER UNTIL WE CAN CALCULATE EST_TIME
+        chargeInfoRef.doc("est_time").set({
+          est_time: "4h 30min"
+        }).then(() => {
+          resolve(true);
+        });
       });
     });
   });
