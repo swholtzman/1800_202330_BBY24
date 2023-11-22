@@ -3,7 +3,7 @@
 // Global current user ID variable
 var uid = getCurrentUid();
 
-// Get current user id from local storage, force user to login if needed
+/** Get current user id from local storage, force user to login if needed */
 function getCurrentUid() {
   if (localStorage.getItem("currentUid") == null) {
     signOut();
@@ -12,7 +12,7 @@ function getCurrentUid() {
   }
 }
 
-// Sign out
+/** Sign out */
 function signOut() {
   localStorage.removeItem("currentUid");
   firebase.auth().signOut().then(() => {
@@ -20,22 +20,31 @@ function signOut() {
   });
 }
 
-// Write any valid battery percentage to the database
+/** Write any valid battery percentage to the database */
 function setBatteryPercentage(percentage) {
-  if (percentage < 0 || percentage > 100) {
-    console.log("Invalid battery percentage.");
-  } else {
-    db.collection("users").doc(uid).collection("charge_info").doc("charge").set({charge: percentage});
-    console.log("Battery is now at " + percentage + "%");
-  }
+  return new Promise((resolve, reject) => {
+    if (percentage < 0 || percentage > 100) {
+      alert("Invalid battery percentage.");
+      reject();
+    } else {
+      let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
+      chargeRef.set({charge: percentage}).then(() => {
+        console.log("Battery is now at " + percentage + "%");
+        resolve(percentage);
+      });
+    }
+  });
+  
 }
 
+/** Add user to a station's users_charging collection */
 function startCharging(stationId) {
   db.collection("places").doc(stationId).collection("users_charging").doc(uid).set({
     id: uid
   });
 }
 
+/** Remove a user from a station's user_charging collection */
 function stopCharging(stationId) {
   db.collection("places").doc(stationId).collection("users_charging").doc(uid).delete();
 }
