@@ -98,12 +98,12 @@ body {
 
 
 .form-box {
-    top: 5%;
-    width: 50vw;
+    top: 0%;
+    width: 40vw;
     height: 60vh;
 
-    min-width: 350px;
-    min-height: 700px;
+    min-width: 320px;
+    min-height: 600px;
 
     position: relative;
     margin: 6% auto;
@@ -112,21 +112,19 @@ body {
     backdrop-filter: blur(20px);
 
     padding: 6em;
-    
+
     border-radius: 25px;
 
     border: 2px solid var(--clr-registration-border);
     box-shadow: 0 0 30px #0000002a;
 
     overflow: hidden;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-
 
 .button-box {
     display: flex;
@@ -143,11 +141,13 @@ body {
     box-shadow: 0 0 20px 9px #24baff1f;
     border-radius: 30px;
 
+    margin-bottom: 20px;
     padding: 5px;
 }
 
 .toggle-button1 {
     padding-top: 15px;
+    padding-left: 15px;
     padding-bottom: 15px;
     right: 15%;
 
@@ -166,6 +166,7 @@ body {
 
 .toggle-button2 {
     padding-top: 15px;
+    padding-right: 15px;
     padding-bottom: 15px;
 
     left: 15%;
@@ -220,7 +221,7 @@ body {
     top: 140px;
     position: absolute;
 
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 280px;
     transition: 500ms;
 }
@@ -228,12 +229,13 @@ body {
 .input-field,
 .input-field2 {
 
-    
+
     width: 80%;
     min-width: 250px;
 
     padding: 0.5rem;
-    margin: 1rem; /* Adjust this value to set the desired spacing between elements */
+    margin: 1rem;
+    /* Adjust this value to set the desired spacing between elements */
 
     border-left: 0;
     border-top: 0;
@@ -245,9 +247,13 @@ body {
 }
 
 .input-field2 {
-    border: none; /* Remove borders for input-field2 */
+    justify-content: center;
+    align-items: center;
+    border: none;
+    /* Remove borders for input-field2 */
     padding-top: 2rem;
-    margin-top: 1rem; /* Add margin to move it down independently */
+    margin-top: 1rem;
+    /* Add margin to move it down independently */
 }
 
 #carModel {
@@ -322,12 +328,40 @@ span {
 }
 
 #register {
-    
+
     margin-top: -300px;
     margin-left: 1000px;
-    
+
     opacity: 0%;
 
     transition: opacity 100ms, margin-right 500s;
     z-index: 2;
+}
+
+
+@media (max-width: 500px) {
+    .form-box {
+        top: 5%;
+    }
+
+}
+
+@media (max-width: 1800px) {
+    
+    #carModel {
+        margin-left: -20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    label {
+        font-size: 14px;
+        padding: 0;
+    }
+
+    select {
+        font-size: 12px;
+        padding: 2px;
+        margin: -20px;
+    }
 }

@@ -25,7 +25,7 @@ function setBatteryPercentage(percentage) {
   if (percentage < 0 || percentage > 100) {
     console.log("Invalid battery percentage.");
   } else {
-    db.collection("users").doc(uid).update({charge: percentage});
+    db.collection("users").doc(uid).collection("charge_info").doc("charge").set({charge: percentage});
     console.log("Battery is now at " + percentage + "%");
   }
 }

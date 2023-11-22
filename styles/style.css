@@ -47,8 +47,11 @@
     --clr-off-white-font: hsla(0, 10%, 90%, 0.60);
     --clr-nav-bg: #000211;
 
-    /* Button Colours*/
-    --clr-button: hsla(0, 0%, 95%, 0.3);
+        /* Button Colours*/
+        --clr-button: hsla(0, 0%, 95%, 0.3);
+
+        --clr-registration-glass: #ffffff1a;
+        --clr-registration-border: #ffffff30;
 }
 
 
@@ -139,13 +142,14 @@ body {
 
 *::placeholder {
     color: var(--clr-off-white-font);
+    font-size: 14px;
 }
 
 
 
 /* SEARCH BAR */
 .searchContainer {
-    position: fixed;
+    position: absolute;
     top: 37%;
     left: 0;
     width: 100%;
@@ -224,7 +228,7 @@ body {
 
 /* Start Charge Button */
 .chargeContainer {
-    position: fixed;
+    position: absolute;
     top: 74%;
     left: 0;
     width: 100%;
@@ -316,8 +320,8 @@ body {
 @media (max-width: 1029px) {
     .main-menu button {
         position: fixed;
-        top: 2%;
-        right: 10%;
+        top: 5%;
+        right: 15%;
         transform: translateX(50%);
         display: flex;
         justify-content: center;
@@ -421,6 +425,10 @@ body {
 
 }
 
+.main-menu {
+    display: none;
+}
+
 /* Styles for Mobile Screen Size */
 @media (max-width: 1029px) {
     .primary-header {
@@ -463,6 +471,10 @@ body {
             backdrop-filter: blur(1rem);
         }
     }
+
+    .main-menu {
+        display: block;
+    }
 }
 
 
@@ -487,18 +499,27 @@ body {
 }
 
 .card {
-    background-color: var(--clr-cards);
+    left: 0;
+
+    background-color: var(--clr-registration-glass);
     border-radius: 2rem;
     cursor: pointer;
 
     height: 35vh;
     position: relative;
     width: 60vw;
+    min-width: 350px;
     overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 431px) {
+    .card {
+        left: 6.5%;
+    }
 }
 
 .card:hover::before {
@@ -570,7 +591,7 @@ body {
 .card-content1 {
     background-image: url(../images/MapCover.png);
     background-size: cover;
-    filter: brightness(70%) blur(1px);
+    filter: brightness(90%) blur(1px);
 }
 
 .card-content1:hover {
@@ -580,7 +601,7 @@ body {
 .card-content2 {
     background-image: url(../images/ChargingCover.png);
     background-size: cover;
-    filter: brightness(50%) blur(1px);
+    filter: brightness(90%) blur(1px);
 }
 
 .card-content2:hover {
@@ -594,7 +615,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background: linear-gradient(to top, var(--clr-bg-transparent), var(--clr-clear));
     display: flex;
     justify-content: center;
@@ -646,9 +667,8 @@ body {
 }
 
 .centerButton.active {
-    top: 0%;
+    top: 5%;
     transition: 500ms;
-
 }
 
 .centerButton.active:before {
@@ -672,7 +692,7 @@ body {
 }
 
 .centerButton.active~.menu {
-    width: 100vw;
+    width: 120vw;
     height: 17.5vh;
     background: var(--clr-glass);
     border: 2px solid var(--clr-borders);
@@ -695,7 +715,7 @@ body {
 }
 
 .centerButton.active~.menu ul {
-    gap: 3.5rem;
+    gap: 3rem;
     transition: 500ms;
 }
 
@@ -730,18 +750,3 @@ body {
     transition: 500ms;
 }
 
-@media (max-width: 435px) {
-    .bottom-nav {
-        height: 15rem;;
-    }
-
-    .centerButton {
-        top: 2%;
-    }
-
-    .centerButton.active {
-        top: -10%
-    }
-
-    
-}

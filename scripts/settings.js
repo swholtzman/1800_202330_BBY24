@@ -88,7 +88,7 @@ function loadSettingsPage() {
 
   addSection("More Options");
   addLink("Give Feedback", "More Options", "loadFeedbackPage()");
-  addLink("Sign Out", "More Options", "loadSignOutPage()");
+  addLink("Sign Out", "More Options", "signOut()");
 }
 
 function loadNotificationsPage() {

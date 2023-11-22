@@ -1,12 +1,12 @@
 /** Calculates the user's priority score. */
 function calcPriorityScore() {
-  return db.collection("users").doc(uid).get().then((doc) => {
+    db.collection("users").doc(uid).collection("charge_info").doc("charge").get().then((doc) => {
     let batteryInPercent = doc.data().charge;
     let carModel = doc.data().car;
     let hoursAvailable = 5;
     let bracketFactor = calcBracketFactor(batteryInPercent, carModel);
     let priorityScore = bracketFactor * (1 / hoursAvailable);
-    return priorityScore;
+    db.collection("users").doc(uid).collection("charge_info").doc("priorityScore").set({score: priorityScore});
   });
 }
 
@@ -48,11 +48,11 @@ function getPercentToKmConversion(carModel) {
       conversion = 4.350; // 4.35km per 1%
       break;
     }
-    case "Ford Mustang Mach-E": {
+    case "Mustang Mach-E": {
       conversion = 3.775; // 3.775km per 1%
       break;
     }
-    case "Kia EV6 Long Range 2WD": {
+    case "Kia EV6": {
       conversion = 4.075; // 4.075km per 1%
       break;
     }
@@ -63,8 +63,3 @@ function getPercentToKmConversion(carModel) {
   }
   return conversion;
 }
-
-calcPriorityScore().then((score) => {
-  console.log("Your priority score is", score);
-});
-

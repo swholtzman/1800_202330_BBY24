@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "montserrat", sans-serif;
     font-weight: 400;
@@ -14,14 +15,15 @@ body {
     color: var(--clr-off-white);
 }
 
-.hamburgerButton{
+/* .hamburgerButton {
     margin-right: 3rem;
-}
+} */
 
 @media (min-width: 1030px) {
     .main-menu {
         display: hidden;
     }
+
     .hamburgerButton {
         display: none;
     }
@@ -29,21 +31,25 @@ body {
 
 
 .form-box {
-    top: 5%;
+
+    right: -5%;
 
     width: 50vw;
     height: 60vh;
     min-width: 350px;
-    min-height: 700px;
+    min-height: 500px;
 
     position: relative;
 
     margin: 6% auto;
 
+    margin-top: -100px;
+
     background: var(--clr-registration-glass);
     backdrop-filter: blur(20px);
 
-    padding: 2em; /* Decreased padding for better spacing */
+    padding: 2em;
+    /* Decreased padding for better spacing */
 
     border-radius: 25px;
     border: 2px solid var(--clr-registration-border);
@@ -57,8 +63,10 @@ body {
 }
 
 .form-group {
-    margin-top: 1.5em; /* Increase top margin between form groups */
-    margin-bottom: 1.5em; /* Increase bottom margin between form groups */
+    margin-top: 1.5em;
+    /* Increase top margin between form groups */
+    margin-bottom: 1.5em;
+    /* Increase bottom margin between form groups */
 }
 
 .button {
@@ -68,8 +76,10 @@ body {
 }
 
 .form-control {
-    margin-top: 0.5em; /* Increase top margin for input fields */
-    margin-bottom: 0.5em; /* Increase bottom margin for input fields */
+    margin-top: 0.5em;
+    /* Increase top margin for input fields */
+    margin-bottom: 0.5em;
+    /* Increase bottom margin for input fields */
 }
 
 
@@ -96,5 +106,3 @@ body {
     outline: none;
     background: transparent;
 }
-
-
