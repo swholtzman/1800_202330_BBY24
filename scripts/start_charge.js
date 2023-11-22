@@ -46,7 +46,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
             var isCharging;
             currentUser.collection("charge_info").doc("is_charging").get().then(e => {
                 isCharging = e.data().is_charging;
-                console.log("1234:", isCharging);
+                // console.log("1234:", isCharging);
             }).then(function () {
                 if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100) {
                     if (isCharging == false) {
@@ -55,13 +55,9 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                                 targetBatteryPercent: parseInt(document.querySelector("#bat_select").value),
                             })
 
-                        var timeInHr = (parseInt(document.querySelector("#hour_select").value)
-                            + parseInt(document.querySelector("#minute_select").value) / 60);
-                        console.log(timeInHr);
-
                         currentUser.collection("charge_info").doc("target_time")
                             .set({
-                                targetDuration: timeInHr,
+                                targetDuration: document.querySelector("#hour_select").value,
                             }).then(console.log("set target duration: " + timeInHr));
 
 
@@ -81,7 +77,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
 
                             })
                     } else {
-                        console.log("charging true")
+                        alert("You're already charging!");
                     }
                 } else {
                     console.log("Invalid input");
