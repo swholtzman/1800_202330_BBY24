@@ -39,12 +39,33 @@ function setBatteryPercentage(percentage) {
 
 /** Add user to a station's users_charging collection */
 function startCharging(stationId) {
-  db.collection("places").doc(stationId).collection("users_charging").doc(uid).set({
-    id: uid
+  return new Promise((resolve, reject) => {
+    let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
+    userRef.set({
+      id: uid
+    }).then(() => {
+      let isChargingRef = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
+      isChargingRef.set({
+        is_charging: true
+      }).then(() => {
+        resolve(true);
+      });
+    });
   });
 }
 
 /** Remove a user from a station's user_charging collection */
 function stopCharging(stationId) {
-  db.collection("places").doc(stationId).collection("users_charging").doc(uid).delete();
+  return new Promise((resolve, reject) => {
+    let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
+    userRef.delete().then(() => {
+      let isChargingRef  = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
+      isChargingRef.set({
+        is_charging: false
+      }).then(() => {
+        resolve(true);
+      })
+    });
+  });
+  
 }
