@@ -27,7 +27,7 @@ function displayBatteryPercentage() {
       if (charge >= 60){
         style.insertRule("#charge_percent_here { background-color: green}", 0);
       } else if (charge >= 30){
-        style.insertRule("#charge_percent_here { background-color: yellow}", 0);
+        style.insertRule("#charge_percent_here { background-color: #F6BE00}", 0);
       } else{
         style.insertRule("#charge_percent_here { background-color: red}", 0);
       }
