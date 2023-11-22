@@ -1,3 +1,5 @@
+// REQUIRES GLOBAL.JS TO ALSO BE LINKED TO HEAD OF HTML FILE
+
 function toggle(switchElement) {
   const data = {
     active: !(switchElement.classList.contains("active"))

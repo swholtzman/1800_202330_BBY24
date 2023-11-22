@@ -29,3 +29,13 @@ function setBatteryPercentage(percentage) {
     console.log("Battery is now at " + percentage + "%");
   }
 }
+
+function startCharging(stationId) {
+  db.collection("places").doc(stationId).collection("users_charging").doc(uid).set({
+    id: uid
+  });
+}
+
+function stopCharging(stationId) {
+  db.collection("places").doc(stationId).collection("users_charging").doc(uid).delete();
+}
