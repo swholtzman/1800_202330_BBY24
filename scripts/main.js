@@ -45,35 +45,37 @@ hamburgerButton.addEventListener('click', (event) => {
     }
 });
 
-document.querySelector("#toCharge").addEventListener("click", checkIsCharging);
+document.querySelector("#toCharge").addEventListener("click", function (event) {
+    location.href = "charge.html";
+});
 
 document.querySelector("#toMap").addEventListener("click", function (event) {
     location.href = "map.html";
 });
 
 //check if car is charging -> take to different pages
-function checkIsCharging() {
-    firebase.auth().onAuthStateChanged(user => {
-        // var link;
-        if (user) {
-            var currentUser = db.collection("users").doc(user.uid)
-            currentUser.get()
-                .then(userDoc => {
+// function checkIsCharging() {
+//     firebase.auth().onAuthStateChanged(user => {
+//         // var link;
+//         if (user) {
+//             var currentUser = db.collection("users").doc(user.uid)
+//             currentUser.get()
+//                 .then(userDoc => {
                     
-                    var charging = userDoc.data().isCharging;
+//                     var charging = userDoc.data().isCharging;
                     
 
-                    if (charging == "true") {
-                        location.href = "charge.html"
-                    } else if (charging == "false"){
-                        location.href = "start_charge.html"
-                    }
+//                     if (charging == "true") {
+//                         location.href = "charge.html"
+//                     } else if (charging == "false"){
+//                         location.href = "start_charge.html"
+//                     }
                     
                     
-                })
-        } else {
-            console.log("No user is signed in");
-            location.href="login.html";
-        }
-    });
-}
+//                 })
+//         } else {
+//             console.log("No user is signed in");
+//             location.href="login.html";
+//         }
+//     });
+// }

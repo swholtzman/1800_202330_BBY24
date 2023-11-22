@@ -84,7 +84,7 @@ function addPostPins(map) {
                 const id = e.features[0].properties.id;  //get the "id" field
                 //alert(id);
                 // re-direct to another page that gives more details about this post (by id)
-                window.location.href = "start_charge.html";// + id;
+                window.location.href = "start_charge.html?ID=" + id;
             });
 
 

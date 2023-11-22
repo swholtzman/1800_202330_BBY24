@@ -8,12 +8,32 @@ function leave() {
 
 var cards = document.getElementById('cards');
 
+//go back to main.html after clicking area outside of the card
 window.addEventListener("click", function (event) {
     if (event.target.nodeName == "BODY") {
         leave();
     }
 });
+//go to map.html when "back" is clicked
+document.querySelector("#back").addEventListener("click", function(){
+    location.href = "map.html";
+});
 
+//gets name of charger from URL params, and display it.
+function showChargingStation(){
+    var name;
+    var chargerID = new URL(window.location.href).searchParams.get("ID");
+    db.collection("places").doc(chargerID)
+    .get()
+    .then(e =>{
+        name = e.data().location;
+        console.log(name);
+        document.querySelector("#charger_name_here").innerHTML = name;
+    })
+}
+showChargingStation();
+
+//runs when submit button is clicked
 document.querySelector("#submit_button").addEventListener("click", function(e){
         firebase.auth().onAuthStateChanged(user => {
             // Check if user is signed in:
@@ -24,22 +44,30 @@ document.querySelector("#submit_button").addEventListener("click", function(e){
                     .set({                                                               
                         targetBatteryPercent: parseInt(document.querySelector("#bat_select").value),
                     })
-
-                    var timeInMin = parseInt(document.querySelector("#hour_select").value)
-                    + parseInt(document.querySelector("#minute_select").value) / 60;
-                    console.log(timeInMin);
+                    
+                    var timeInHr = (parseInt(document.querySelector("#hour_select").value)
+                    + parseInt(document.querySelector("#minute_select").value) / 60);
+                    console.log(timeInHr);
 
                     currentUser.collection("charge_info").doc("target_time")
                     .set({                                                               
-                        targetDuration: timeInMin,
-                    })
+                        targetDuration: timeInHr,
+                    }).then(console.log("set target duration: " + timeInHr));
+                    
 
                     currentUser.collection("charge_info").doc("target_location")
                     .set({                                                               
-                        targetLocation: document.querySelector("#location_select").value,
-                    })
+                        targetLocation: document.querySelector("#charger_name_here").innerHTML,
+                    }).then(function() {
+                        alert("Successfully saved.");
+                        window.location.href = "main.html"
+                    }
+
+                    )                
+                    
                 } else{
                     console.log("Invalid input");
+                    alert("Battery needs to be between 0 and 100");
                 }
             } else{
                 console.log("Not signed in.");
