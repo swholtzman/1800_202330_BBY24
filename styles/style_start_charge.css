@@ -83,6 +83,12 @@ form * {
   cursor: default;
 }
 
+#back{
+  width:10%;
+  margin-left: 5%;
+  border-style: solid;
+}
+
 #location,
 #time,
 #est_bat,

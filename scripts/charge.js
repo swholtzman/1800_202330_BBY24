@@ -14,30 +14,53 @@ window.addEventListener("click", function (event) {
 
 
 function displayBatteryPercentage() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-            db.collection("users").doc(user.uid)
-                .onSnapshot(percent => {                                                               
-                    console.log("current document data: " + percent.data().charge);                          
-                    document.querySelector("#charge_percent_here").innerHTML = percent.data().charge;
+  let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge")
+  chargeRef.get().then((doc) => {
+    if (doc.exists) {
+      let charge = doc.data().charge;
+      let chargePercent = "" + charge + "%";
+      document.querySelector("#charge_percent_here").innerHTML = chargePercent;
 
-                })
-        }
-    })
+      const style = window.document.styleSheets[0];
+      // const styleSheet = style.sheet;
+      console.log(style);
+      if (charge >= 60){
+        style.insertRule("#charge_percent_here { background-color: green}", 0);
+      } else if (charge >= 30){
+        style.insertRule("#charge_percent_here { background-color: #F6BE00}", 0);
+      } else{
+        style.insertRule("#charge_percent_here { background-color: red}", 0);
+      }
+
+    } else {
+      let charge = prompt("Please enter your car's current battery percentage.");
+      setBatteryPercentage(charge).then(() => {
+        displayBatteryPercentage();
+      });
+    }
+
+    
+  });
 }
 displayBatteryPercentage();
 
 function displayEstimatedTime() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-            db.collection("users").doc(user.uid)
-                .onSnapshot(est_time => {                                                             
-                    console.log("current document data: " + est_time.data().estTime);                        
-                    document.querySelector("#est_time_here").innerHTML = est_time.data().estTime;   
-                })
-        }
-    })
+  let estTimeRef = db.collection("users").doc(uid).collection("charge_info").doc("est_time");
+  estTimeRef.get().then((doc) => {
+    if (!doc.exists || doc.data().est_time == null) {
+      document.querySelector("#est_time_here").innerHTML = "Not Charging";
+    } else {
+      document.querySelector("#est_time_here").innerHTML = doc.data().est_time;
+    }
+  });
 }
 displayEstimatedTime()
+
+/** BOTTOM NAV BAR BUTTON */
+function animateBottomNavbar() {
+  let centerButton = document.querySelector('.centerButton');
+  centerButton.onclick = function () {
+    centerButton.classList.toggle('active');
+  }
+}
+animateBottomNavbar();

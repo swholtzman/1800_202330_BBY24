@@ -22,11 +22,9 @@ var uiConfig = {
                    name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    est_time: "00:00",
-                   is_charging: "false",
                    city: "Burnaby"                     //with authenticated user's ID (user.uid)
             }).then(function setDefaultSettings() {
-              db.collection("users").doc(user.uid).collection("settings").doc("Enable Notifications").set({active: true});
-              db.collection("users").doc(user.uid).collection("settings").doc("News And Events").set({active: true});
+              db.collection("users").doc(user.uid).collection("charge_info").doc("is_charging").set({is_charging: false});
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("main.html");       //re-direct to main.html after signup

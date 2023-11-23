@@ -1,3 +1,5 @@
+// REQUIRES GLOBAL.JS TO ALSO BE LINKED TO HEAD OF HTML FILE
+
 function toggle(switchElement) {
   const data = {
     active: !(switchElement.classList.contains("active"))
@@ -88,7 +90,7 @@ function loadSettingsPage() {
 
   addSection("More Options");
   addLink("Give Feedback", "More Options", "loadFeedbackPage()");
-  addLink("Sign Out", "More Options", "loadSignOutPage()");
+  addLink("Sign Out", "More Options", "signOut()");
 }
 
 function loadNotificationsPage() {
