@@ -44,9 +44,12 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
         if (user) {
             var currentUser = db.collection("users").doc(user.uid);
             var isCharging;
-            currentUser.collection("charge_info").doc("is_charging").get().then(e => {
-                isCharging = e.data().is_charging;
-              
+            currentUser.collection("charge_info").doc("is_charging").get().then(doc => {
+                if (doc.exists) {
+                    isCharging = doc.data().is_charging;
+                } else {
+                    isCharging = false;
+                }
             }).then(function () {
                 if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100) {
                     if (isCharging == false) {
@@ -55,36 +58,29 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                                 targetBatteryPercent: parseInt(document.querySelector("#bat_select").value),
                             })
 
-                        currentUser.collection("charge_info").doc("target_time")
-                            .set({
-                                targetDuration: document.querySelector("#hour_select").value,
-                            });
-
-
                         currentUser.collection("charge_info").doc("target_location")
                             .set({
                                 targetLocation: document.querySelector("#charger_name_here").innerHTML,
                             })
-                            
+
                         let chargingRef = currentUser.collection("charge_info").doc("is_charging");
-                        chargingRef.set({is_charging: true}).then(() => {
-                          let durationRef = currentUser.collection("charge_info").doc("target_time");
-                          let duration = parseFloat(document.querySelector("#hour_select").value);
-                          console.log("duration:", duration);
-                          return new Promise((resolve, reject) => {
-                            durationRef.set({targetDuration: duration}).then(() => {
-                              resolve();
+                        chargingRef.set({ is_charging: true }).then(() => {
+                            let durationRef = currentUser.collection("charge_info").doc("target_time");
+                            let duration = parseFloat(document.querySelector("#hour_select").value);
+                            console.log("duration:", duration);
+                            return new Promise((resolve, reject) => {
+                                durationRef.set({ targetDuration: duration }).then(() => {
+                                    resolve();
+                                });
                             });
-                          });
                         }).then(() => {
-                          startCharging(getStationId()).then((score) => {
-                            console.log(score);
-                            alert("Successfully saved.");
-                            //window.location.href = "main.html"
-                          });
+                            startCharging(getStationId()).then((score) => {
+                                console.log(score);
+                                alert("Successfully saved.");
+                                //window.location.href = "main.html"
+                            });
                         });
 
-                            })
                     } else {
                         alert("You're already charging!");
                     }
@@ -112,4 +108,3 @@ function animateBottomNavbar() {
     }
 }
 animateBottomNavbar();
-
