@@ -24,7 +24,7 @@ function login() {
 
 
 
-document.querySelector("#regis").addEventListener("click", (e) => {
+document.querySelector("#registration").addEventListener("click", (e) => {
     e.preventDefault();
 
     const email = document.querySelector("#email_sign").value;
@@ -54,7 +54,7 @@ document.querySelector("#regis").addEventListener("click", (e) => {
     )
 })
 
-document.querySelector("#logi").addEventListener("click", (e) => {
+document.querySelector("#login").addEventListener("click", (e) => {
     e.preventDefault();
 
     const email = document.querySelector("#email_login").value;
