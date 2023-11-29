@@ -82,6 +82,8 @@
   height: 25vh;
   width: 100%;
   display: flex;
+  justify-items: center;
+  align-items:center;
 }
 
 #battery {
@@ -92,7 +94,7 @@
 }
 
 #bat_icon {
-  left: 20vw;
+  margin-left: 10vw;
   width: 20vw;
   height: 10vh;
   background-color: white;

@@ -58,7 +58,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                         currentUser.collection("charge_info").doc("target_time")
                             .set({
                                 targetDuration: document.querySelector("#hour_select").value,
-                            }).then(console.log("set target duration: " + timeInHr));
+                            });
 
 
                         currentUser.collection("charge_info").doc("target_location")
