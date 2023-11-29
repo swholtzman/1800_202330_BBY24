@@ -35,6 +35,7 @@ document.querySelector("#registration").addEventListener("click", (e) => {
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then(userCredential => {
         const user = userCredential.user;
+        localStorage.setItem("currentUid", user.uid);
         db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
             name: user.displayName,                    //"users" collection
             email: user.email,                         //with authenticated user's ID (user.uid)
@@ -62,7 +63,7 @@ document.querySelector("#login").addEventListener("click", (e) => {
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
             // Signed in
             var user = userCredential.user;
-            console.log(user);
+            localStorage.setItem("currentUid", user.uid);
             window.location.assign("main.html");
         })
         .catch((error) => {
