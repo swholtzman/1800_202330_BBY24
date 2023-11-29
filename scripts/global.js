@@ -18,7 +18,7 @@ function getCurrentUid() {
 function signOut() {
   localStorage.removeItem("currentUid");
   firebase.auth().signOut().then(() => {
-    location.href = "./login.html";
+    location.href = "./registration.html";
   });
 }
 
