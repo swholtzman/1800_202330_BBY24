@@ -89,9 +89,9 @@ function saveUserInfo() {
             console.log("Document successfully updated!");
         })
 
-    currentUser.collection("charge_info").doc("car").set({car: userCar}).then(() => {
-      console.log("Document successfully updated!");
-    });
+    // currentUser.collection("charge_info").doc("car").set({car: userCar}).then(() => {
+    //   console.log("Document successfully updated!");
+    // });
 
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
@@ -109,9 +109,9 @@ function saveUserInfo() {
     document.getElementById("cityInput").style.color = initialStyles.cityInput.color;
 }
 
-function updateCarModel(model) {
-  db.collection("users").doc(user.uid).collection("charge_info").doc("car").update({car: model});
-}
+// function updateCarModel(model) {
+//   db.collection("users").doc(user.uid).collection("charge_info").doc("car").update({car: model});
+// }
 
 
 

@@ -27,8 +27,8 @@ function login() {
 document.querySelector("#regis").addEventListener("click", (e) => {
     e.preventDefault();
 
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+    const email = document.querySelector("#email_sign").value;
+    const password = document.querySelector("#password_sign").value;
     const thisCity = document.querySelector("#cityInput").value;
     const model = document.querySelector("#inputType-carInput").value;
 
@@ -53,6 +53,34 @@ document.querySelector("#regis").addEventListener("click", (e) => {
     )
 })
 
+document.querySelector("#logi").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector("#email_login").value;
+    const password = document.querySelector("#password_login").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            console.log(user);
+            window.location.assign("main.html");
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            console.log(errorCode);
+
+             if (errorCode == "auth/user-not-found") {
+                alert("There's no account for this email!");
+             } else if(errorCode == "auth/wrong-password") {
+                alert("Wrong password!");
+             } else {
+                alert("Error in logging in!");
+             }
+            
+            document.querySelector("#email_login").value = "";
+            document.querySelector("#password_login").value = "";
+        });
+})
 
 
 
