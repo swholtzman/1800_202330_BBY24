@@ -63,7 +63,7 @@ document.querySelector("#login").addEventListener("click", (e) => {
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
             // Signed in
             var user = userCredential.user;
-            console.log(user);
+            localStorage.setItem("currentUid", user.uid);
             window.location.assign("main.html");
         })
         .catch((error) => {
