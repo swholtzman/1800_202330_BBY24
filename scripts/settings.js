@@ -106,7 +106,25 @@ function loadNotificationsPage() {
   addSwitch("Car Reached 50% Battery", "Notification Preferences");
 }
 
+function loadAccountPage() {
+  alert("Work in progress!");
+}
 
+function loadLanguagePage() {
+  alert("Work in progress!");
+}
+
+function loadDGSPage() {
+  alert("Work in progress!");
+}
+
+function loadThemesPage() {
+  alert("Work in progress!");
+}
+
+function loadFeedbackPage() {
+  alert("Work in progress!");
+}
 
 
 
