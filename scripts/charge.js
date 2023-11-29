@@ -33,12 +33,11 @@ function displayBatteryPercentage() {
       }
 
     } else {
-      let charge = prompt("Please enter your car's current battery percentage.");
+      let charge = parseInt(prompt("Please enter your car's current battery percentage."));
       setBatteryPercentage(charge).then(() => {
         displayBatteryPercentage();
       });
     }
-
     
   });
 }

@@ -13,7 +13,12 @@ function prioritize(stationId) {
       userIds.forEach((userId) => {
         let scoreRef = db.collection("users").doc(userId).collection("charge_info").doc("priorityScore");
         scoreRef.get().then((scoreDoc) => {
-          let userScore = scoreDoc.data().score;
+          let userScore;
+          if (scoreDoc.exists) {
+            userScore = scoreDoc.data().score;
+          } else {
+            userScore = 0;
+          }
           usersCharging.push([userId, userScore]);
           if (usersCharging.length == userIds.length) {
             // The promise is resolved once all users have been added to the usersCharging list
@@ -30,18 +35,21 @@ function prioritize(stationId) {
         orderedUsers.push(userInfo);
       } else {
         // this is the second iteration and onwards
-        let index = -1;
         let myScore = userInfo[1];
         let someScore;
+        let index = 0;
+        let position = 0;
         do {
-          index++;
           someScore = orderedUsers[index][1];
+          index++;
+          if (myScore <= someScore) {
+            position++
+          }
         } while (index < orderedUsers.length && myScore <= someScore)
-        orderedUsers.splice(index, 0, userInfo);
+        orderedUsers.splice(position, 0, userInfo);
       }
     });
-    // orderedUsers is finally returned to whatever called prioritize()
-    return orderedUsers;
+    return orderedUsers; // orderedUsers is finally returned to whatever called prioritize()
   });
 }
 
@@ -49,13 +57,37 @@ function prioritize(stationId) {
 function calcPriorityScore() {
   return new Promise((resolve, reject) => {
     let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
-    chargeRef.get().then((doc) => {
-      let batteryInPercent = doc.data().charge;
-      let carModel = doc.data().car;
-      let hoursAvailable = 5;
+    chargeRef.get().then((chargeDoc) => {
+      let batteryInPercent;
+      if (chargeDoc.exists) {
+        batteryInPercent = chargeDoc.data().charge;
+      } else {
+        batteryInPercent = 0;
+        chargeRef.set({charge: 0});
+      }
+      let carRef = db.collection("users").doc(uid).collection("charge_info").doc("car");
+      return new Promise((resolve, reject) => {
+        carRef.get().then((carDoc) => {
+          let carModel;
+          if (carDoc.exists) {
+            carModel = carDoc.data().car;
+          } else {
+            carModel = "Default";
+          }
+          resolve([batteryInPercent, carModel]);
+        });
+      });
+    }).then(([batteryInPercent, carModel]) => {
+      let hoursRef = db.collection("users").doc(uid).collection("charge_info").doc("target_time");
+      return new Promise((resolve, reject) => {
+        hoursRef.get().then((hoursDoc) => {
+          let hoursAvailable = hoursDoc.data().targetDuration;
+          resolve([batteryInPercent, carModel, hoursAvailable]);
+        });
+      });
+    }).then(([batteryInPercent, carModel, hoursAvailable]) => {
       let bracketFactor = calcBracketFactor(batteryInPercent, carModel);
       let priorityScore = bracketFactor * (1 / hoursAvailable);
-
       let scoreRef = db.collection("users").doc(uid).collection("charge_info").doc("priorityScore");
       scoreRef.set({score: priorityScore}).then(() => {
         resolve(priorityScore);
@@ -118,6 +150,8 @@ function getPercentToKmConversion(carModel) {
   return conversion;
 }
 
+/* COPY THIS INTO CONSOLE TO PRINT THE PRIORITY LIST
 prioritize("GdLFDVSF18wVznJy1Ruz").then(
   (list) => console.log(list)
 );
+*/

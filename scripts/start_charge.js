@@ -46,7 +46,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
             var isCharging;
             currentUser.collection("charge_info").doc("is_charging").get().then(e => {
                 isCharging = e.data().is_charging;
-                // console.log("1234:", isCharging);
+              
             }).then(function () {
                 if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100) {
                     if (isCharging == false) {
@@ -66,14 +66,23 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                                 targetLocation: document.querySelector("#charger_name_here").innerHTML,
                             })
                             
-                        currentUser.collection("charge_info").doc("is_charging").set({
-                            is_charging: true,
-                        })    
-                            .then(function () {
-                                startCharging(getStationId()).then(() => {
-                                    alert("Successfully saved.");
-                                    window.location.href = "main.html"
-                                })
+                        let chargingRef = currentUser.collection("charge_info").doc("is_charging");
+                        chargingRef.set({is_charging: true}).then(() => {
+                          let durationRef = currentUser.collection("charge_info").doc("target_time");
+                          let duration = parseFloat(document.querySelector("#hour_select").value);
+                          console.log("duration:", duration);
+                          return new Promise((resolve, reject) => {
+                            durationRef.set({targetDuration: duration}).then(() => {
+                              resolve();
+                            });
+                          });
+                        }).then(() => {
+                          startCharging(getStationId()).then((score) => {
+                            console.log(score);
+                            alert("Successfully saved.");
+                            //window.location.href = "main.html"
+                          });
+                        });
 
                             })
                     } else {

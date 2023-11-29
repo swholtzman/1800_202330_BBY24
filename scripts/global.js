@@ -40,10 +40,13 @@ function startCharging(stationId) {
       });
     });
   }).then(() => {
-    calcPriorityScore().then((score) => {
-      console.log(score);
+    return new Promise((resolve, reject) => {
+      calcPriorityScore().then((score) => {
+        resolve(score);
+      });
     });
-  })
+  });
+    
 }
 
 /** Remove a user from a station's user_charging collection */
