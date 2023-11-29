@@ -60,7 +60,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
 
                         currentUser.collection("charge_info").doc("target_location")
                             .set({
-                                targetLocation: document.querySelector("#charger_name_here").innerHTML,
+                                targetLocation: getStationId(),
                             })
 
                         let chargingRef = currentUser.collection("charge_info").doc("is_charging");
