@@ -27,6 +27,11 @@ body {
     .hamburgerButton {
         display: none;
     }
+
+    .form-box {
+        left: -15px;
+        top: 80px;
+    }
 }
 
 
