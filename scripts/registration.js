@@ -46,7 +46,7 @@ document.querySelector("#registration").addEventListener("click", (e) => {
             db.collection("users").doc(user.uid).collection("charge_info").doc("is_charging").set({ is_charging: false });
         }).then(function () {
             console.log("New user added to firestore");
-            window.location.assign("main.html");       //re-direct to main.html after signup
+            window.location.assign("index.html");       //re-direct to index.html after signup
         }).catch(function (error) {
             console.log("Error adding new user: " + error);
         });
@@ -64,7 +64,7 @@ document.querySelector("#login").addEventListener("click", (e) => {
             // Signed in
             var user = userCredential.user;
             localStorage.setItem("currentUid", user.uid);
-            window.location.assign("main.html");
+            window.location.assign("index.html");
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -101,5 +101,5 @@ document.querySelector("#login").addEventListener("click", (e) => {
 //             // ..
 //         });
 
-//     location.href = "main.html";
+//     location.href = "index.html";
 // }

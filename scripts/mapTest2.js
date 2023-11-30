@@ -148,7 +148,7 @@ function writePlaces() {
         lat: 49.21189,
         lng: -123.007372,
 
-        url: "./main.html"
+        url: "./index.html"
 
     });
     placeRef.add({

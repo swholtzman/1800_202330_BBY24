@@ -68,7 +68,7 @@ function clearPage() {
 }
 
 function loadMainPage() {
-  window.location.href = "./main.html"
+  window.location.href = "./index.html"
 }
 
 function loadSettingsPage() {
