@@ -78,9 +78,15 @@
   text-align: center;
 }
 
+#charge_content{
+  display: grid;
+  height: 100%;
+  grid-template-rows: 35%, 35%, 15%, 15%;
+  grid-template-columns: 1;
+}
+
 #bat_container {
-  margin: 0px;
-  padding: 0px;
+ grid-row: 1;
   height: 15vh;
   width: 100%;
   display: flex;
@@ -137,6 +143,7 @@
 #est_time_container{
   height: 25vh;
   width: 100%;
+  grid-row: 2;
   display: flex;
 }
 
@@ -169,6 +176,12 @@
   border-radius: 10px;
   font-size: 1em;
 }
+
+#stop_charge{
+  /* align-self: end; */
+  grid-row: 3;
+}
+
 
 /* SEARCH BAR */
 .searchContainer {
