@@ -47,26 +47,26 @@
   margin-top: -1rem;
 }
 
-#start,
+/* #start,
 #placehold {
   border-radius: 2rem;
   cursor: pointer;
   height: 35vh;
   position: relative;
   width: 60vw;
-}
+} */
 
-#start {
+/* #start {
   animation-name: stretch;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-}
+} */
 
-#placehold {
+/* #placehold {
   animation-name: disappear;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-}
+} */
 
 #charge {
   overflow: hidden;
@@ -148,6 +148,9 @@ form * {
   transition: 1s;
 }
 
+#start{
+  justify-content: start;
+}
 
 select,
 input {

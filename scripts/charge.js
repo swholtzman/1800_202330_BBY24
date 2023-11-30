@@ -1,6 +1,8 @@
 function leave() {
   document.getElementById('charge').classList.add('leave');
   document.getElementById('map').classList.add('leave');
+  document.getElementById('placehold').classList.add('leave');
+    document.getElementById('start').classList.add('leave');
   setTimeout(function () { location.href = "main.html"; }, 1000);
 }
 
@@ -69,12 +71,22 @@ document.querySelector("#stop_charge").addEventListener("click", function (e) {
 })
 
 function showStopCharge(){
-  const doc = db.collection("users").doc(uid).collection("charge_info").doc("is_charging")
+  const doc = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
   const style = window.document.styleSheets[0];
-  console.log(style);
-  if (doc.data() == true){
-    style.insertRule("#stop_charge{display: none;}");
-  }
+  doc.get().then((e) => {
+    if (e.data().is_charging == false){
+      style.insertRule("#stop_charge{display: none;}");
+    }
+  
+  })
   
 }
 showStopCharge();
+
+document.querySelector("#stop_charge").addEventListener("click", function e(){
+  const doc = db.collection("users").doc(uid).collection("charge_info").doc("is_charging")
+  console.log("a");
+  doc.set({
+    is_charging: false
+  })
+})
