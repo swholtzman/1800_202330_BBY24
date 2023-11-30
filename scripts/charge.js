@@ -1,15 +1,15 @@
 function leave() {
-    document.getElementById('charge').classList.add('leave');
-    document.getElementById('map').classList.add('leave');
-    setTimeout(function () { location.href = "main.html"; }, 1000);
+  document.getElementById('charge').classList.add('leave');
+  document.getElementById('map').classList.add('leave');
+  setTimeout(function () { location.href = "main.html"; }, 1000);
 }
 
 var cards = document.getElementById('cards');
 
 window.addEventListener("click", function (event) {
-    if (event.target.nodeName == "BODY") {
-        leave();
-    }
+  if (event.target.nodeName == "BODY") {
+    leave();
+  }
 });
 
 
@@ -24,11 +24,11 @@ function displayBatteryPercentage() {
       const style = window.document.styleSheets[0];
       // const styleSheet = style.sheet;
       console.log(style);
-      if (charge >= 60){
+      if (charge >= 60) {
         style.insertRule("#charge_percent_here { background-color: green}", 0);
-      } else if (charge >= 30){
+      } else if (charge >= 30) {
         style.insertRule("#charge_percent_here { background-color: #F6BE00}", 0);
-      } else{
+      } else {
         style.insertRule("#charge_percent_here { background-color: red}", 0);
       }
 
@@ -38,7 +38,7 @@ function displayBatteryPercentage() {
         displayBatteryPercentage();
       });
     }
-    
+
   });
 }
 displayBatteryPercentage();
@@ -63,3 +63,18 @@ function animateBottomNavbar() {
   }
 }
 animateBottomNavbar();
+
+document.querySelector("#stop_charge").addEventListener("click", function (e) {
+
+})
+
+function showStopCharge(){
+  const doc = db.collection("users").doc(uid).collection("charge_info").doc("is_charging")
+  const style = window.document.styleSheets[0];
+  console.log(style);
+  if (doc.data() == true){
+    style.insertRule("#stop_charge{display: none;}");
+  }
+  
+}
+showStopCharge();

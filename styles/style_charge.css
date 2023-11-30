@@ -178,7 +178,9 @@
 }
 
 #stop_charge{
-  /* align-self: end; */
+  justify-self: center;
+  height: 50%;
+  width: 75%;
   grid-row: 3;
 }
 
