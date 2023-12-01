@@ -3,12 +3,12 @@ function leave() {
     document.getElementById('map').classList.add('leave');
     document.getElementById('placehold').classList.add('leave');
     document.getElementById('start').classList.add('leave');
-    setTimeout(function () { location.href = "main.html"; }, 1000);
+    setTimeout(function () { location.href = "index.html"; }, 1000);
 }
 
 var cards = document.getElementById('cards');
 
-//go back to main.html after clicking area outside of the card
+//go back to index.html after clicking area outside of the card
 window.addEventListener("click", function (event) {
     if (event.target.nodeName == "BODY") {
         leave();
@@ -60,7 +60,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
 
                         currentUser.collection("charge_info").doc("target_location")
                             .set({
-                                targetLocation: document.querySelector("#charger_name_here").innerHTML,
+                                targetLocation: getStationId(),
                             })
 
                         let chargingRef = currentUser.collection("charge_info").doc("is_charging");
@@ -77,7 +77,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                             startCharging(getStationId()).then((score) => {
                                 console.log(score);
                                 alert("Successfully saved.");
-                                //window.location.href = "main.html"
+                                //window.location.href = "index.html"
                             });
                         });
 
