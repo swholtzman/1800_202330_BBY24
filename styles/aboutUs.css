@@ -30,7 +30,11 @@ body {
 
     border-radius: 30px;
 }
-
+@media (max-width: 430px) {
+    .ourStory {
+        margin-right: -0.5rem;
+    }
+}
 @supports (backdrop-filter: blur(1rem)) {
     .ourStory {
 
