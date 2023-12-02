@@ -30,7 +30,7 @@ function showChargingStation() {
     db.collection("places").doc(chargerID)
         .get()
         .then(e => {
-            name = e.data().loction;
+            name = e.data().location;
             //console.log(name);
             document.querySelector("#charger_name_here").innerHTML = name;
         })
