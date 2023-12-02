@@ -44,14 +44,6 @@
 
     </div>
 
-    <!-- Search Bar -->
-    <div class="searchContainer">
-        <form action="map.html" class="searchBar">
-            <button id="search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
-            <input type="text" placeholder="Find a charger" name="q">
-        </form>
-    </div>
-
 
     <!-- Hamburger Menu and Nav Bar -->
     <header class="primary-header">
@@ -105,6 +97,15 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Search Bar -->
+    <div class="searchContainer">
+        <form onclick="window.location.href='map.html';" class="searchBar">
+            <button id="search" type="button" onclick="window.location.href='map.html';">
+                <ion-icon name="search-outline"></ion-icon></button>
+            <input type="text" placeholder="Find a charger" name="q">
+        </form>
+    </div>
 
     <!-- Start Charge Bar -->
     <div class="chargeContainer" onclick="window.location.href='charge.html';">

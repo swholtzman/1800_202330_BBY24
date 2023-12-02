@@ -102,13 +102,13 @@ iframe {
     margin-top: 50px;
     background: var(--clr-search-bg);
     border: var(--clr-borders);
+
 }
 
 
 /* SEARCH BAR */
 .searchContainer {
-    top: 10%;
-
+    top: 12.5%;
 }
 
 .searchContainer input {
