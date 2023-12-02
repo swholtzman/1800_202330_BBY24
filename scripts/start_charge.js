@@ -57,7 +57,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
             }).then(function () {
                 // Checks if 1) user hasn't inputed anything 2) battery is between 0 and 100
                 if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100
-                && parseInt(document.querySelector("#bat_select").value) >= 100) {
+                && parseInt(document.querySelector("#bat_select").value) >= 0) {
                     //only change data if user is not currently charging
                     if (isCharging == false) {
                         currentUser.collection("charge_info").doc("target_bat")
