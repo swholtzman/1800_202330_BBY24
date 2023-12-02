@@ -1,3 +1,6 @@
+/** This function is called when the user leaves the charging page.
+ *  It gives different divs classes to play animations.
+*/
 function leave() {
     document.getElementById('charge').classList.add('leave');
     document.getElementById('map').classList.add('leave');
@@ -8,26 +11,27 @@ function leave() {
 
 var cards = document.getElementById('cards');
 
-//go back to index.html after clicking area outside of the card
+/**Goes back to index.html after clicking area outside of the card. */
 window.addEventListener("click", function (event) {
     if (event.target.nodeName == "BODY") {
         leave();
     }
 });
-//go to map.html when "back" is clicked
+
+/**Goes to map.html when "back" is clicked. */
 document.querySelector("#back").addEventListener("click", function () {
     location.href = "map.html";
 });
 
-//gets name of charger from URL params, and display it.
+/** Gets name of charger from URL params, and displays it. */
 function showChargingStation() {
     var name;
     var chargerID = getStationId();
     db.collection("places").doc(chargerID)
         .get()
         .then(e => {
-            name = e.data().location;
-            console.log(name);
+            name = e.data().loction;
+            //console.log(name);
             document.querySelector("#charger_name_here").innerHTML = name;
         })
 }
@@ -51,7 +55,10 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                     isCharging = false;
                 }
             }).then(function () {
-                if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100) {
+                // Checks if 1) user hasn't inputed anything 2) battery is between 0 and 100
+                if (document.querySelector("#bat_select").value != "" && parseInt(document.querySelector("#bat_select").value) <= 100
+                && parseInt(document.querySelector("#bat_select").value) >= 100) {
+                    //only change data if user is not currently charging
                     if (isCharging == false) {
                         currentUser.collection("charge_info").doc("target_bat")
                             .set({
@@ -67,7 +74,7 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                         chargingRef.set({ is_charging: true }).then(() => {
                             let durationRef = currentUser.collection("charge_info").doc("target_time");
                             let duration = parseFloat(document.querySelector("#hour_select").value);
-                            console.log("duration:", duration);
+                            //console.log("duration:", duration);
                             return new Promise((resolve, reject) => {
                                 durationRef.set({ targetDuration: duration }).then(() => {
                                     resolve();
@@ -75,9 +82,9 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                             });
                         }).then(() => {
                             startCharging(getStationId()).then((score) => {
-                                console.log(score);
+                                //console.log(score);
                                 alert("Successfully saved.");
-                                //window.location.href = "index.html"
+                                window.location.href = "index.html"
                             });
                         });
 
@@ -85,14 +92,13 @@ document.querySelector("#submit_button").addEventListener("click", function (e) 
                         alert("You're already charging!");
                     }
                 } else {
-                    console.log("Invalid input");
                     alert("Battery needs to be between 0 and 100");
                 }
             })
 
 
         } else {
-            console.log("Not signed in.");
+            alert("Not signed in.");
         }
 
 

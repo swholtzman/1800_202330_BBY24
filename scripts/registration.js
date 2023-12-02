@@ -3,7 +3,7 @@ var registerButton = document.getElementById("register");
 var buttonBox = document.getElementById("btn");
 
 
-
+/** Runs when the register top bar is clicked */
 function register() {
     loginButton.style.opacity = "0%";
 
@@ -13,6 +13,7 @@ function register() {
     buttonBox.style.left = "50%";
 }
 
+/** Runs when the login top bar is clicked */
 function login() {
     loginButton.style.opacity = "100%";
 
@@ -23,11 +24,12 @@ function login() {
 }
 
 
-
+/** Registers an account in firebase and stores the basic info. */
 document.querySelector("#registration").addEventListener("click", (e) => {
     e.preventDefault();
 
     const email = document.querySelector("#email_sign").value;
+    const username = document.querySelector("#username").value;
     const password = document.querySelector("#password_sign").value;
     const thisCity = document.querySelector("#cityInput").value;
     const model = document.querySelector("#inputType-carInput").value;
@@ -36,24 +38,24 @@ document.querySelector("#registration").addEventListener("click", (e) => {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(userCredential => {
         const user = userCredential.user;
         localStorage.setItem("currentUid", user.uid);
-        db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-            name: user.displayName,                    //"users" collection
-            email: user.email,                         //with authenticated user's ID (user.uid)
+        db.collection("users").doc(user.uid).set({        
+            name: username,                    
+            email: email,                       
             est_time: "00:00",
             car: model,
-            city: thisCity                     //with authenticated user's ID (user.uid)
+            city: thisCity                     
         }).then(function setDefaultSettings() {
             db.collection("users").doc(user.uid).collection("charge_info").doc("is_charging").set({ is_charging: false });
         }).then(function () {
-            console.log("New user added to firestore");
-            window.location.assign("index.html");       //re-direct to index.html after signup
+            window.location.assign("index.html");       
         }).catch(function (error) {
-            console.log("Error adding new user: " + error);
+            alert("Error adding new user: " + error);
         });
     }
     )
 })
 
+/**Logs the user into firebase, also sends alerts if an error occurs.*/
 document.querySelector("#login").addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -68,11 +70,10 @@ document.querySelector("#login").addEventListener("click", (e) => {
         })
         .catch((error) => {
             var errorCode = error.code;
-            console.log(errorCode);
 
-             if (errorCode == "auth/user-not-found") {
+             if (errorCode == "auth/user-not-found") {          //no account with the email inputed
                 alert("There's no account for this email!");
-             } else if(errorCode == "auth/wrong-password") {
+             } else if(errorCode == "auth/wrong-password") {    //wrong password inputed
                 alert("Wrong password!");
              } else {
                 alert("Error in logging in!");
@@ -82,24 +83,3 @@ document.querySelector("#login").addEventListener("click", (e) => {
             document.querySelector("#password_login").value = "";
         });
 })
-
-
-
-// function createNewAcc() {
-//     const email = document.querySelector("#username").value;
-//     const password = document.querySelector("#password").value;
-
-//     firebase.auth().createUserWithEmailAndPassword(email, password)
-//         .then((userCredential) => {
-//             // Signed in
-//             var user = userCredential.user;
-//             // ...
-//         })
-//         .catch((error) => {
-//             var errorCode = error.code;
-//             var errorMessage = error.message;
-//             // ..
-//         });
-
-//     location.href = "index.html";
-// }
