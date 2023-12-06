@@ -25,17 +25,17 @@ function signOut() {
 /** Add user to a station's users_charging collection */
 function startCharging(stationId) {
   let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
-  return userRef.set({id: uid}).then(() => {
+  return userRef.set({ id: uid }).then(() => {
     let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
     return new Promise((resolve, reject) => {
-      chargeInfoRef.doc("is_charging").set({is_charging: true}).then(() => {
+      chargeInfoRef.doc("is_charging").set({ is_charging: true }).then(() => {
         resolve();
       });
     });
   }).then(() => {
     let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
     return new Promise((resolve, reject) => {
-      chargeInfoRef.doc("est_time").set({est_time: "4h 30min"}).then(() => {
+      chargeInfoRef.doc("est_time").set({ est_time: "4h 30min" }).then(() => {
         resolve();
       });
     });
@@ -46,7 +46,7 @@ function startCharging(stationId) {
       });
     });
   });
-    
+
 }
 
 /** Remove a user from a station's user_charging collection */
@@ -54,12 +54,19 @@ function stopCharging(stationId) {
   return new Promise((resolve, reject) => {
     let userRef = db.collection("places").doc(stationId).collection("users_charging").doc(uid);
     userRef.delete().then(() => {
-      let isChargingRef  = db.collection("users").doc(uid).collection("charge_info").doc("is_charging");
-      isChargingRef.set({
-        is_charging: false
-      }).then(() => {
-        resolve(true);
-      })
+      let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
+
+      chargeInfoRef.doc("is_charging").set({ is_charging: false });
+      chargeInfoRef.doc("est_time").set({ est_time: "--:--" });
+      chargeInfoRef.doc("priorityScore").set({ score: null });
+      chargeInfoRef.doc("target_bat").set({ targetBatteryPercent: 0 });
+      chargeInfoRef.doc("target_location").set({ targetLocation: "" });
+      chargeInfoRef.doc("target_time").set({ targetDuration: 0 })
+        .then(() => {
+          resolve(true);
+          alert("Stopped charging.");
+          location.href="index.html";
+        })
     });
   });
 }
@@ -72,10 +79,10 @@ function setBatteryPercentage(percentage) {
       reject();
     } else {
       let chargeRef = db.collection("users").doc(uid).collection("charge_info").doc("charge");
-      chargeRef.set({charge: percentage}).then(() => {
-        console.log("Battery is now at " + percentage + "%");
+      chargeRef.set({ charge: percentage }).then(() => {
+        //console.log("Battery is now at " + percentage + "%");
         resolve(percentage);
       });
     }
-  }); 
+  });
 }

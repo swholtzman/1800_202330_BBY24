@@ -16,23 +16,6 @@
   font-weight: 400;
 }
 
-#placehold.leave {
-  animation-name: disappear_leave;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-#start.leave {
-  animation-name: stretch_leave;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-.card {
-  pointer-events: none;
-}
-
-
 #main_container {
   position: absolute;
   display: flex;
@@ -45,31 +28,6 @@
   /* Center horizontally within the container */
   gap: 1rem;
   margin-top: -1rem;
-}
-
-/* #start,
-#placehold {
-  border-radius: 2rem;
-  cursor: pointer;
-  height: 35vh;
-  position: relative;
-  width: 60vw;
-} */
-
-/* #start {
-  animation-name: stretch;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-} */
-
-/* #placehold {
-  animation-name: disappear;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-} */
-
-#charge {
-  overflow: hidden;
 }
 
 .form_group {
@@ -120,7 +78,6 @@ form * {
 
 #submit {
   top: 80%;
-  /* background-color: blue; */
 }
 
 #submit_content button {
@@ -181,14 +138,4 @@ input {
     height: 35vh;
     width: 60vw;
   }
-}
-
-/* SEARCH BAR */
-.searchContainer {
-  top: 2%;
-}
-
-.centerButton::before {
-  content: "+";
-  font-family: "condor", sans-serif;
 }
