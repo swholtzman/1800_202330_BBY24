@@ -56,12 +56,13 @@ function stopCharging(stationId) {
     userRef.delete().then(() => {
       let chargeInfoRef = db.collection("users").doc(uid).collection("charge_info");
 
-      chargeInfoRef.doc("is_charging").set({ is_charging: false });
+      
       chargeInfoRef.doc("est_time").set({ est_time: "--:--" });
       chargeInfoRef.doc("priorityScore").set({ score: null });
       chargeInfoRef.doc("target_bat").set({ targetBatteryPercent: 0 });
       chargeInfoRef.doc("target_location").set({ targetLocation: "" });
-      chargeInfoRef.doc("target_time").set({ targetDuration: 0 })
+      chargeInfoRef.doc("target_time").set({ targetDuration: 0 });
+      chargeInfoRef.doc("is_charging").set({ is_charging: false })
         .then(() => {
           resolve(true);
           alert("Stopped charging.");
