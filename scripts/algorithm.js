@@ -62,8 +62,8 @@ function calcPriorityScore() {
       if (chargeDoc.exists) {
         batteryInPercent = chargeDoc.data().charge;
       } else {
-        batteryInPercent = 0;
-        chargeRef.set({charge: 0});
+        let batteryInPercent = prompt("Enter your battery percentage (0-100): ");
+        chargeRef.set({charge: batteryInPercent});
       }
       let carRef = db.collection("users").doc(uid).collection("charge_info").doc("car");
       return new Promise((resolve, reject) => {
